@@ -41,6 +41,11 @@ describe('DashboardController', function() {
             it('should have people count of 5', function () {
                 expect(controller.people).to.have.length(7);
             });
+
+            it('first items first name should equal Steve', function () {
+                var firstItem = controller.people[0];
+                expect(firstItem.firstName).to.equal('Steve');
+            });
         });
     });
 });

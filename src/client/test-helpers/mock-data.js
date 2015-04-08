@@ -24,7 +24,7 @@ var mockData = (function() {
 
     function getMockPeople() {
         return [
-            {firstName: 'John', lastName: 'Papa', age: 25, location: 'Florida'},
+            {firstName: 'Steve', lastName: 'Pietrek', age: 44, location: 'Raleigh'},
             {firstName: 'Ward', lastName: 'Bell', age: 31, location: 'California'},
             {firstName: 'Colleen', lastName: 'Jones', age: 21, location: 'New York'},
             {firstName: 'Madelyn', lastName: 'Green', age: 18, location: 'North Dakota'},

@@ -14,7 +14,7 @@
         };
 
         var people = [
-            {id: 1, firstName: 'Steve', lastName: 'Pietrek', age: 44, location: 'Florida'},
+            {id: 1, firstName: 'Steve', lastName: 'Pietrek', age: 44, location: 'Raleigh'},
             {id: 2, firstName: 'Ward', lastName: 'Bell', age: 31, location: 'California'},
             {id: 3, firstName: 'Colleen', lastName: 'Jones', age: 21, location: 'New York'},
             {id: 4, firstName: 'Madelyn', lastName: 'Green', age: 18, location: 'North Dakota'},
