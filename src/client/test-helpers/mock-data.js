@@ -8,14 +8,14 @@ var mockData = (function() {
     function getMockStates() {
         return [
             {
-                state: 'dashboard',
+                state: 'projects',
                 config: {
                     url: '/',
-                    templateUrl: 'app/dashboard/dashboard.html',
-                    title: 'dashboard',
+                    templateUrl: 'app/projects/projects.html',
+                    title: 'projects',
                     settings: {
                         nav: 1,
-                        content: '<i class="fa fa-dashboard"></i> Dashboard'
+                        content: '<i class="fa fa-folder-open-o"></i> Projects'
                     }
                 }
             }

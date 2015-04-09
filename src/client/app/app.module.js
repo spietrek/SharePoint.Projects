@@ -6,6 +6,7 @@
         'app.widgets',
         'app.admin',
         'app.dashboard',
+        'app.projects',
         'app.layout'
     ]);
 
