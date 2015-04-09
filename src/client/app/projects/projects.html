@@ -1,14 +1,77 @@
-<section class="mainbar">
+<section id="projects-view" class="mainbar">
     <section class="matter">
         <div class="container">
             <div class="row">
-                <div class="widget wviolet">
-                    <div ht-widget-header title="{{vm.title}}"></div>
-                    <div class="widget-content user">
-                        <h3>TODO: Implement Your Features</h3>
+                <div class="col-md-12 margin-top-10">
+                    <div class="col-md-4 bred">
+                        <div class="text-header">
+                            <div class="pull-left"><i class="fa fa-warning"></i></div>
+                            <div class="datas-text pull-right">
+                                <span class="bold">{{vm.redProjectsCount}}</span> Red Projects
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
-                    <div class="widget-foot">
-                        <div class="clearfix"></div>
+                    <div class="col-md-4 borange">
+                        <div class="text-header">
+                            <div class="pull-left"><i class="fa fa-info-circle"></i></div>
+                            <div class="datas-text pull-right">
+                                <span class="bold">{{vm.yellowProjectsCount}}</span> Red Projects
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 bgreen">
+                        <div class="text-header">
+                            <div class="pull-left"><i class="fa fa-thumbs-up"></i></div>
+                            <div class="datas-text pull-right">
+                                <span class="bold">{{vm.greenProjectsCount}}</span> Green Projects
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-25">
+                <div class="col-md-12">
+                    <div class="widget wlightblue">
+                        <div data-ht-widget-header title="Projects"
+                             data-allow-collapse="true"></div>
+                        <div class="widget-content text-center text-info">
+                            <div class="pull-right">
+                                Find: <input ng-model="searchText">
+                            </div>
+                            <table class="table table-condensed table-striped margin-top-25">
+                                <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th class="text-align-center">Overall Status</th>
+                                    <th class="text-align-center">Budget Status</th>
+                                    <th class="text-align-center">Resource Status</th>
+                                    <th class="text-align-center">Schedule Status</th>
+                                    <th>Project Manager</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="p in vm.projects | orderBy:'name' | filter:searchText">
+                                    <td>{{p.name}}</td>
+                                    <td class="text-align-center"><i
+                                        ng-class="vm.getProjectsIconClass(p.overallStatus);"></i></td>
+                                    <td class="text-align-center"><i
+                                        ng-class="vm.getProjectsIconClass(p.budgetStatus);"></i></td>
+                                    <td class="text-align-center"><i
+                                        ng-class="vm.getProjectsIconClass(p.resourceStatus);"></i></td>
+                                    <td class="text-align-center"><i
+                                        ng-class="vm.getProjectsIconClass(p.scheduleStatus);"></i></td>
+                                    <td>{{p.projectManager}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="widget-foot">
+                            Total Projects: {{vm.projects.length}}
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -24,41 +24,33 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="widget wviolet">
-                        <div ht-widget-header title="People"
+                        <div ht-widget-header title="Projects"
                              allow-collapse="true"></div>
                         <div class="widget-content text-center text-info">
                             <table class="table table-condensed table-striped">
                                 <thead>
                                     <tr>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Age</th>
-                                        <th>Location</th>
+                                        <th>Project Name</th>
+                                        <th>Overall Status</th>
+                                        <th>Budget Status</th>
+                                        <th>Resource Status</th>
+                                        <th>Schedule Status</th>
+                                        <th>Project Manager</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="p in vm.people">
-                                        <td>{{p.firstName}}</td>
-                                        <td>{{p.lastName}}</td>
-                                        <td>{{p.age}}</td>
-                                        <td>{{p.location}}</td>
+                                    <tr ng-repeat="p in vm.projects">
+                                        <td>{{p.name}}</td>
+                                        <td>{{p.overallStatus}}</td>
+                                        <td>{{p.budgetStatus}}</td>
+                                        <td>{{p.resourceStatus}}</td>
+                                        <td>{{p.scheduleStatus}}</td>
+                                        <td>{{p.projectManager}}</td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="widget-foot">
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="widget wgreen">
-                        <div ht-widget-header title="{{vm.news.title}}"
-                             allow-collapse="true"></div>
-                        <div class="widget-content text-center text-info">
-                            <small>{{vm.news.description}}</small>
                         </div>
                         <div class="widget-foot">
                             <div class="clearfix"></div>

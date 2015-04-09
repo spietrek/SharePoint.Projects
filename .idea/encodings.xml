@@ -2,9 +2,18 @@
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/.gitignore" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/report/coverage/report-lcov/lcov.info" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/admin/admin.route.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/app.module.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/core/data.service.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/dashboard/dashboard.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/dashboard/dashboard.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/layout/shell.controller.spec.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/projects/projects.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/projects/projects.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/projects/projects.route.spec.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/styles/styles.less" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/test-helpers/mock-data.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/server/data.js" charset="UTF-8" />
   </component>
 </project>

@@ -1,15 +1,15 @@
 /* jshint -W117, -W030 */
 describe('DashboardController', function() {
     var controller;
-    var people = mockData.getMockPeople();
+    var projects = mockData.getMockProjects();
 
     beforeEach(function() {
         bard.appModule('app.dashboard');
-        bard.inject('$controller', '$log', '$q', '$rootScope', 'dataservice');
+        bard.inject('$controller', '$log', '$q', '$rootScope', 'dataService');
     });
 
     beforeEach(function () {
-        sinon.stub(dataservice, 'getPeople').returns($q.when(people));
+        sinon.stub(dataService, 'getProjects').returns($q.when(projects));
         controller = $controller('DashboardController');
         $rootScope.$apply();
     });
@@ -34,16 +34,16 @@ describe('DashboardController', function() {
                 expect(controller.news).to.not.be.empty;
             });
 
-            it('should have at least 1 person', function () {
-                expect(controller.people).to.have.length.above(0);
+            it('should have at least 1 project', function () {
+                expect(controller.projects).to.have.length.above(0);
             });
 
-            it('should have people count of 5', function () {
-                expect(controller.people).to.have.length(7);
+            it('should have projects count of 5', function () {
+                expect(controller.projects).to.have.length(7);
             });
 
             it('first items first name should equal Steve', function () {
-                var firstItem = controller.people[0];
+                var firstItem = controller.projects[0];
                 expect(firstItem.firstName).to.equal('Steve');
             });
         });

@@ -1,7 +1,7 @@
 /* jshint -W079 */
-var mockData = (function() {
+var mockData = (function () {
     return {
-        getMockPeople: getMockPeople,
+        getMockProjects: getMockProjects,
         getMockStates: getMockStates
     };
 
@@ -22,15 +22,48 @@ var mockData = (function() {
         ];
     }
 
-    function getMockPeople() {
+    function getMockProjects() {
         return [
-            {firstName: 'Steve', lastName: 'Pietrek', age: 44, location: 'Raleigh'},
-            {firstName: 'Ward', lastName: 'Bell', age: 31, location: 'California'},
-            {firstName: 'Colleen', lastName: 'Jones', age: 21, location: 'New York'},
-            {firstName: 'Madelyn', lastName: 'Green', age: 18, location: 'North Dakota'},
-            {firstName: 'Ella', lastName: 'Jobs', age: 18, location: 'South Dakota'},
-            {firstName: 'Landon', lastName: 'Gates', age: 11, location: 'South Carolina'},
-            {firstName: 'Haley', lastName: 'Guthrie', age: 35, location: 'Wyoming'}
+            {
+                name: 'Project Aardvark',
+                overallStatus: 'G',
+                budgetStatus: 'G',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'Steve Hart'
+            },
+            {
+                name: 'Project Basketball',
+                overallStatus: 'Y',
+                budgetStatus: 'Y',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'Laura Pietrek'
+            },
+            {
+                name: 'Project Omega',
+                overallStatus: 'R',
+                budgetStatus: 'Y',
+                resourceStatus: 'R',
+                scheduleStatus: 'R',
+                projectManager: 'John Matthews'
+            },
+            {
+                name: 'Project Capstone',
+                overallStatus: 'Y',
+                budgetStatus: 'G',
+                resourceStatus: 'Y',
+                scheduleStatus: 'G',
+                projectManager: 'Steve Hart'
+            },
+            {
+                name: 'Project Beta',
+                overallStatus: 'R',
+                budgetStatus: 'R',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'John Matthews'
+            }
         ];
     }
 })();
