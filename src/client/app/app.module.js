@@ -7,7 +7,7 @@
         'app.admin',
         'app.dashboard',
         'app.projects',
-        'app.layout'
+        'app.layout',
+        'angular-table'
     ]);
-
 })();

@@ -1,3 +1,5 @@
+/*global _*/
+
 (function () {
     'use strict';
 
@@ -5,9 +7,9 @@
         .module('app.core')
         .factory('dataService', dataService);
 
-    dataService.$inject = ['$q', 'logger'];
+    dataService.$inject = ['$q', 'logger', 'lodash'];
     /* @ngInject */
-    function dataService($q, logger) {
+    function dataService($q, logger, lodash) {
         var service = {
             getProjects: getProjects,
             getRedProjectsCount: getRedProjectsCount,
@@ -24,7 +26,7 @@
         var projects = [
             {
                 id: 1,
-                name: 'Project Aardvark',
+                name: 'Project Minnesota',
                 overallStatus: 'G',
                 budgetStatus: 'G',
                 resourceStatus: 'G',
@@ -66,6 +68,141 @@
                 resourceStatus: 'G',
                 scheduleStatus: 'G',
                 projectManager: 'John Matthews'
+            },
+            {
+                id: 6,
+                name: 'Project Open',
+                overallStatus: 'G',
+                budgetStatus: 'G',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'Steve Hart'
+            },
+            {
+                id: 7,
+                name: 'Project Vegas',
+                overallStatus: 'Y',
+                budgetStatus: 'Y',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'Laura Pietrek'
+            },
+            {
+                id: 8,
+                name: 'Project Zion',
+                overallStatus: 'R',
+                budgetStatus: 'Y',
+                resourceStatus: 'R',
+                scheduleStatus: 'R',
+                projectManager: 'John Matthews'
+            },
+            {
+                id: 9,
+                name: 'Project Jordan',
+                overallStatus: 'Y',
+                budgetStatus: 'G',
+                resourceStatus: 'Y',
+                scheduleStatus: 'G',
+                projectManager: 'Steve Hart'
+            },
+            {
+                id: 10,
+                name: 'Project Football',
+                overallStatus: 'R',
+                budgetStatus: 'R',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'John Matthews'
+            },
+            {
+                id: 11,
+                name: 'Project Arkansas',
+                overallStatus: 'G',
+                budgetStatus: 'G',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'Steve Hart'
+            },
+            {
+                id: 12,
+                name: 'Project Opus',
+                overallStatus: 'Y',
+                budgetStatus: 'Y',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'Laura Pietrek'
+            },
+            {
+                id: 13,
+                name: 'Project Castle',
+                overallStatus: 'R',
+                budgetStatus: 'Y',
+                resourceStatus: 'R',
+                scheduleStatus: 'R',
+                projectManager: 'John Matthews'
+            },
+            {
+                id: 14,
+                name: 'Project Moon',
+                overallStatus: 'Y',
+                budgetStatus: 'G',
+                resourceStatus: 'Y',
+                scheduleStatus: 'G',
+                projectManager: 'Steve Hart'
+            },
+            {
+                id: 15,
+                name: 'Project Surface',
+                overallStatus: 'R',
+                budgetStatus: 'R',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'John Matthews'
+            },
+            {
+                id: 16,
+                name: 'Project Neptune',
+                overallStatus: 'G',
+                budgetStatus: 'G',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'Steve Hart'
+            },
+            {
+                id: 17,
+                name: 'Project Venus',
+                overallStatus: 'Y',
+                budgetStatus: 'Y',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'Laura Pietrek'
+            },
+            {
+                id: 18,
+                name: 'Project Mercury',
+                overallStatus: 'R',
+                budgetStatus: 'Y',
+                resourceStatus: 'R',
+                scheduleStatus: 'R',
+                projectManager: 'John Matthews'
+            },
+            {
+                id: 19,
+                name: 'Project Lite',
+                overallStatus: 'Y',
+                budgetStatus: 'G',
+                resourceStatus: 'Y',
+                scheduleStatus: 'G',
+                projectManager: 'Steve Hart'
+            },
+            {
+                id: 20,
+                name: 'Project Georgia',
+                overallStatus: 'R',
+                budgetStatus: 'R',
+                resourceStatus: 'G',
+                scheduleStatus: 'G',
+                projectManager: 'John Matthews'
             }
         ];
 
@@ -83,10 +220,17 @@
             return $q.when(projectCounts.green);
         }
 
+        function getProjectCount(projects, status) {
+            var items = lodash.filter(projects, function (item) {
+                return item.overallStatus === status;
+            });
+            return items.length;
+        }
+
         function getProjects() {
-            projectCounts.red = 13;
-            projectCounts.yellow = 56;
-            projectCounts.green = 156;
+            projectCounts.red = getProjectCount(projects, 'R');
+            projectCounts.yellow = getProjectCount(projects, 'Y');
+            projectCounts.green = getProjectCount(projects, 'G');
 
             return $q.when(projects)
                 .then(success)

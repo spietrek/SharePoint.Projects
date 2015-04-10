@@ -20,14 +20,14 @@
         activate();
 
         function activate() {
-            var promises = [getMessageCount(), getProjects()];
+            var promises = [getRedProjectsCount(), getProjects()];
             return $q.all(promises).then(function() {
                 logger.info('Activated Dashboard View');
             });
         }
 
-        function getMessageCount() {
-            return dataService.getMessageCount().then(function (data) {
+        function getRedProjectsCount() {
+            return dataService.getRedProjectsCount().then(function (data) {
                 vm.messageCount = data;
                 return vm.messageCount;
             });

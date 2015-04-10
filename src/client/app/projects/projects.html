@@ -39,34 +39,39 @@
                              data-allow-collapse="true"></div>
                         <div class="widget-content text-center text-info">
                             <div class="pull-right">
-                                Find: <input ng-model="searchText">
+                                Find: <input ng-model="vm.searchText" ng-change="vm.updateFilteredList()">
                             </div>
-                            <table class="table table-condensed table-striped margin-top-25">
+
+                            <table class="table table-condensed table-striped margin-top-25" at-table at-paginated
+                                   at-list="vm.filteredProjects" at-config="vm.config">
                                 <thead>
                                 <tr>
-                                    <th>Project Name</th>
-                                    <th class="text-align-center">Overall Status</th>
-                                    <th class="text-align-center">Budget Status</th>
-                                    <th class="text-align-center">Resource Status</th>
-                                    <th class="text-align-center">Schedule Status</th>
-                                    <th>Project Manager</th>
+                                    <th at-attribute="name">Project Name</th>
+                                    <th at-attribute="overallStatus"><div class="text-align-center" width="100%">Overall Status</div></th>
+                                    <th at-attribute="budgetStatus"><div class="text-align-center" width="100%">Budget Status</div></th>
+                                    <th at-attribute="resourceStatus"><div class="text-align-center" width="100%">Resource Status</div></th>
+                                    <th at-attribute="scheduleStatus"><div class="text-align-center" width="100%">Schedule Status</div></th>
+                                    <th at-attribute="projectManager">Project Manager</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="p in vm.projects | orderBy:'name' | filter:searchText">
-                                    <td>{{p.name}}</td>
-                                    <td class="text-align-center"><i
-                                        ng-class="vm.getProjectsIconClass(p.overallStatus);"></i></td>
-                                    <td class="text-align-center"><i
-                                        ng-class="vm.getProjectsIconClass(p.budgetStatus);"></i></td>
-                                    <td class="text-align-center"><i
-                                        ng-class="vm.getProjectsIconClass(p.resourceStatus);"></i></td>
-                                    <td class="text-align-center"><i
-                                        ng-class="vm.getProjectsIconClass(p.scheduleStatus);"></i></td>
-                                    <td>{{p.projectManager}}</td>
+                                <tr>
+                                    <td at-implicit at-sortable at-attribute="name" at-initial-sorting="asc"></td>
+                                    <td at-attribute="overallStatus" class="text-align-center"><i
+                                        ng-class="vm.getProjectsIconClass(item.overallStatus);"></i></td>
+                                    <td at-attribute="budgetStatus" class="text-align-center"><i
+                                        ng-class="vm.getProjectsIconClass(item.budgetStatus);"></i></td>
+                                    <td at-attribute="resourceStatus" class="text-align-center"><i
+                                        ng-class="vm.getProjectsIconClass(item.resourceStatus);"></i></td>
+                                    <td at-attribute="scheduleStatus" class="text-align-center"><i
+                                        ng-class="vm.getProjectsIconClass(item.scheduleStatus);"></i></td>
+                                    <td at-implicit at-sortable at-attribute="projectManager"></td>
                                 </tr>
                                 </tbody>
                             </table>
+
+                            <at-pagination at-list="vm.filteredProjects" at-config="vm.config"></at-pagination>
+
                         </div>
                         <div class="widget-foot">
                             Total Projects: {{vm.projects.length}}

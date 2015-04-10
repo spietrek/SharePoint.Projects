@@ -5,20 +5,23 @@
         .module('app.projects')
         .controller('ProjectsController', ProjectsController);
 
-    ProjectsController.$inject = ['$q', 'dataService', 'logger'];
+    ProjectsController.$inject = ['$q', '$filter', 'dataService', 'logger'];
     /* @ngInject */
-    function ProjectsController($q, dataService, logger) {
+    function ProjectsController($q, $filter, dataService, logger) {
         var vm = this;
         vm.redProjectsCount = 0;
         vm.yellowProjectsCount = 0;
         vm.greenProjectsCount = 0;
         vm.projects = [];
+        vm.filteredProjects = [];
         vm.title = 'Projects';
+        vm.searchText = '';
 
         activate();
 
         function activate() {
-            var promises = [getProjects(), getRedProjectsCount(), getYellowProjectsCount(), getGreenProjectsCount()];
+            var promises = [getProjects(), getRedProjectsCount(),
+                getYellowProjectsCount(), getGreenProjectsCount()];
             return $q.all(promises).then(function () {
                 logger.info('Activated Dashboard View');
             });
@@ -48,18 +51,28 @@
         function getProjects() {
             return dataService.getProjects().then(function (data) {
                 vm.projects = data;
+                vm.filteredProjects = data;
                 return vm.projects;
             });
         }
 
         vm.getProjectsIconClass = function (value) {
             if (value === 'R') {
-                return 'fa fa-times-circle red'
+                return 'fa fa-times-circle red';
             } else if (value === 'Y') {
-                return 'fa fa-warning orange'
+                return 'fa fa-warning orange';
             } else if (value === 'G') {
-                return 'fa fa-circle green'
+                return 'fa fa-circle green';
             }
-        }
+        };
+
+        vm.config = {
+            itemsPerPage: 10,
+            fillLastPage: true
+        };
+
+        vm.updateFilteredList = function() {
+            vm.filteredProjects = $filter('filter')(vm.projects, vm.searchText);
+        };
     }
 })();
