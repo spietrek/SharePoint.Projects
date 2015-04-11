@@ -2,12 +2,14 @@
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/.gitignore" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bower.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bower_components/at-table/dist/angular-table.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/report/coverage/report-lcov/lcov.info" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/admin/admin.route.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/app.module.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/core/core.module.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/core/data.service.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/core/lodash.library.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/core/underscore.library.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/dashboard/dashboard.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/dashboard/dashboard.controller.spec.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/dashboard/dashboard.html" charset="UTF-8" />

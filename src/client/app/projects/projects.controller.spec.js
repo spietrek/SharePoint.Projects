@@ -26,15 +26,15 @@ describe('ProjectsController', function () {
         });
 
         it('should have at least 1 project', function () {
-            expect(controller.projects).to.have.length.above(0);
+            expect(controller.resource.rows).to.have.length.above(0);
         });
 
         it('should have projects count of 5', function () {
-            expect(controller.projects).to.have.length(5);
+            expect(controller.resource.rows).to.have.length(5);
         });
 
         it('first projects name should equal Project Aardvark', function () {
-            var firstItem = controller.projects[0];
+            var firstItem = controller.resource.rows[0];
             expect(firstItem.name).to.equal('Project Aardvark');
         });
     });

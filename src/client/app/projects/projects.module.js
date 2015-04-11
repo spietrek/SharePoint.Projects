@@ -3,7 +3,8 @@
 
     angular.module('app.projects', [
         'app.core',
-        'app.widgets'
+        'app.widgets',
+        'ngTasty'
       ]);
 
 })();

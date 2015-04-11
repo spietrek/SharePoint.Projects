@@ -5,17 +5,16 @@
         .module('app.projects')
         .controller('ProjectsController', ProjectsController);
 
-    ProjectsController.$inject = ['$q', '$filter', 'dataService', 'logger'];
+    ProjectsController.$inject = ['$q', 'dataService', 'logger'];
     /* @ngInject */
-    function ProjectsController($q, $filter, dataService, logger) {
+    function ProjectsController($q, dataService, logger) {
         var vm = this;
         vm.redProjectsCount = 0;
         vm.yellowProjectsCount = 0;
         vm.greenProjectsCount = 0;
-        vm.projects = [];
-        vm.filteredProjects = [];
         vm.title = 'Projects';
         vm.searchText = '';
+        vm.resource = {};
 
         activate();
 
@@ -50,9 +49,8 @@
 
         function getProjects() {
             return dataService.getProjects().then(function (data) {
-                vm.projects = data;
-                vm.filteredProjects = data;
-                return vm.projects;
+                vm.resource.rows = angular.copy(data);
+                return data;
             });
         }
 
@@ -66,13 +64,31 @@
             }
         };
 
-        vm.config = {
-            itemsPerPage: 10,
-            fillLastPage: true
+        vm.tableTheme = {
+            iconUp: 'fa fa-chevron-circle-up',
+            iconDown: 'fa fa-chevron-circle-down',
+            listItemsPerPage: [5, 10, 20, 30],
+            itemsPerPage: 10
         };
 
-        vm.updateFilteredList = function() {
-            vm.filteredProjects = $filter('filter')(vm.projects, vm.searchText);
+        vm.tableNotSortBy = ['overallStatus', 'budgetStatus',
+            'resourceStatus', 'scheduleStatus'];
+
+        vm.resource = {
+            'header': [
+                {'name': 'Name'},
+                {'overallStatus': 'Overall Status'},
+                {'budgetStatus': 'Budget Status'},
+                {'resourceStatus': 'Resource Status'},
+                {'scheduleStatus': 'Schedule Status'},
+                {'projectManager': 'Project Manager'}
+            ],
+            'pagination': {
+                'page': 1
+            },
+            'sortBy': 'name',
+            'sortOrder': 'asc'
         };
+
     }
 })();
