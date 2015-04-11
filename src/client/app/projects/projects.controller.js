@@ -74,6 +74,9 @@
         vm.tableNotSortBy = ['overallStatus', 'budgetStatus',
             'resourceStatus', 'scheduleStatus'];
 
+        vm.tableCenteredColumns = ['overallStatus', 'budgetStatus',
+            'resourceStatus', 'scheduleStatus'];
+
         vm.resource = {
             'header': [
                 {'name': 'Name'},

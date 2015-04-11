@@ -44,17 +44,17 @@
 
                             <div tasty-table bind-resource="vm.resource" bind-filters="vm.searchText" bind-theme="vm.tableTheme">
                                 <table class="table table-striped table-condensed">
-                                    <thead tasty-thead bind-not-sort-by="vm.tableNotSortBy"><thead>
+                                    <thead tasty-thead bind-not-sort-by="vm.tableNotSortBy" bind-centered-columns="vm.tableCenteredColumns"><thead>
                                     <tbody>
                                     <tr ng-repeat="row in rows">
                                         <td>{{ row.name }}</td>
-                                        <td class="text-align-center"><i
+                                        <td class="text-center"><i
                                             ng-class="vm.getProjectsIconClass(row.overallStatus);"></i></td>
-                                        <td class="text-align-center"><i
+                                        <td class="text-center"><i
                                             ng-class="vm.getProjectsIconClass(row.budgetStatus);"></i></td>
-                                        <td class="text-align-center"><i
+                                        <td class="text-center"><i
                                             ng-class="vm.getProjectsIconClass(row.resourceStatus);"></i></td>
-                                        <td class="text-align-center"><i
+                                        <td class="text-center"><i
                                             ng-class="vm.getProjectsIconClass(row.scheduleStatus);"></i></td>
                                         <td>{{ row.projectManager }}</td>
                                     </tr>
