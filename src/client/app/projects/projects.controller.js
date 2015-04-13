@@ -92,6 +92,5 @@
             'sortBy': 'name',
             'sortOrder': 'asc'
         };
-
     }
 })();

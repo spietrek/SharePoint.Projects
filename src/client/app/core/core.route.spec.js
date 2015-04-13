@@ -1,9 +1,9 @@
 /* jshint -W117, -W030 */
 describe('core', function() {
     describe('state', function() {
-        var controller;
         var views = {
-            four0four: 'app/core/404.html'
+            four0four: 'app/core/404.html',
+            projects: 'app/projects/projects.html'
         };
 
         beforeEach(function() {
@@ -20,12 +20,6 @@ describe('core', function() {
             $state.go('404');
             $rootScope.$apply();
             expect($state.is('404'));
-        });
-
-        it('should route /invalid to the otherwise (404) route', function() {
-            $location.path('/invalid');
-            $rootScope.$apply();
-            expect($state.current.templateUrl).to.equal(views.four0four);
         });
     });
 });

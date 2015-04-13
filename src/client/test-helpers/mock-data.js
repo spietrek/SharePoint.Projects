@@ -10,7 +10,7 @@ var mockData = (function () {
             {
                 state: 'projects',
                 config: {
-                    url: '/',
+                    url: '/projects',
                     templateUrl: 'app/projects/projects.html',
                     title: 'projects',
                     settings: {

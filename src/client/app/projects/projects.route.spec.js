@@ -14,7 +14,7 @@ describe('projects routes', function () {
         });
 
         it('should map state projects to url / ', function() {
-            expect($state.href('projects', {})).to.equal('/');
+            expect($state.href('projects', {})).to.equal('#/projects');
         });
 
         it('should map /projects route to admin View template', function () {

@@ -14,7 +14,7 @@ describe('admin routes', function () {
         });
 
         it('should map state admin to url /admin ', function() {
-            expect($state.href('admin', {})).to.equal('/admin');
+            expect($state.href('admin', {})).to.equal('#/admin');
         });
 
         it('should map /admin route to admin View template', function () {

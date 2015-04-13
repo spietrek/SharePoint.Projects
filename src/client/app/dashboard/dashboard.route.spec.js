@@ -16,7 +16,7 @@ describe('dashboard routes', function () {
         bard.verifyNoOutstandingHttpRequests();
 
         it('should map state dashboard to url /dashboard ', function() {
-            expect($state.href('dashboard', {})).to.equal('/dashboard');
+            expect($state.href('dashboard', {})).to.equal('#/dashboard');
         });
 
         it('should map /dashboard route to dashboard View template', function () {

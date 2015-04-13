@@ -16,7 +16,7 @@
             {
                 state: 'projects',
                 config: {
-                    url: '/',
+                    url: '/projects',
                     templateUrl: 'app/projects/projects.html',
                     controller: 'ProjectsController',
                     controllerAs: 'vm',

@@ -15,7 +15,7 @@
             resolveAlways: {}
         };
 
-        $locationProvider.html5Mode(true);
+        //$locationProvider.html5Mode(true);
 
         this.configure = function(cfg) {
             angular.extend(config, cfg);
@@ -58,7 +58,7 @@
 
             function handleRoutingErrors() {
                 // Route cancellation:
-                // On routing error, go to the dashboard.
+                // On routing error, go to the projects.
                 // Provide an exit clause if it tries to do it twice.
                 $rootScope.$on('$stateChangeError',
                     function(event, toState, toParams, fromState, fromParams, error) {
@@ -74,7 +74,7 @@
                             (error.data || '') + '. <br/>' + (error.statusText || '') +
                             ': ' + (error.status || '');
                         logger.warning(msg, [toState]);
-                        $location.path('/');
+                        $location.path('/projects');
                     }
                 );
             }
