@@ -1,4 +1,4 @@
-/*global _*/
+/*global _spPageContextInfo*/
 
 (function () {
     'use strict';
@@ -7,18 +7,12 @@
         .module('app.core')
         .factory('dataService', dataService);
 
-    dataService.$inject = ['$http', '$q', 'logger', 'lodash'];
+    dataService.$inject = ['$http', '$q', 'logger', 'lodash', 'spPageService'];
     /* @ngInject */
-    function dataService($http, $q, logger, lodash) {
-        var service = {
-            getProjects: getProjects,
-            getRedProjectsCount: getRedProjectsCount,
-            getYellowProjectsCount: getYellowProjectsCount,
-            getGreenProjectsCount: getGreenProjectsCount
-        };
-
+    function dataService($http, $q, logger, lodash, spPageService) {
+        var projects = [];
         var query = {
-            baseRestUrl: _spPageContextInfo.webAbsoluteUrl + '/_api',
+            baseRestUrl: spPageService.getInfo().restUrl,
             type: 'lists',
             method: 'getbytitle(\'Projects\')/items',
             select1: '$select=Title,OverallStatus,BudgetStatus,ResourceStatus,',
@@ -35,7 +29,12 @@
             green: 0
         };
 
-        var projects = [];
+        var service = {
+            getProjects: getProjects,
+            getRedProjectsCount: getRedProjectsCount,
+            getYellowProjectsCount: getYellowProjectsCount,
+            getGreenProjectsCount: getGreenProjectsCount
+        };
 
         return service;
 

@@ -11,6 +11,7 @@
     <file url="file://$PROJECT_DIR$/src/client/app/dashboard/dashboard.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/dashboard/dashboard.controller.spec.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/dashboard/dashboard.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/form/admin.route.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/layout/shell.controller.spec.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/projects/projects.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/projects/projects.controller.spec.js" charset="UTF-8" />

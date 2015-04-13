@@ -7,6 +7,7 @@
         'app.admin',
         'app.dashboard',
         'app.projects',
+        'app.form',
         'app.layout'
     ]);
 })();
