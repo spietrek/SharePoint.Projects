@@ -19,8 +19,7 @@
         activate();
 
         function activate() {
-            var promises = [getProjects(), getRedProjectsCount(),
-                getYellowProjectsCount(), getGreenProjectsCount()];
+            var promises = [getProjects()];
             return $q.all(promises).then(function () {
                 logger.info('Activated Dashboard View');
             });
@@ -49,6 +48,9 @@
 
         function getProjects() {
             return dataService.getProjects().then(function (data) {
+                getRedProjectsCount();
+                getYellowProjectsCount();
+                getGreenProjectsCount();
                 vm.resource.rows = angular.copy(data);
                 return data;
             });
@@ -86,6 +88,7 @@
                 {'scheduleStatus': 'Schedule Status'},
                 {'projectManager': 'Project Manager'}
             ],
+            'rows': [],
             'pagination': {
                 'page': 1
             },

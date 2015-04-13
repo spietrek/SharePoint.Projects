@@ -30,7 +30,6 @@ input, select {
     display: inline-block !important;
 }
 
-
 .navbar * {
     background-image: none !important;
     -webkit-text-shadow: none !important;
@@ -65,10 +64,12 @@ input[type="radio"], input[type="checkbox"] {
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     font-size: 13px !important;
 }
+
 .btn.btn-form-md {
     margin: 0 .5em .2em .5em;
     width: 9em;
 }
+
 .btn.btn-mini {
     font-size: 11px !important;
 }
@@ -172,7 +173,7 @@ a.btn {
     font-size: 13px;
 }
 
-.control-label{
+.control-label {
     font-weight: 400 !important;
     font-size: 14px;
 }
@@ -259,7 +260,6 @@ a.btn {
 }
 
 /* Background colors */
-
 
 .blightblue {
     background: @color_lightblue !important;
@@ -349,7 +349,6 @@ a.btn {
 .violet {
     color: @color_violet !important;
 }
-
 
 /* Modal */
 
@@ -558,7 +557,6 @@ form label {
     margin-left: 5px;
 }
 
-
 /* Sidebar */
 
 .sidebar {
@@ -711,7 +709,7 @@ form label {
 
 /* Sidebar dropdown */
 
-.sidebar .sidebar-dropdown* {
+.sidebar .sidebar-dropdown * {
     text-decoration: none;
 }
 
@@ -785,7 +783,6 @@ form label {
     background: #444;
 }
 
-
 /* Main */
 
 .mainbar {
@@ -834,7 +831,6 @@ form label {
     margin-left: 2px;
     display: block;
 }
-
 
 /* Matter */
 
@@ -1281,31 +1277,14 @@ form label {
 
 /* Users ends */
 
-
 /*#endregion */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*#region Override background color theme */
 
 /*For Bootstrap 3*/
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
 
 body {
     background-color: #FFF;
@@ -1367,12 +1346,13 @@ body {
 /* #region Main Styles */
 
 ul.image-group {
-    padding:0 0 0 0;
-    margin:0 0 0 0;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }
+
 ul.image-group li {
-    list-style:none;
-    margin-bottom:25px;
+    list-style: none;
+    margin-bottom: 25px;
 }
 
 .ng-cloak {
@@ -1407,7 +1387,6 @@ textarea.form-control {
     width: 90px;
 }
 
-
 .map {
     height: 228px;
 }
@@ -1425,10 +1404,9 @@ textarea.form-control {
     margin-right: 0;
 }
 
-.btn-group{
+.btn-group {
     margin: .2em;
 }
-
 
 small {
     font-size: 14px;
@@ -1478,7 +1456,6 @@ small {
     line-height: 18px !important;
 }
 
-
 .search-query {
     margin: 2px auto 8px auto !important;
 }
@@ -1493,7 +1470,8 @@ small {
 
 .input-group[class*="col-"] {
     width: 80%;
-    margin: 0 1.5em;}
+    margin: 0 1.5em;
+}
 
 .user .user-pic {
     display: block;
@@ -1605,7 +1583,6 @@ small {
     padding: 0 4px 0 0;
 }
 
-
 .progress,
 .page-progress-bar {
     margin: 30px 10% !important;
@@ -1658,11 +1635,13 @@ small {
 .overlay-message {
     font-size: 200%;
 }
+
 .spinner {
     margin: 20% auto 0 auto;
     left: auto;
     top: auto !important;
 }
+
 /*#endregion*/
 
 table th > a {
@@ -1680,7 +1659,6 @@ table td {
     cursor: pointer;
 }
 
-
 .widget-content.referrer {
     border-width: 0;
 }
@@ -1691,11 +1669,10 @@ a {
 
 /* #endregion */
 
-
-
 .customer-name {
     font-size: 1.2em;
 }
+
 .customer-thumb {
     margin: 0.1em !important;
     padding: 0.1em;
@@ -1706,6 +1683,7 @@ a {
     position: relative;
     overflow: hidden;
 }
+
 /*#endregion */
 
 /*#region Angular ng-include, ng-view, ng-repeat shuffle animations*/
@@ -1742,6 +1720,7 @@ a {
     left: 2em;
     opacity: 0;
 }
+
 /*#endregion*/
 
 /*#region Angular ng-include, ng-view, ng-repeat fader animation */
@@ -1770,10 +1749,11 @@ a {
 }
 
 .fader-animation.ng-move {
-    opacity:0.5;
+    opacity: 0.5;
 }
+
 .fader-animation.ng-move.ng-move-active {
-    opacity:1;
+    opacity: 1;
 }
 
 /*#endregion*/
@@ -1798,12 +1778,14 @@ a {
 .dissolve-animation.ng-hide-remove {
     opacity: 0;
 }
+
 /*#endregion */
 
 /*#region toastr */
 #toast-container.toast-top-full-width > div, #toast-container.toast-bottom-full-width > div {
     margin: 4px auto;
 }
+
 /*#endregion */
 
 /*#region Responsive */
@@ -2011,6 +1993,10 @@ a.ms-core-suiteLink-a[id$="ShellSites"] {
     margin-left: 0;
     margin-right: 0;
     min-height: 100%;
+}
+
+input[type=button], input[type=reset], input[type=submit], button {
+    min-width: 0;
 }
 
 /*#endregion */
