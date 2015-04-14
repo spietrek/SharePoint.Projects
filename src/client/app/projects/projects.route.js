@@ -20,10 +20,52 @@
                     templateUrl: 'app/projects/projects.html',
                     controller: 'ProjectsController',
                     controllerAs: 'vm',
-                    title: 'Projects',
+                    title: 'All Projects',
                     settings: {
                         nav: 1,
-                        content: '<i class="fa fa-folder-open-o"></i> Projects'
+                        content: '<i class="fa fa-folder-open-o"></i> All Projects'
+                    }
+                }
+            },
+            {
+                state: 'red',
+                config: {
+                    url: '/red',
+                    templateUrl: 'app/projects/projects.html',
+                    controller: 'ProjectsController',
+                    controllerAs: 'vm',
+                    title: 'Red Projects',
+                    settings: {
+                        nav: 2,
+                        content: '<i class="fa fa-warning"></i> Red Projects'
+                    }
+                }
+            },
+            {
+                state: 'yellow',
+                config: {
+                    url: '/yellow',
+                    templateUrl: 'app/projects/projects.html',
+                    controller: 'ProjectsController',
+                    controllerAs: 'vm',
+                    title: 'Yellow Projects',
+                    settings: {
+                        nav: 3,
+                        content: '<i class="fa fa-info-circle"></i> Yellow Projects'
+                    }
+                }
+            },
+            {
+                state: 'green',
+                config: {
+                    url: '/green',
+                    templateUrl: 'app/projects/projects.html',
+                    controller: 'ProjectsController',
+                    controllerAs: 'vm',
+                    title: 'Green Projects',
+                    settings: {
+                        nav: 4,
+                        content: '<i class="fa fa-thumbs-up"></i> Green Projects'
                     }
                 }
             }

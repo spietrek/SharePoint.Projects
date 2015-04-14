@@ -6,28 +6,8 @@
 @color_violet: #932ab6;
 
 * {
-    /*-webkit-box-shadow: none !important;
-    -ms-box-shadow: none !important;
-    box-shadow: none !important;
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false) !important;
-    -webkit-text-shadow: none !important;
-    -ms-text-shadow: none !important;
-    text-shadow: none !important;*/
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     -webkit-font-smoothing: antialiased;
-    /*font-weight: 400;*/
-}
-
-.btn, .badge, .modal, .modal-dialog, .modal-content,
-input, select {
-    -ms-border-radius: 0 !important;
-    border-radius: 0 !important;
-}
-
-input, select {
-    padding: 4px !important;
-    /*width: 65% !important;*/
-    display: inline-block !important;
 }
 
 .navbar * {
@@ -171,11 +151,6 @@ a.btn {
     font-weight: 400;
     padding: 3px 6px !important;
     font-size: 13px;
-}
-
-.control-label {
-    font-weight: 400 !important;
-    font-size: 14px;
 }
 
 .badge {
@@ -360,42 +335,7 @@ a.btn {
 /* Form */
 
 form {
-    /*margin: 10px;*/
-}
-
-form input, form button, form textarea, form select {
-    font-size: 13px !important;
-}
-
-form label {
-    font-size: 13px;
-    line-height: 13px;
-}
-
-.form-inline button {
-    margin-left: 15px;
-}
-
-.form-horizontal .control-label {
-    width: 90px;
-}
-
-.form-horizontal .controls {
-    margin-left: 110px;
-}
-
-.form-horizontal .controls:first-child {
-    *padding-left: 100px;
-}
-
-.form-horizontal .form-actions {
-    padding-left: 110px;
-}
-
-.form-actions {
-    padding: 5px 20px 5px;
-    background: transparent;
-    border-top: 0;
+    margin: 10px;
 }
 
 /* Back to top */
@@ -1089,9 +1029,9 @@ form label {
         padding-right: 20px;
     }
 
-    .form-inline button {
+    /*.form-inline button {
         margin-left: 0;
-    }
+    }*/
 
     .navbar {
         margin-top: 0 !important;
@@ -1165,7 +1105,7 @@ form label {
         margin: 0 !important;
     }
 
-    form .control-group {
+    /*form .control-group {
         margin: 0 !important;
     }
 
@@ -1182,7 +1122,7 @@ form label {
 
     form .form-actions {
         padding-left: 0 !important;
-    }
+    }*/
 
     .navbar {
         margin-top: 0 !important;
@@ -1363,19 +1303,7 @@ select > option {
     color: black;
 }
 
-input.form-control,
-select.form-control,
-textarea.form-control {
-    /*width: 205px;*/
-    display: inline;
-    display: block;
-    width: 50%;
-    max-width: 30em;
-}
-
 .widget .padd {
-    /*margin-bottom: 0;*/
-    /*padding: 1em 0;*/
     height: 12em;
 }
 
@@ -1464,15 +1392,6 @@ small {
     color: #FFFFFF;
 }
 
-.form-search {
-    min-height: 2em;
-}
-
-.input-group[class*="col-"] {
-    width: 80%;
-    margin: 0 1.5em;
-}
-
 .user .user-pic {
     display: block;
     margin: auto;
@@ -1495,13 +1414,11 @@ small {
 }
 
 .navbar .navbar-brand {
-    /*background: url(../images/gg.png) no-repeat left top !important;*/
     margin: 0 1em;
     height: 45px;
 }
 
 .navbar .brand-title {
-    /*margin-left: 4em;*/
     color: #FFFFFF;
 }
 
@@ -1602,8 +1519,6 @@ small {
 
 .ngplus-overlay-content {
     position: absolute;
-    /*border: 1px solid #000;*/
-    /*background-color: #fff;*/
     font-weight: bold;
     height: 100px;
     width: 300px;
@@ -1867,9 +1782,6 @@ a {
 }
 
 @media (max-width: 480px) {
-    input.form-control, select.form-control, textarea.form-control {
-        width: 70%;
-    }
 }
 
 @media (max-width: 320px) {
@@ -1898,11 +1810,6 @@ a {
 
     .btn-group.pull-right {
         margin: .2em 0;
-    }
-
-    input,
-    select {
-        width: 85% !important;
     }
 
     textarea {
@@ -2021,4 +1928,8 @@ input[type=button], input[type=reset], input[type=submit], button {
 
 .pointer {
     cursor: pointer;
+}
+
+.formly-field {
+    margin-bottom: 16px;
 }

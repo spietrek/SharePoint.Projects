@@ -5,9 +5,9 @@
         .module('app.projects')
         .controller('ProjectsController', ProjectsController);
 
-    ProjectsController.$inject = ['$q', 'dataService', 'logger'];
+    ProjectsController.$inject = ['$state', '$q', 'dataService', 'logger'];
     /* @ngInject */
-    function ProjectsController($q, dataService, logger) {
+    function ProjectsController($state, $q, dataService, logger) {
         var vm = this;
         vm.redProjectsCount = 0;
         vm.yellowProjectsCount = 0;
@@ -15,6 +15,7 @@
         vm.title = 'Projects';
         vm.searchText = '';
         vm.resource = {};
+        var currentState = $state.current.name;
 
         activate();
 
@@ -47,7 +48,7 @@
         }
 
         function getProjects() {
-            return dataService.getProjects().then(function (data) {
+            return dataService.getProjects(currentState).then(function (data) {
                 getRedProjectsCount();
                 getYellowProjectsCount();
                 getGreenProjectsCount();

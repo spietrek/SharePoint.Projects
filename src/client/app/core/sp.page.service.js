@@ -14,8 +14,10 @@
         return service;
 
         function getInfo() {
+            var url = 'https://cardinalsolutionsrtp.sharepoint.com/sites/projects';
             var info = {
-                restUrl: 'https://cardinalsolutionsrtp.sharepoint.com/sites/projects' + '/_api'
+                restUrl: url + '/_api',
+                listDataSvcUrl: url + '/_vti_bin/listdata.svc'
                 //restUrl: _spPageContextInfo.webAbsoluteUrl + '/_api'
             };
             return info;

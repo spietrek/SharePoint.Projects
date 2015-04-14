@@ -3,12 +3,16 @@
         <div class="container">
             <div class="row">
                 <div class="widget wviolet">
-                    <div ht-widget-header title="{{vm.title}}"></div>
+                    <div ht-widget-header title="Project: {{vm.model.name}}"></div>
                     <div class="widget-content user">
-                        <h1>Form ID: {{vm.formID}}</h1>
-                    </div>
-                    <div class="widget-foot">
-                        <div class="clearfix"></div>
+                        <form class="form-horizontal" ng-submit="vm.onSubmit()" novalidate>
+                            <formly-form model="vm.model" fields="vm.fields" form="vm.form">
+                                <button type="submit" class="btn btn-primary submit-button" ng-disabled="vm.form.$invalid">Submit</button>
+                            </formly-form>
+                        </form>
+                        <hr/>
+                        <h2>Model</h2>
+                        <pre>{{vm.model | json}}</pre>
                     </div>
                 </div>
             </div>

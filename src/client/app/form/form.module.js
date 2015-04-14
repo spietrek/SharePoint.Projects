@@ -3,7 +3,9 @@
 
     angular.module('app.form', [
         'app.core',
-        'app.widgets'
+        'app.widgets',
+        'formly',
+        'formlyBootstrap'
       ]);
 
 })();

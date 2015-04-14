@@ -22,7 +22,7 @@
                     controllerAs: 'vm',
                     title: 'Admin',
                     settings: {
-                        nav: 3,
+                        nav: 6,
                         content: '<i class="fa fa-lock"></i> Admin'
                     }
                 }

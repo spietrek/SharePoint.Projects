@@ -11,7 +11,7 @@
     /* @ngInject */
     function dataService($http, $q, logger, lodash, spPageService) {
         var projects = [];
-        var query = {
+        var restQuery = {
             baseRestUrl: spPageService.getInfo().restUrl,
             type: 'lists',
             method: 'getbytitle(\'Projects\')/items',
@@ -19,7 +19,15 @@
             select2: 'ScheduleStatus,ProjectManager',
             url: function () {
                 return this.baseRestUrl + '/' + this.type + '/' + this.method +
-                    '?' + this.select1 + this.select2;
+                    '?' + this.select1 + this.select2 + '&$top=1000';
+            }
+        };
+
+        var listDataSvcQuery = {
+            baseListDataSvcUrl: spPageService.getInfo().listDataSvcUrl,
+            listName: 'Projects',
+            url: function () {
+                return this.baseListDataSvcUrl + '/' + this.listName;
             }
         };
 
@@ -31,12 +39,23 @@
 
         var service = {
             getProjects: getProjects,
+            getProject: getProject,
             getRedProjectsCount: getRedProjectsCount,
             getYellowProjectsCount: getYellowProjectsCount,
-            getGreenProjectsCount: getGreenProjectsCount
+            getGreenProjectsCount: getGreenProjectsCount,
+            saveProject: saveProject
         };
 
         return service;
+
+        function getProject(id) {
+            var project = lodash.find(projects, function (item) {
+                return item.id.toString() === id;
+            });
+
+            project = angular.isDefined(project) ? project : {};
+            return $q.when(project);
+        }
 
         function getRedProjectsCount() {
             return $q.when(projectCounts.red);
@@ -57,11 +76,60 @@
             return items.length;
         }
 
-        function getProjects() {
+        function convertModel(model) {
+            return {
+                Title: model.name,
+                OverallStatus: model.overallStatus,
+                BudgetStatus: model.budgetStatus,
+                ResourceStatus: model.resourceStatus,
+                ScheduleStatus: model.scheduleStatus,
+                ProjectManager: model.projectManager
+            };
+        }
+
+        function saveProject(model) {
+            var createRequest = {
+                method: 'POST',
+                processData: false,
+                contentType: 'application/json;odata=verbose',
+                data: JSON.stringify(convertModel(model)),
+                dataType: 'json',
+                url: listDataSvcQuery.url()
+            };
+
+            var updateRequest = {
+                method: 'POST',
+                processData: false,
+                contentType: 'application/json;odata=verbose',
+                data: JSON.stringify(convertModel(model)),
+                dataType: 'json',
+                url: listDataSvcQuery.url() + '(' + model.id + ')',
+                headers: {
+                    'If-Match': '*',
+                    'X-HTTP-Method': 'MERGE'
+                }
+            };
+
+            return $http(model.id ? updateRequest : createRequest)
+                .then(success)
+                .catch(fail);
+
+            function success(response) {
+                return $q.when(response);
+            }
+
+            function fail(error) {
+                var msg = 'query for creating project failed. ' + error.data.description;
+                logger.error(msg);
+                return $q.reject(msg);
+            }
+        }
+
+        function getProjects(state) {
             projects = [];
             var req = {
                 method: 'GET',
-                url: query.url(),
+                url: restQuery.url(state),
                 headers: {
                     'Accept': 'application/json;odata=verbose'
                 }
@@ -71,10 +139,23 @@
                 .then(success)
                 .catch(fail);
 
+            function isValidProject(state, data) {
+                if (state === 'projects') {
+                    return true;
+                } else if (state === 'red') {
+                    return data.overallStatus === 'R';
+                } else if (state === 'yellow') {
+                    return data.overallStatus === 'Y';
+                } else if (state === 'green') {
+                    return data.overallStatus === 'G';
+                }
+            }
+
             function success(response) {
-                var items = response.data.d['results'];
+                var items = response.data.d['results'],
+                    allProjects = [];
                 angular.forEach(items, function (item) {
-                    var values = {
+                    var data = {
                         id: item['ID'],
                         name: item['Title'],
                         overallStatus: item['OverallStatus'],
@@ -83,12 +164,15 @@
                         scheduleStatus: item['ScheduleStatus'],
                         projectManager: item['ProjectManager']
                     };
-                    projects.push(values);
+                    allProjects.push(data);
+                    if (isValidProject(state, data)) {
+                        projects.push(data);
+                    }
                 });
 
-                projectCounts.red = getProjectCount(projects, 'R');
-                projectCounts.yellow = getProjectCount(projects, 'Y');
-                projectCounts.green = getProjectCount(projects, 'G');
+                projectCounts.red = getProjectCount(allProjects, 'R');
+                projectCounts.yellow = getProjectCount(allProjects, 'Y');
+                projectCounts.green = getProjectCount(allProjects, 'G');
                 return projects;
             }
 

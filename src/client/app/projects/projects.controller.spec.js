@@ -5,15 +5,10 @@ describe('ProjectsController', function () {
 
     beforeEach(function () {
         bard.appModule('app.projects');
-        bard.inject('$controller', '$log', '$q', '$rootScope', 'dataService');
+        bard.inject('$controller', '$log', '$q', '$rootScope', '$state', 'dataService');
     });
 
     beforeEach(function () {
-        _spPageContextInfo = {
-            webAbsoluteUrl: 'https://cardinalsolutionsrtp.sharepoint.com/sites/projects',
-            userId: 9,
-            userLoginName: 'spietrek@cardinalsolutionsrtp.onmicrosoft.com'
-        };
         sinon.stub(dataService, 'getProjects').returns($q.when(projects));
         controller = $controller('ProjectsController');
         $rootScope.$apply();
@@ -42,5 +37,7 @@ describe('ProjectsController', function () {
             var firstItem = controller.resource.rows[0];
             expect(firstItem.name).to.equal('Project Aardvark');
         });
+
     });
+
 });
