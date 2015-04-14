@@ -5,7 +5,7 @@ describe('ProjectsController', function () {
 
     beforeEach(function () {
         bard.appModule('app.projects');
-        bard.inject('$controller', '$log', '$q', '$rootScope', '$state', 'dataService');
+        bard.inject('$controller', '$log', '$q', '$rootScope', 'dataService', '$state');
     });
 
     beforeEach(function () {
@@ -17,6 +17,10 @@ describe('ProjectsController', function () {
     bard.verifyNoOutstandingHttpRequests();
 
     describe('after activate', function () {
+        it('should have title of Projects', function () {
+            expect(controller.title).to.equal('Projects');
+        });
+
         it('should have title of Projects', function () {
             expect(controller.title).to.equal('Projects');
         });

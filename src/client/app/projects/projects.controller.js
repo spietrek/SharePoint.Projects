@@ -9,13 +9,13 @@
     /* @ngInject */
     function ProjectsController($state, $q, dataService, logger) {
         var vm = this;
+        var currentState = $state.current.name;
         vm.redProjectsCount = 0;
         vm.yellowProjectsCount = 0;
         vm.greenProjectsCount = 0;
         vm.title = 'Projects';
         vm.searchText = '';
         vm.resource = {};
-        var currentState = $state.current.name;
 
         activate();
 
