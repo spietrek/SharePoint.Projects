@@ -13,8 +13,8 @@
     }
 
     var config = {
-        appErrorPrefix: '[projects Error] ',
-        appTitle: 'projects'
+        appErrorPrefix: '[Project Portfolio Error] ',
+        appTitle: 'Project Portfolio'
     };
 
     core.value('config', config);

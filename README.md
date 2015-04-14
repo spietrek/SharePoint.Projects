@@ -1,4 +1,4 @@
-# projects
+# Project Portfolio
 
 **Generated from HotTowel Angular**
 
