@@ -16,7 +16,7 @@
             {
                 state: 'form',
                 config: {
-                    url: '/form',
+                    url: '/form/:formID',
                     templateUrl: 'app/form/form.html',
                     controller: 'FormController',
                     controllerAs: 'vm',

@@ -77,7 +77,7 @@
             'resourceStatus', 'scheduleStatus'];
 
         vm.tableCenteredColumns = ['overallStatus', 'budgetStatus',
-            'resourceStatus', 'scheduleStatus'];
+            'resourceStatus', 'scheduleStatus', 'edit'];
 
         vm.resource = {
             'header': [
@@ -86,7 +86,8 @@
                 {'budgetStatus': 'Budget Status'},
                 {'resourceStatus': 'Resource Status'},
                 {'scheduleStatus': 'Schedule Status'},
-                {'projectManager': 'Project Manager'}
+                {'projectManager': 'Project Manager'},
+                {'edit': 'Edit'}
             ],
             'rows': [],
             'pagination': {

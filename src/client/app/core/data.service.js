@@ -15,7 +15,7 @@
             baseRestUrl: spPageService.getInfo().restUrl,
             type: 'lists',
             method: 'getbytitle(\'Projects\')/items',
-            select1: '$select=Title,OverallStatus,BudgetStatus,ResourceStatus,',
+            select1: '$select=ID,Title,OverallStatus,BudgetStatus,ResourceStatus,',
             select2: 'ScheduleStatus,ProjectManager',
             url: function () {
                 return this.baseRestUrl + '/' + this.type + '/' + this.method +

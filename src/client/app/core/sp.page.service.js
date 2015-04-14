@@ -16,6 +16,7 @@
         function getInfo() {
             var info = {
                 restUrl: 'https://cardinalsolutionsrtp.sharepoint.com/sites/projects' + '/_api'
+                //restUrl: _spPageContextInfo.webAbsoluteUrl + '/_api'
             };
             return info;
         }

@@ -9,6 +9,11 @@ describe('ProjectsController', function () {
     });
 
     beforeEach(function () {
+        _spPageContextInfo = {
+            webAbsoluteUrl: 'https://cardinalsolutionsrtp.sharepoint.com/sites/projects',
+            userId: 9,
+            userLoginName: 'spietrek@cardinalsolutionsrtp.onmicrosoft.com'
+        };
         sinon.stub(dataService, 'getProjects').returns($q.when(projects));
         controller = $controller('ProjectsController');
         $rootScope.$apply();
