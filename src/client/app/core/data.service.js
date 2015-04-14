@@ -37,17 +37,6 @@
             green: 0
         };
 
-        var service = {
-            getProjects: getProjects,
-            getProject: getProject,
-            getRedProjectsCount: getRedProjectsCount,
-            getYellowProjectsCount: getYellowProjectsCount,
-            getGreenProjectsCount: getGreenProjectsCount,
-            saveProject: saveProject
-        };
-
-        return service;
-
         function getProject(id) {
             var project = lodash.find(projects, function (item) {
                 return item.id.toString() === id;
@@ -182,5 +171,14 @@
                 return $q.reject(msg);
             }
         }
+
+        return {
+            getProjects: getProjects,
+            getProject: getProject,
+            getRedProjectsCount: getRedProjectsCount,
+            getYellowProjectsCount: getYellowProjectsCount,
+            getGreenProjectsCount: getGreenProjectsCount,
+            saveProject: saveProject
+        };
     }
 })();

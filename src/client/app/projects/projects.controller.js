@@ -5,9 +5,9 @@
         .module('app.projects')
         .controller('ProjectsController', ProjectsController);
 
-    ProjectsController.$inject = ['$state', '$q', 'dataService', 'logger'];
+    ProjectsController.$inject = ['$state', '$q', 'dataService', 'logger', 'ngTastyService'];
     /* @ngInject */
-    function ProjectsController($state, $q, dataService, logger) {
+    function ProjectsController($state, $q, dataService, logger, ngTastyService) {
         var vm = this;
         var currentState = $state.current.name;
         vm.redProjectsCount = 0;
@@ -15,7 +15,10 @@
         vm.greenProjectsCount = 0;
         vm.title = 'Projects';
         vm.searchText = '';
-        vm.resource = {};
+        vm.tableTheme = ngTastyService.tableTheme();
+        vm.tableNotSortBy = ngTastyService.tableNotSortBy();
+        vm.tableCenteredColumns = ngTastyService.tableCenteredColumns();
+        vm.resource = ngTastyService.resource();
 
         activate();
 
@@ -65,37 +68,6 @@
             } else if (value === 'G') {
                 return 'fa fa-circle green';
             }
-        };
-
-        vm.tableTheme = {
-            iconUp: 'fa fa-chevron-circle-up',
-            iconDown: 'fa fa-chevron-circle-down',
-            listItemsPerPage: [5, 10, 20, 30],
-            itemsPerPage: 10
-        };
-
-        vm.tableNotSortBy = ['overallStatus', 'budgetStatus',
-            'resourceStatus', 'scheduleStatus'];
-
-        vm.tableCenteredColumns = ['overallStatus', 'budgetStatus',
-            'resourceStatus', 'scheduleStatus', 'edit'];
-
-        vm.resource = {
-            'header': [
-                {'name': 'Name'},
-                {'overallStatus': 'Overall Status'},
-                {'budgetStatus': 'Budget Status'},
-                {'resourceStatus': 'Resource Status'},
-                {'scheduleStatus': 'Schedule Status'},
-                {'projectManager': 'Project Manager'},
-                {'edit': 'Edit'}
-            ],
-            'rows': [],
-            'pagination': {
-                'page': 1
-            },
-            'sortBy': 'name',
-            'sortOrder': 'asc'
         };
     }
 })();
