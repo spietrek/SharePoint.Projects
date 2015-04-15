@@ -9,7 +9,6 @@
     /* @ngInject */
     function RedProjectsController($q, dataService, logger, ngTastyService) {
         var vm = this;
-        var currentState = 'red';
         vm.redProjectsCount = 0;
         vm.yellowProjectsCount = 0;
         vm.greenProjectsCount = 0;
@@ -30,7 +29,7 @@
         }
 
         function getProjects() {
-            return dataService.getProjects(currentState).then(function (data) {
+            return dataService.getRedProjects().then(function (data) {
                 vm.redProjectsCount = dataService.getRedProjectsCount();
                 vm.yellowProjectsCount = dataService.getYellowProjectsCount();
                 vm.greenProjectsCount = dataService.getGreenProjectsCount();

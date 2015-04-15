@@ -10,27 +10,6 @@
     dataService.$inject = ['$http', '$q', 'logger', 'lodash', 'spPageService'];
     /* @ngInject */
     function dataService($http, $q, logger, lodash, spPageService) {
-        var projects = [];
-        var restQuery = {
-            baseRestUrl: spPageService.getInfo().restUrl,
-            type: 'lists',
-            method: 'getbytitle(\'Projects\')/items',
-            select1: '$select=ID,Title,OverallStatus,BudgetStatus,ResourceStatus,',
-            select2: 'ScheduleStatus,ProjectManager',
-            url: function () {
-                return this.baseRestUrl + '/' + this.type + '/' + this.method +
-                    '?' + this.select1 + this.select2 + '&$top=1000';
-            }
-        };
-
-        var listDataSvcQuery = {
-            baseListDataSvcUrl: spPageService.getInfo().listDataSvcUrl,
-            listName: 'Projects',
-            url: function () {
-                return this.baseListDataSvcUrl + '/' + this.listName;
-            }
-        };
-
         var projectData = {
             projects: [],
             redCounts: 0,
@@ -39,7 +18,7 @@
         };
 
         function getProject(id) {
-            var project = lodash.find(projects, function (item) {
+            var project = lodash.find(projectData.projects, function (item) {
                 return item.id.toString() === id;
             });
 
@@ -66,6 +45,14 @@
         }
 
         function saveProject(model) {
+            var listDataSvcQuery = {
+                baseListDataSvcUrl: spPageService.getInfo().listDataSvcUrl,
+                listName: 'Projects',
+                url: function () {
+                    return this.baseListDataSvcUrl + '/' + this.listName;
+                }
+            };
+
             var createRequest = {
                 method: 'POST',
                 processData: false,
@@ -97,17 +84,28 @@
             }
 
             function fail(error) {
-                var msg = 'query for creating project failed. ' + error.data.description;
+                var msg = 'Query for creating project failed. ' + error.data.description;
                 logger.error(msg);
                 return $q.reject(msg);
             }
         }
 
-        function getProjects(state) {
-            projects = [];
+        function getProjectsUsingHttp() {
+            var restQuery = {
+                baseRestUrl: spPageService.getInfo().restUrl,
+                type: 'lists',
+                method: 'getbytitle(\'Projects\')/items',
+                select1: '$select=ID,Title,OverallStatus,BudgetStatus,ResourceStatus,',
+                select2: 'ScheduleStatus,ProjectManager',
+                url: function () {
+                    return this.baseRestUrl + '/' + this.type + '/' + this.method +
+                        '?' + this.select1 + this.select2 + '&$top=1000';
+                }
+            };
+
             var req = {
                 method: 'GET',
-                url: restQuery.url(state),
+                url: restQuery.url(),
                 headers: {
                     'Accept': 'application/json;odata=verbose'
                 }
@@ -116,18 +114,6 @@
             return $http(req)
                 .then(success)
                 .catch(fail);
-
-            function isValidProject(state, data) {
-                if (state === 'projects') {
-                    return true;
-                } else if (state === 'red') {
-                    return data.overallStatus === 'R';
-                } else if (state === 'yellow') {
-                    return data.overallStatus === 'Y';
-                } else if (state === 'green') {
-                    return data.overallStatus === 'G';
-                }
-            }
 
             function success(response) {
                 var items = response.data.d['results'],
@@ -143,27 +129,60 @@
                         projectManager: item['ProjectManager']
                     };
                     allProjects.push(data);
-                    if (isValidProject(state, data)) {
-                        projects.push(data);
-                    }
+                    projectData.projects.push(data);
                 });
 
                 projectData.redCounts = getProjectCount(allProjects, 'R');
                 projectData.yellowCounts = getProjectCount(allProjects, 'Y');
                 projectData.greenCounts = getProjectCount(allProjects, 'G');
-                projectData.projects = projects;
-                return projects;
+                return projectData.projects;
             }
 
             function fail(error) {
-                var msg = 'query for projects failed. ' + error.data.description;
+                var msg = 'Query for projects failed. ' + error.data.description;
                 logger.error(msg);
                 return $q.reject(msg);
             }
         }
 
+        function getProjectItems(projects, state) {
+            var items = lodash.filter(projects, function (item) {
+                return item.overallStatus === state;
+            });
+            return $q.when(items);
+        }
+
+        function getRedProjects() {
+            return (projectData.projects.length > 0) ? getProjectItems(projectData.projects, 'R') :
+                getProjectsUsingHttp().then(function (data) {
+                    return getRedProjects(data);
+                });
+        }
+
+        function getYellowProjects() {
+            return (projectData.projects.length > 0) ? getProjectItems(projectData.projects, 'Y') :
+                getProjectsUsingHttp().then(function (data) {
+                    return getYellowProjects(data);
+                });
+        }
+
+        function getGreenProjects() {
+            return (projectData.projects.length > 0) ? getProjectItems(projectData.projects, 'G') :
+                getProjectsUsingHttp().then(function (data) {
+                    return getYellowProjects(data);
+                });
+        }
+
+        function getProjects() {
+            return (projectData.projects.length > 0) ? $q.when(projectData.projects) :
+                getProjectsUsingHttp();
+        }
+
         return {
             getProjects: getProjects,
+            getRedProjects: getRedProjects,
+            getYellowProjects: getYellowProjects,
+            getGreenProjects: getGreenProjects,
             getProject: getProject,
             getRedProjectsCount: function () {
                 return projectData.redCounts;

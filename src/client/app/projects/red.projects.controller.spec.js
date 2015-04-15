@@ -9,7 +9,7 @@ describe('RedProjectsController', function () {
     });
 
     beforeEach(function () {
-        sinon.stub(dataService, 'getProjects').returns($q.when(projects));
+        sinon.stub(dataService, 'getRedProjects').returns($q.when(projects));
         controller = $controller('RedProjectsController');
         $rootScope.$apply();
     });
