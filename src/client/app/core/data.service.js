@@ -152,7 +152,7 @@
                 projectData.yellowCounts = getProjectCount(allProjects, 'Y');
                 projectData.greenCounts = getProjectCount(allProjects, 'G');
                 projectData.projects = projects;
-                return projectData;
+                return projects;
             }
 
             function fail(error) {
@@ -165,6 +165,15 @@
         return {
             getProjects: getProjects,
             getProject: getProject,
+            getRedProjectsCount: function () {
+                return projectData.redCounts;
+            },
+            getYellowProjectsCount: function () {
+                return projectData.yellowCounts;
+            },
+            getGreenProjectsCount: function () {
+                return projectData.greenCounts;
+            },
             saveProject: saveProject
         };
     }

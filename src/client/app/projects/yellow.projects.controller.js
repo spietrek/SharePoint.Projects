@@ -31,10 +31,10 @@
 
         function getProjects() {
             return dataService.getProjects(currentState).then(function (data) {
-                vm.redProjectsCount = data.redCounts;
-                vm.yellowProjectsCount = data.yellowCounts;
-                vm.greenProjectsCount = data.greenCounts;
-                vm.resource.rows = angular.copy(data.projects);
+                vm.redProjectsCount = dataService.getRedProjectsCount();
+                vm.yellowProjectsCount = dataService.getYellowProjectsCount();
+                vm.greenProjectsCount = dataService.getGreenProjectsCount();
+                vm.resource.rows = data;
                 return data;
             });
         }
