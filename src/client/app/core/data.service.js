@@ -11,11 +11,12 @@
     /* @ngInject */
     function dataService($http, $q, logger, lodash, spPageService) {
         var projectData = {
-            projects: [],
-            redCounts: 0,
-            yellowCounts: 0,
-            greenCounts: 0
-        };
+                projects: [],
+                redCounts: 0,
+                yellowCounts: 0,
+                greenCounts: 0
+            },
+            overrideDataLoad = false;
 
         function getProject(id) {
             var project = lodash.find(projectData.projects, function (item) {
@@ -80,6 +81,7 @@
                 .catch(fail);
 
             function success(response) {
+                overrideDataLoad = true;
                 return $q.when(response);
             }
 
@@ -135,6 +137,7 @@
                 projectData.redCounts = getProjectCount(allProjects, 'R');
                 projectData.yellowCounts = getProjectCount(allProjects, 'Y');
                 projectData.greenCounts = getProjectCount(allProjects, 'G');
+                overrideDataLoad = false;
                 return projectData.projects;
             }
 
@@ -152,29 +155,33 @@
             return $q.when(items);
         }
 
+        function isDataLoadRequired() {
+            return (projectData.projects.length > 0) || (overrideDataLoad === true);
+        }
+
         function getRedProjects() {
-            return (projectData.projects.length > 0) ? getProjectItems(projectData.projects, 'R') :
+            return isDataLoadRequired() ? getProjectItems(projectData.projects, 'R') :
                 getProjectsUsingHttp().then(function (data) {
                     return getRedProjects(data);
                 });
         }
 
         function getYellowProjects() {
-            return (projectData.projects.length > 0) ? getProjectItems(projectData.projects, 'Y') :
+            return isDataLoadRequired() ? getProjectItems(projectData.projects, 'Y') :
                 getProjectsUsingHttp().then(function (data) {
                     return getYellowProjects(data);
                 });
         }
 
         function getGreenProjects() {
-            return (projectData.projects.length > 0) ? getProjectItems(projectData.projects, 'G') :
+            return isDataLoadRequired() ? getProjectItems(projectData.projects, 'G') :
                 getProjectsUsingHttp().then(function (data) {
                     return getYellowProjects(data);
                 });
         }
 
         function getProjects() {
-            return (projectData.projects.length > 0) ? $q.when(projectData.projects) :
+            return isDataLoadRequired() ? $q.when(projectData.projects) :
                 getProjectsUsingHttp();
         }
 
