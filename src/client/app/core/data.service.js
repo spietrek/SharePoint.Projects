@@ -31,10 +31,11 @@
             }
         };
 
-        var projectCounts = {
-            red: 0,
-            yellow: 0,
-            green: 0
+        var projectData = {
+            projects: [],
+            redCounts: 0,
+            yellowCounts: 0,
+            greenCounts: 0
         };
 
         function getProject(id) {
@@ -44,18 +45,6 @@
 
             project = angular.isDefined(project) ? project : {};
             return $q.when(project);
-        }
-
-        function getRedProjectsCount() {
-            return $q.when(projectCounts.red);
-        }
-
-        function getYellowProjectsCount() {
-            return $q.when(projectCounts.yellow);
-        }
-
-        function getGreenProjectsCount() {
-            return $q.when(projectCounts.green);
         }
 
         function getProjectCount(projects, status) {
@@ -159,10 +148,11 @@
                     }
                 });
 
-                projectCounts.red = getProjectCount(allProjects, 'R');
-                projectCounts.yellow = getProjectCount(allProjects, 'Y');
-                projectCounts.green = getProjectCount(allProjects, 'G');
-                return projects;
+                projectData.redCounts = getProjectCount(allProjects, 'R');
+                projectData.yellowCounts = getProjectCount(allProjects, 'Y');
+                projectData.greenCounts = getProjectCount(allProjects, 'G');
+                projectData.projects = projects;
+                return projectData;
             }
 
             function fail(error) {
@@ -175,9 +165,6 @@
         return {
             getProjects: getProjects,
             getProject: getProject,
-            getRedProjectsCount: getRedProjectsCount,
-            getYellowProjectsCount: getYellowProjectsCount,
-            getGreenProjectsCount: getGreenProjectsCount,
             saveProject: saveProject
         };
     }

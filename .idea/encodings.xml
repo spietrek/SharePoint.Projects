@@ -8,12 +8,13 @@
     <file url="file://$PROJECT_DIR$/src/client/app/core/core.module.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/core/data.service.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/layout/shell.controller.spec.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/projects/green.projects.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/projects/projects.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/projects/projects.controller.spec.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/projects/projects.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/app/projects/projects.route.spec.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/projects/redProjects.controller.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/client/app/projects/redProjects.controller.spec.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/projects/red.projects.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/client/app/projects/yellow.projects.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/styles/styles.less" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/client/test-helpers/mock-data.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/server/data.js" charset="UTF-8" />

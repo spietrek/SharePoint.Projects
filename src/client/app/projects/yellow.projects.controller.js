@@ -3,17 +3,17 @@
 
     angular
         .module('app.projects')
-        .controller('ProjectsController', ProjectsController);
+        .controller('YellowProjectsController', YellowProjectsController);
 
-    ProjectsController.$inject = ['$state', '$q', 'dataService', 'logger', 'ngTastyService'];
+    YellowProjectsController.$inject = ['$q', 'dataService', 'logger', 'ngTastyService'];
     /* @ngInject */
-    function ProjectsController($state, $q, dataService, logger, ngTastyService) {
+    function YellowProjectsController($q, dataService, logger, ngTastyService) {
         var vm = this;
-        var currentState = 'projects';//$state.current.name;
+        var currentState = 'yellow';
         vm.redProjectsCount = 0;
         vm.yellowProjectsCount = 0;
         vm.greenProjectsCount = 0;
-        vm.title = 'All Projects';
+        vm.title = 'Yellow Projects';
         vm.searchText = '';
         vm.tableTheme = ngTastyService.tableTheme();
         vm.tableNotSortBy = ngTastyService.tableNotSortBy();
@@ -25,7 +25,7 @@
         function activate() {
             var promises = [getProjects()];
             return $q.all(promises).then(function () {
-                logger.info('Activated All Projects View');
+                logger.info('Activated Red Projects View');
             });
         }
 

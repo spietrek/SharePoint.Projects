@@ -41,6 +41,12 @@
             'sortOrder': 'asc'
         };
 
+        srv.projectIconClass = {
+            'R': 'fa fa-times-circle red',
+            'Y': 'fa fa-warning orange',
+            'G': 'fa fa-circle green'
+        };
+
         return {
             tableTheme: function() {
                 return srv.tableTheme;
@@ -53,8 +59,10 @@
             },
             resource: function() {
                 return srv.resource;
+            },
+            projectIconClass: function() {
+                return srv.projectIconClass;
             }
-        }
-
+        };
     }
 })();

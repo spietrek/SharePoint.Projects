@@ -32,7 +32,7 @@
                 config: {
                     url: '/red',
                     templateUrl: 'app/projects/projects.html',
-                    controller: 'ProjectsController',
+                    controller: 'RedProjectsController',
                     controllerAs: 'vm',
                     title: 'Red Projects',
                     settings: {
@@ -46,7 +46,7 @@
                 config: {
                     url: '/yellow',
                     templateUrl: 'app/projects/projects.html',
-                    controller: 'ProjectsController',
+                    controller: 'YellowProjectsController',
                     controllerAs: 'vm',
                     title: 'Yellow Projects',
                     settings: {
@@ -60,7 +60,7 @@
                 config: {
                     url: '/green',
                     templateUrl: 'app/projects/projects.html',
-                    controller: 'ProjectsController',
+                    controller: 'GreenProjectsController',
                     controllerAs: 'vm',
                     title: 'Green Projects',
                     settings: {
