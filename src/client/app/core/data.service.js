@@ -18,15 +18,6 @@
             },
             overrideDataLoad = false;
 
-        function getProject(id) {
-            var project = lodash.find(projectData.projects, function (item) {
-                return item.id.toString() === id;
-            });
-
-            project = angular.isDefined(project) ? project : {};
-            return $q.when(project);
-        }
-
         function getProjectCount(projects, status) {
             var items = lodash.filter(projects, function (item) {
                 return item.overallStatus === status;
@@ -155,34 +146,43 @@
             return $q.when(items);
         }
 
-        function isDataLoadRequired() {
+        function isDataLoadNotRequired() {
             return (projectData.projects.length > 0) || (overrideDataLoad === true);
         }
 
         function getRedProjects() {
-            return isDataLoadRequired() ? getProjectItems(projectData.projects, 'R') :
+            return isDataLoadNotRequired() ? getProjectItems(projectData.projects, 'R') :
                 getProjectsUsingHttp().then(function (data) {
                     return getRedProjects(data);
                 });
         }
 
         function getYellowProjects() {
-            return isDataLoadRequired() ? getProjectItems(projectData.projects, 'Y') :
+            return isDataLoadNotRequired() ? getProjectItems(projectData.projects, 'Y') :
                 getProjectsUsingHttp().then(function (data) {
                     return getYellowProjects(data);
                 });
         }
 
         function getGreenProjects() {
-            return isDataLoadRequired() ? getProjectItems(projectData.projects, 'G') :
+            return isDataLoadNotRequired() ? getProjectItems(projectData.projects, 'G') :
                 getProjectsUsingHttp().then(function (data) {
                     return getYellowProjects(data);
                 });
         }
 
         function getProjects() {
-            return isDataLoadRequired() ? $q.when(projectData.projects) :
+            return isDataLoadNotRequired() ? $q.when(projectData.projects) :
                 getProjectsUsingHttp();
+        }
+
+        function getProject(id) {
+            var project = lodash.find(projectData.projects, function (item) {
+                return item.id.toString() === id;
+            });
+
+            project = angular.isDefined(project) ? project : {};
+            return $q.when(project);
         }
 
         return {
