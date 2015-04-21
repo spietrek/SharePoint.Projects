@@ -13,7 +13,7 @@
         vm.redProjectsCount = 0;
         vm.yellowProjectsCount = 0;
         vm.greenProjectsCount = 0;
-        vm.allProjectsCount = function () {
+        vm.totalProjectsCount = function () {
             return vm.redProjectsCount + vm.yellowProjectsCount + vm.greenProjectsCount;
         };
         vm.title = 'Total Projects';
