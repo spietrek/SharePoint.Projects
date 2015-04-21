@@ -22,8 +22,8 @@ describe('ProjectsController', function () {
         });
 
         describe('after activate', function () {
-            it('should have title of All Projects', function () {
-                expect(controller.title).to.equal('All Projects');
+            it('should have title of Total Projects', function () {
+                expect(controller.title).to.equal('Total Projects');
             });
 
             it('should have logged "Activated"', function () {

@@ -13,7 +13,10 @@
         vm.redProjectsCount = 0;
         vm.yellowProjectsCount = 0;
         vm.greenProjectsCount = 0;
-        vm.title = 'All Projects';
+        vm.allProjectsCount = function () {
+            return vm.redProjectsCount + vm.yellowProjectsCount + vm.greenProjectsCount;
+        };
+        vm.title = 'Total Projects';
         vm.searchText = '';
         vm.tableTheme = ngTastyService.tableTheme();
         vm.tableNotSortBy = ngTastyService.tableNotSortBy();

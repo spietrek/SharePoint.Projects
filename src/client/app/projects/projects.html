@@ -3,7 +3,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 margin-top-10">
-                    <div class="col-md-4 bred">
+                    <div class="col-md-3 bviolet">
+                        <a href="#/projects">
+                            <div class="text-header">
+                                <div class="pull-left"><i class="fa fa-folder-open"></i></div>
+                                <div class="datas-text pull-right">
+                                    <span class="bold">{{vm.allProjectsCount()}}</span> Total Projects
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 bred">
                         <a href="#/red">
                             <div class="text-header">
                                 <div class="pull-left"><i class="fa fa-warning"></i></div>
@@ -14,7 +25,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4 borange">
+                    <div class="col-md-3 borange">
                         <a href="#/yellow">
                             <div class="text-header">
                                 <div class="pull-left"><i class="fa fa-info-circle"></i></div>
@@ -25,7 +36,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4 bgreen">
+                    <div class="col-md-3 bgreen">
                         <a href="#/green">
                             <div class="text-header">
                                 <div class="pull-left"><i class="fa fa-thumbs-up"></i></div>
@@ -38,11 +49,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row margin-top-25">
+            <div class="row">
                 <div class="col-md-12">
                     <div class="widget wlightblue">
                         <div data-ht-widget-header title="{{vm.title}}"
-                             data-allow-collapse="true"></div>
+                             data-allow-collapse="false"></div>
                         <div class="widget-content text-center text-info">
                             <div class="pull-right">
                                 Find: <input ng-model="vm.searchText">

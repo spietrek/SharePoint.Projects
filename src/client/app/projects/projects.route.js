@@ -23,7 +23,7 @@
                     title: 'All Projects',
                     settings: {
                         nav: 1,
-                        content: '<i class="fa fa-folder-open-o"></i> All Projects'
+                        content: '<i class="fa fa-folder-open"></i> Total Projects'
                     }
                 }
             },
