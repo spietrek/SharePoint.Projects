@@ -38,6 +38,9 @@
                 templateOptions: {
                     label: 'Project Name',
                     required: true
+                },
+                'validation': {
+                    'show': true
                 }
             },
             {
@@ -60,6 +63,9 @@
                             'value': 'R'
                         }
                     ]
+                },
+                'validation': {
+                    'show': true
                 }
             },
             {
@@ -82,6 +88,9 @@
                             'value': 'R'
                         }
                     ]
+                },
+                'validation': {
+                    'show': true
                 }
             },
             {
@@ -104,6 +113,9 @@
                             'value': 'R'
                         }
                     ]
+                },
+                'validation': {
+                    'show': true
                 }
             },
             {
@@ -126,6 +138,9 @@
                             'value': 'R'
                         }
                     ]
+                },
+                'validation': {
+                    'show': true
                 }
             },
             {
@@ -135,6 +150,9 @@
                 templateOptions: {
                     label: 'Project Manager',
                     required: true
+                },
+                'validation': {
+                    'show': true
                 }
             }
         ];

@@ -9,14 +9,13 @@
     /* @ngInject */
     function ProjectsController($q, dataService, logger, ngTastyService) {
         var vm = this;
-        var currentState = 'projects';
         vm.redProjectsCount = 0;
         vm.yellowProjectsCount = 0;
         vm.greenProjectsCount = 0;
         vm.totalProjectsCount = function () {
             return vm.redProjectsCount + vm.yellowProjectsCount + vm.greenProjectsCount;
         };
-        vm.title = 'Total Projects';
+        vm.title = 'All Projects';
         vm.searchText = '';
         vm.tableTheme = ngTastyService.tableTheme();
         vm.tableNotSortBy = ngTastyService.tableNotSortBy();
@@ -34,7 +33,7 @@
         }
 
         function getProjects() {
-            return dataService.getProjects(currentState).then(function (data) {
+            return dataService.getProjects().then(function (data) {
                 vm.redProjectsCount = dataService.getRedProjectsCount();
                 vm.yellowProjectsCount = dataService.getYellowProjectsCount();
                 vm.greenProjectsCount = dataService.getGreenProjectsCount();

@@ -15,8 +15,7 @@
                 redCounts: 0,
                 yellowCounts: 0,
                 greenCounts: 0
-            },
-            overrideDataLoad = false;
+            };
 
         function getProjectCount(projects, status) {
             var items = lodash.filter(projects, function (item) {
@@ -71,9 +70,8 @@
                 .then(success)
                 .catch(fail);
 
-            function success(response) {
-                overrideDataLoad = true;
-                return $q.when(response);
+            function success() {
+                return getProjectsUsingHttp();
             }
 
             function fail(error) {
@@ -84,6 +82,7 @@
         }
 
         function getProjectsUsingHttp() {
+            projectData.projects = [];
             var restQuery = {
                 baseRestUrl: spPageService.getInfo().restUrl,
                 type: 'lists',
@@ -128,7 +127,6 @@
                 projectData.redCounts = getProjectCount(allProjects, 'R');
                 projectData.yellowCounts = getProjectCount(allProjects, 'Y');
                 projectData.greenCounts = getProjectCount(allProjects, 'G');
-                overrideDataLoad = false;
                 return projectData.projects;
             }
 
@@ -147,7 +145,7 @@
         }
 
         function isDataLoadNotRequired() {
-            return (projectData.projects.length > 0) || (overrideDataLoad === true);
+            return (projectData.projects.length > 0);
         }
 
         function getRedProjects() {

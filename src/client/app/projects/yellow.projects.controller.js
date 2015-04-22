@@ -27,7 +27,7 @@
         function activate() {
             var promises = [getProjects()];
             return $q.all(promises).then(function () {
-                logger.info('Activated Red Projects View');
+                logger.info('Activated Yellow Projects View');
             });
         }
 
