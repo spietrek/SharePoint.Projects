@@ -6,9 +6,9 @@
         .module('blocks.router')
         .provider('routerHelper', routerHelperProvider);
 
-    routerHelperProvider.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
+    routerHelperProvider.$inject = ['$stateProvider', '$urlRouterProvider'];
     /* @ngInject */
-    function routerHelperProvider($locationProvider, $stateProvider, $urlRouterProvider) {
+    function routerHelperProvider($stateProvider, $urlRouterProvider) {
         /* jshint validthis:true */
         var config = {
             docTitle: undefined,
