@@ -1,4 +1,4 @@
-/*global _spPageContextInfo*/
+/*global angular*/
 
 (function () {
     'use strict';
@@ -11,11 +11,11 @@
     /* @ngInject */
     function dataService($http, $q, logger, lodash, spPageService) {
         var projectData = {
-                projects: [],
-                redCounts: 0,
-                yellowCounts: 0,
-                greenCounts: 0
-            };
+            projects: [],
+            redCounts: 0,
+            yellowCounts: 0,
+            greenCounts: 0
+        };
 
         function getProjectCount(projects, status) {
             var items = lodash.filter(projects, function (item) {
