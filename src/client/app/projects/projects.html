@@ -6,7 +6,8 @@
                     <div class="col-md-3 bviolet">
                         <a href="#/projects">
                             <div class="text-header">
-                                <div class="pull-left"><i class="fa fa-folder-open"></i></div>
+                                <div class="pull-left"><i class="fa fa-folder-open"></i>
+                                </div>
                                 <div class="datas-text pull-right">
                                     <span class="bold">{{vm.totalProjectsCount()}}</span> Total Projects
                                 </div>
@@ -17,7 +18,8 @@
                     <div class="col-md-3 bred">
                         <a href="#/red">
                             <div class="text-header">
-                                <div class="pull-left"><i class="fa fa-warning"></i></div>
+                                <div class="pull-left"><i class="fa fa-warning"></i>
+                                </div>
                                 <div class="datas-text pull-right">
                                     <span class="bold">{{vm.redProjectsCount}}</span> Red Projects
                                 </div>
@@ -28,7 +30,8 @@
                     <div class="col-md-3 borange">
                         <a href="#/yellow">
                             <div class="text-header">
-                                <div class="pull-left"><i class="fa fa-info-circle"></i></div>
+                                <div class="pull-left"><i class="fa fa-info-circle"></i>
+                                </div>
                                 <div class="datas-text pull-right">
                                     <span class="bold">{{vm.yellowProjectsCount}}</span> Yellow Projects
                                 </div>
@@ -39,7 +42,8 @@
                     <div class="col-md-3 bgreen">
                         <a href="#/green">
                             <div class="text-header">
-                                <div class="pull-left"><i class="fa fa-thumbs-up"></i></div>
+                                <div class="pull-left"><i class="fa fa-thumbs-up"></i>
+                                </div>
                                 <div class="datas-text pull-right">
                                     <span class="bold">{{vm.greenProjectsCount}}</span> Green Projects
                                 </div>
@@ -52,35 +56,35 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="widget wlightblue">
-                        <div data-ht-widget-header title="{{vm.title}}"
-                             data-allow-collapse="false"></div>
+                        <div data-ht-widget-header title="{{vm.title}}" data-allow-collapse="false"></div>
                         <div class="widget-content text-center text-info">
                             <div class="pull-right">
-                                Find: <input ng-model="vm.searchText">
+                                Find:
+                                <input ng-model="vm.searchText">
                             </div>
 
-                            <div tasty-table bind-resource="vm.resource" bind-filters="vm.searchText"
-                                 bind-theme="vm.tableTheme" watch-resource="collection">
+                            <div tasty-table bind-resource="vm.resource" bind-filters="vm.searchText" bind-theme="vm.tableTheme" watch-resource="collection">
                                 <table class="table table-striped table-condensed">
-                                    <thead tasty-thead bind-not-sort-by="vm.tableNotSortBy"
-                                           bind-centered-columns="vm.tableCenteredColumns">
-                                    <thead>
-                                    <tbody>
-                                    <tr ng-repeat="row in rows">
-                                        <td>{{ row.name }}</td>
-                                        <td class="text-center"><i
-                                            ng-class="vm.getProjectsIconClass(row.overallStatus);"></i></td>
-                                        <td class="text-center"><i
-                                            ng-class="vm.getProjectsIconClass(row.budgetStatus);"></i></td>
-                                        <td class="text-center"><i
-                                            ng-class="vm.getProjectsIconClass(row.resourceStatus);"></i></td>
-                                        <td class="text-center"><i
-                                            ng-class="vm.getProjectsIconClass(row.scheduleStatus);"></i></td>
-                                        <td>{{ row.projectManager }}</td>
-                                        <td class="text-center"><a ui-sref="edit({formID:row.id})"><i
-                                            class="fa fa-edit"></i></a></td>
-                                    </tr>
-                                    </tbody>
+                                    <thead tasty-thead bind-not-sort-by="vm.tableNotSortBy" bind-centered-columns="vm.tableCenteredColumns">
+                                        <thead>
+                                            <tbody>
+                                                <tr ng-repeat="row in rows">
+                                                    <td>{{ row.name }}</td>
+                                                    <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.overallStatus);"></i>
+                                                    </td>
+                                                    <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.budgetStatus);"></i>
+                                                    </td>
+                                                    <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.resourceStatus);"></i>
+                                                    </td>
+                                                    <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.scheduleStatus);"></i>
+                                                    </td>
+                                                    <td>{{ row.projectManager }}</td>
+                                                    <td class="text-center">{{ row.risksCount }}</td>
+                                                    <td class="text-center"><a ui-sref="edit({formID:row.id})"><i
+                                            class="fa fa-edit"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
                                 </table>
                                 <div tasty-pagination></div>
                             </div>

@@ -28,13 +28,18 @@
             });
         }
 
-        vm.model = {};
+        /*function getDefaultModel() {
+            var model = {
+                risks: ['']
+            };
+
+            return model;
+        }*/
 
         vm.fields = [
             {
                 key: 'name',
                 type: 'input',
-                model: vm.model.name,
                 templateOptions: {
                     label: 'Project Name',
                     required: true
@@ -146,13 +151,41 @@
             {
                 key: 'projectManager',
                 type: 'input',
-                model: vm.model.projectManager,
                 templateOptions: {
                     label: 'Project Manager',
                     required: true
                 },
                 'validation': {
                     'show': true
+                }
+            },
+            {
+                key: 'plannedEndDate',
+                type: 'input',
+                templateOptions: {
+                    label: 'Planned End Date',
+                    required: true,
+                    type: 'date'
+                },
+                'validation': {
+                    'show': true
+                }
+            },
+            {
+                key: 'notes',
+                type: 'textarea',
+                templateOptions: {
+                    label: 'Notes'
+                }
+            },
+            {
+                key: 'risks',
+                type: 'multiInput',
+                templateOptions: {
+                    label: 'Risks',
+                    inputOptions: {
+                        type: 'input'
+                    }
                 }
             }
         ];

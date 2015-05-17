@@ -29,7 +29,10 @@
                 BudgetStatus: model.budgetStatus,
                 ResourceStatus: model.resourceStatus,
                 ScheduleStatus: model.scheduleStatus,
-                ProjectManager: model.projectManager
+                ProjectManager: model.projectManager,
+                PlannedEndDate: model.plannedEndDate,
+                Notes: model.notes,
+                Risks: JSON.stringify(model.risks)
             };
         }
 
@@ -86,7 +89,7 @@
                 type: 'lists',
                 method: 'getbytitle(\'Projects\')/items',
                 select1: '$select=ID,Title,OverallStatus,BudgetStatus,ResourceStatus,',
-                select2: 'ScheduleStatus,ProjectManager',
+                select2: 'ScheduleStatus,ProjectManager,PlannedEndDate,Risks,Notes',
                 url: function () {
                     return this.baseRestUrl + '/' + this.type + '/' + this.method +
                         '?' + this.select1 + this.select2 + '&$top=1000';
@@ -116,8 +119,12 @@
                         budgetStatus: item['BudgetStatus'],
                         resourceStatus: item['ResourceStatus'],
                         scheduleStatus: item['ScheduleStatus'],
-                        projectManager: item['ProjectManager']
+                        projectManager: item['ProjectManager'],
+                        plannedEndDate: moment(item['PlannedEndDate']).toDate(),
+                        notes: item['Notes'],
+                        risks: JSON.parse(item['Risks']) === null ? [''] : JSON.parse(item['Risks'])
                     };
+                    data.risksCount = getRisksCount(data.risks);
                     allProjects.push(data);
                     projectData.projects.push(data);
                 });
@@ -133,6 +140,16 @@
                 logger.error(msg);
                 return $q.reject(msg);
             }
+        }
+
+        function getRisksCount(risks) {
+            var count = 0;
+            angular.forEach(risks, function (risk) {
+                if (risk !== '') {
+                    count++;
+                }
+            });
+            return count;
         }
 
         function getProjectItems(projects, state) {
@@ -177,7 +194,7 @@
                 return item.id.toString() === id;
             });
 
-            project = angular.isDefined(project) ? project : {};
+            project = angular.isDefined(project) ? project : null;
             return $q.when(project);
         }
 

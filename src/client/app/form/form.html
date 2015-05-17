@@ -7,7 +7,9 @@
                     <div class="widget-content user">
                         <form class="form-horizontal margin-10" novalidate>
                             <formly-form model="vm.model" fields="vm.fields" form="vm.form">
-                                <button type="button" class="btn btn-primary submit-button" ng-click="vm.onSubmit()" ng-disabled="vm.form.$invalid">Submit</button>
+                                <button type="button" class="btn btn-primary submit-button" ng-click="vm.onSubmit()"
+                                        ng-disabled="vm.form.$invalid">Submit
+                                </button>
                             </formly-form>
                         </form>
                     </div>
@@ -16,3 +18,25 @@
         </div>
     </section>
 </section>
+
+<!-- Put custom templates here -->
+<script type="text/ng-template" id="multiInput.html">
+    <div>
+        <div class="clearfix">
+            <div class="row" style="margin-bottom:14px" ng-repeat="item in model[options.key] track by $index"
+                 ng-init="itemOptions = copyItemOptions()">
+                <formly-field class="no-padding col-xs-10" options="itemOptions" model="model[options.key]" form="form"
+                              index="$index">
+                </formly-field>
+                <div ng-hide={{model[options.key].length==1}} class="col-xs-2" style="margin-top:6px">
+                    <a ng-click="model[options.key].splice($index, 1)">
+                        x Remove
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-success btn-sm" ng-click="model[options.key].push('')">Add</button>
+        </div>
+    </div>
+</script>

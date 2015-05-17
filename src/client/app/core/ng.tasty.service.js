@@ -1,5 +1,3 @@
-/*global _spPageContextInfo*/
-
 (function () {
     'use strict';
 
@@ -21,17 +19,34 @@
             'resourceStatus', 'scheduleStatus'];
 
         srv.tableCenteredColumns = ['overallStatus', 'budgetStatus',
-            'resourceStatus', 'scheduleStatus', 'edit'];
+            'resourceStatus', 'scheduleStatus', 'risksCount', 'edit'];
 
         srv.resource = {
             'header': [
-                {'name': 'Name'},
-                {'overallStatus': 'Overall Status'},
-                {'budgetStatus': 'Budget Status'},
-                {'resourceStatus': 'Resource Status'},
-                {'scheduleStatus': 'Schedule Status'},
-                {'projectManager': 'Project Manager'},
-                {'edit': 'Edit'}
+                {
+                    'name': 'Name'
+                },
+                {
+                    'overallStatus': 'Overall'
+                },
+                {
+                    'budgetStatus': 'Budget'
+                },
+                {
+                    'resourceStatus': 'Resource'
+                },
+                {
+                    'scheduleStatus': 'Schedule'
+                },
+                {
+                    'projectManager': 'Project Manager'
+                },
+                {
+                    'risksCount': 'Risks'
+                },
+                {
+                    'edit': 'Edit'
+                }
             ],
             'rows': [],
             'pagination': {
@@ -48,19 +63,19 @@
         };
 
         return {
-            tableTheme: function() {
+            tableTheme: function () {
                 return srv.tableTheme;
             },
-            tableNotSortBy: function() {
+            tableNotSortBy: function () {
                 return srv.tableNotSortBy;
             },
-            tableCenteredColumns: function() {
+            tableCenteredColumns: function () {
                 return srv.tableCenteredColumns;
             },
-            resource: function() {
+            resource: function () {
                 return srv.resource;
             },
-            projectIconClass: function() {
+            projectIconClass: function () {
                 return srv.projectIconClass;
             }
         };
