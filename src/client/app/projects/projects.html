@@ -2,55 +2,67 @@
     <section class="matter">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 margin-top-10">
-                    <div class="col-md-3 bviolet">
-                        <a href="#/projects">
-                            <div class="text-header">
-                                <div class="pull-left"><i class="fa fa-folder-open"></i>
+                <div class="col-md-12 mt10">
+                    <div class="col-lg-2 col-sm-4">
+                        <!-- START widget-->
+                        <div class="panel widget bg-primary bviolet">
+                            <div class="row row-table">
+                                <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+                                    <i class="fa fa-folder-open fa-3x"></i>
                                 </div>
-                                <div class="datas-text pull-right">
-                                    <span class="bold">{{vm.totalProjectsCount()}}</span> Total Projects
+                                <div class="col-xs-8 pv-lg">
+                                    <div class="h2 mt0">{{vm.totalProjectsCount()}}</div>
+                                    <div class="text-uppercase">Total Projects</div>
                                 </div>
-                                <div class="clearfix"></div>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                    <div class="col-md-3 bred">
-                        <a href="#/red">
-                            <div class="text-header">
-                                <div class="pull-left"><i class="fa fa-warning"></i>
+
+                    <div class="col-lg-2 col-sm-4">
+                        <!-- START widget-->
+                        <div class="panel widget bg-primary bred">
+                            <div class="row row-table">
+                                <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+                                    <i class="fa fa-warning fa-3x"></i>
                                 </div>
-                                <div class="datas-text pull-right">
-                                    <span class="bold">{{vm.redProjectsCount}}</span> Red Projects
+                                <div class="col-xs-8 pv-lg">
+                                    <div class="h2 mt0">{{vm.redProjectsCount}}</div>
+                                    <div class="text-uppercase">Red Projects</div>
                                 </div>
-                                <div class="clearfix"></div>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                    <div class="col-md-3 borange">
-                        <a href="#/yellow">
-                            <div class="text-header">
-                                <div class="pull-left"><i class="fa fa-info-circle"></i>
+
+                    <div class="col-lg-2 col-sm-4">
+                        <!-- START widget-->
+                        <div class="panel widget bg-primary borange">
+                            <div class="row row-table">
+                                <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+                                    <i class="fa fa-info-circle fa-3x"></i>
                                 </div>
-                                <div class="datas-text pull-right">
-                                    <span class="bold">{{vm.yellowProjectsCount}}</span> Yellow Projects
+                                <div class="col-xs-8 pv-lg">
+                                    <div class="h2 mt0">{{vm.yellowProjectsCount}}</div>
+                                    <div class="text-uppercase">Yellow Projects</div>
                                 </div>
-                                <div class="clearfix"></div>
                             </div>
-                        </a>
+                        </div>
                     </div>
-                    <div class="col-md-3 bgreen">
-                        <a href="#/green">
-                            <div class="text-header">
-                                <div class="pull-left"><i class="fa fa-thumbs-up"></i>
+
+                    <div class="col-lg-2 col-sm-4">
+                        <!-- START widget-->
+                        <div class="panel widget bg-primary bgreen">
+                            <div class="row row-table">
+                                <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+                                    <i class="fa fa-thumbs-up fa-3x"></i>
                                 </div>
-                                <div class="datas-text pull-right">
-                                    <span class="bold">{{vm.greenProjectsCount}}</span> Green Projects
+                                <div class="col-xs-8 pv-lg">
+                                    <div class="h2 mt0">{{vm.greenProjectsCount}}</div>
+                                    <div class="text-uppercase">Green Projects</div>
                                 </div>
-                                <div class="clearfix"></div>
                             </div>
-                        </a>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <div class="row">
@@ -63,28 +75,34 @@
                                 <input ng-model="vm.searchText">
                             </div>
 
-                            <div tasty-table bind-resource="vm.resource" bind-filters="vm.searchText" bind-theme="vm.tableTheme" watch-resource="collection">
+                            <div tasty-table bind-resource="vm.resource" bind-filters="vm.searchText"
+                                 bind-theme="vm.tableTheme" watch-resource="collection">
                                 <table class="table table-striped table-condensed">
-                                    <thead tasty-thead bind-not-sort-by="vm.tableNotSortBy" bind-centered-columns="vm.tableCenteredColumns">
-                                        <thead>
-                                            <tbody>
-                                                <tr ng-repeat="row in rows">
-                                                    <td>{{ row.name }}</td>
-                                                    <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.overallStatus);"></i>
-                                                    </td>
-                                                    <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.budgetStatus);"></i>
-                                                    </td>
-                                                    <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.resourceStatus);"></i>
-                                                    </td>
-                                                    <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.scheduleStatus);"></i>
-                                                    </td>
-                                                    <td>{{ row.projectManager }}</td>
-                                                    <td class="text-center">{{ row.risksCount }}</td>
-                                                    <td class="text-center"><a ui-sref="edit({formID:row.id})"><i
-                                            class="fa fa-edit"></i></a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
+                                    <thead tasty-thead bind-not-sort-by="vm.tableNotSortBy"
+                                           bind-centered-columns="vm.tableCenteredColumns">
+                                    <thead>
+                                    <tbody>
+                                    <tr ng-repeat="row in rows">
+                                        <td>{{ row.name }}</td>
+                                        <td class="text-center"><i
+                                            ng-class="vm.getProjectsIconClass(row.overallStatus);"></i>
+                                        </td>
+                                        <td class="text-center"><i
+                                            ng-class="vm.getProjectsIconClass(row.budgetStatus);"></i>
+                                        </td>
+                                        <td class="text-center"><i
+                                            ng-class="vm.getProjectsIconClass(row.resourceStatus);"></i>
+                                        </td>
+                                        <td class="text-center"><i
+                                            ng-class="vm.getProjectsIconClass(row.scheduleStatus);"></i>
+                                        </td>
+                                        <td>{{ row.projectManager }}</td>
+                                        <td class="text-center">{{ row.risksCount }}</td>
+                                        <td class="text-center"><a ui-sref="edit({formID:row.id})">
+                                            <i class="fa fa-edit"></i></a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
                                 </table>
                                 <div tasty-pagination></div>
                             </div>
