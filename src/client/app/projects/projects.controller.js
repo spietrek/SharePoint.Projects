@@ -38,6 +38,7 @@
                 vm.yellowProjectsCount = dataService.getYellowProjectsCount();
                 vm.greenProjectsCount = dataService.getGreenProjectsCount();
                 vm.resource.rows = data;
+
                 return data;
             });
         }

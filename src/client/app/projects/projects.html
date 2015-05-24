@@ -3,11 +3,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mt10">
-                    <div class="col-lg-2 col-sm-4">
+                    <div class="col-lg-3 col-sm-4">
                         <!-- START widget-->
-                        <div class="panel widget bg-primary bviolet">
+                        <div class="panel widget bviolet">
                             <div class="row row-table">
-                                <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+                                <div class="col-xs-4 text-center pv-lg">
                                     <i class="fa fa-folder-open fa-3x"></i>
                                 </div>
                                 <div class="col-xs-8 pv-lg">
@@ -18,11 +18,11 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-2 col-sm-4">
+                    <div class="col-lg-3 col-sm-4">
                         <!-- START widget-->
-                        <div class="panel widget bg-primary bred">
+                        <div class="panel widget bred">
                             <div class="row row-table">
-                                <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+                                <div class="col-xs-4 text-center pv-lg">
                                     <i class="fa fa-warning fa-3x"></i>
                                 </div>
                                 <div class="col-xs-8 pv-lg">
@@ -33,11 +33,11 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-2 col-sm-4">
+                    <div class="col-lg-3 col-sm-4">
                         <!-- START widget-->
-                        <div class="panel widget bg-primary borange">
+                        <div class="panel widget borange">
                             <div class="row row-table">
-                                <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+                                <div class="col-xs-4 text-center pv-lg">
                                     <i class="fa fa-info-circle fa-3x"></i>
                                 </div>
                                 <div class="col-xs-8 pv-lg">
@@ -48,11 +48,11 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-2 col-sm-4">
+                    <div class="col-lg-3 col-sm-4">
                         <!-- START widget-->
-                        <div class="panel widget bg-primary bgreen">
+                        <div class="panel widget bgreen">
                             <div class="row row-table">
-                                <div class="col-xs-4 text-center bg-primary-dark pv-lg">
+                                <div class="col-xs-4 text-center pv-lg">
                                     <i class="fa fa-thumbs-up fa-3x"></i>
                                 </div>
                                 <div class="col-xs-8 pv-lg">
@@ -67,40 +67,42 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="widget wlightblue">
-                        <div data-ht-widget-header title="{{vm.title}}" data-allow-collapse="false"></div>
-                        <div class="widget-content text-center text-info">
-                            <div class="pull-right">
-                                Find:
-                                <input ng-model="vm.searchText">
-                            </div>
+                    <div class="plr15">
+                        <div class="widget wlightblue">
+                            <div data-ht-widget-header title="{{vm.title}}" data-allow-collapse="false"></div>
+                            <div class="widget-content text-center text-info">
+                                <div class="pull-right">
+                                    Find:
+                                    <input ng-model="vm.searchText">
+                                </div>
 
-                            <div tasty-table bind-resource="vm.resource" bind-filters="vm.searchText" bind-theme="vm.tableTheme" watch-resource="collection">
-                                <table class="table table-striped table-condensed">
-                                    <thead tasty-thead bind-not-sort-by="vm.tableNotSortBy" bind-centered-columns="vm.tableCenteredColumns">
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="row in rows">
-                                            <td>{{ row.name }}</td>
-                                            <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.overallStatus);"></i>
-                                            </td>
-                                            <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.budgetStatus);"></i>
-                                            </td>
-                                            <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.resourceStatus);"></i>
-                                            </td>
-                                            <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.scheduleStatus);"></i>
-                                            </td>
-                                            <td>{{ row.projectManager }}</td>
-                                            <td class="text-center">{{ row.risksCount }}</td>
-                                            <td class="text-center">
-                                                <a ui-sref="edit({formID:row.id})">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div tasty-pagination></div>
+                                <div tasty-table bind-resource="vm.resource" bind-filters="vm.searchText" bind-theme="vm.tableTheme" watch-resource="collection">
+                                    <table class="table table-striped table-condensed">
+                                        <thead tasty-thead bind-not-sort-by="vm.tableNotSortBy" bind-centered-columns="vm.tableCenteredColumns">
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="row in rows">
+                                                <td>{{ row.name }}</td>
+                                                <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.overallStatus);"></i>
+                                                </td>
+                                                <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.budgetStatus);"></i>
+                                                </td>
+                                                <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.resourceStatus);"></i>
+                                                </td>
+                                                <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.scheduleStatus);"></i>
+                                                </td>
+                                                <td>{{ row.projectManager }}</td>
+                                                <td class="text-center">{{ row.risksCount }}</td>
+                                                <td class="text-center">
+                                                    <a ui-sref="edit({formID:row.id})">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div tasty-pagination></div>
+                                </div>
                             </div>
                         </div>
                     </div>

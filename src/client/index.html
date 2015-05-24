@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="app">
+
 <head>
     <style>
         /* This helps the ng-show/ng-hide animations start at the right place. */
         /* Since Angular has this but needs to load, this gives us the class early. */
-        .ng-hide { display: none!important; }
+
+        .ng-hide {
+            display: none!important;
+        }
     </style>
     <title ng-bind="title">Project Portfolio</title>
     <meta charset="utf-8" />
@@ -37,6 +41,7 @@
         };
     </script>
 </head>
+
 <body>
     <div>
         <div ng-include="'app/layout/shell.html'"></div>
@@ -112,4 +117,5 @@
     <!-- endinject -->
     <!-- endbuild -->
 </body>
+
 </html>
