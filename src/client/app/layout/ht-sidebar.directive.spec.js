@@ -9,7 +9,7 @@ describe('htSidebar directive: ', function () {
 
     beforeEach(module('app.layout'));
 
-    beforeEach(inject(function($compile, $rootScope) {
+    beforeEach(inject(function ($compile, $rootScope) {
         // The minimum necessary template HTML for this spec.
         // Simulates a menu link that opens and closes a dropdown of menu items
         // The `when-done-animating` attribute is optional (as is the vm's implementation)
@@ -22,14 +22,14 @@ describe('htSidebar directive: ', function () {
         // N.B.: We do NOT add this element to the browser DOM (although we could).
         //       spec runs faster if we don't touch the DOM (even the PhantomJS DOM).
         el = angular.element(
-            '<ht-sidebar when-done-animating="vm.sidebarReady(42)" > \
-                <div class="sidebar-dropdown"><a href="">Menu</a></div> \
-                <div class="sidebar-inner" style="display: none"></div> \
-            </ht-sidebar>');
+            '<ht-sidebar when-done-animating="vm.sidebarReady(42)">' +
+            '<div class="sidebar-dropdown"><a href="">Menu</a></div>' +
+            '<div class="sidebar-inner" style="display: none"></div>' +
+            '</ht-sidebar>');
 
         // The spec examines changes to these template parts
         dropdownElement = el.find('.sidebar-dropdown a'); // the link to click
-        innerElement    = el.find('.sidebar-inner');      // container of menu items
+        innerElement = el.find('.sidebar-inner'); // container of menu items
 
         // ng's $compile service resolves nested directives (there are none in this example)
         // and binds the element to the scope (which must be a real ng scope)
@@ -100,7 +100,9 @@ describe('htSidebar directive: ', function () {
             // '    <div ht-sidebar  when-done-animating="vm.sidebarReady(42)" >
             // therefore, the directive looks for scope.vm.sidebarReady
             // and should call that method with the value '42'
-            scope.vm = {sidebarReady: spy};
+            scope.vm = {
+                sidebarReady: spy
+            };
 
             // tell angular to look again for that vm.sidebarReady property
             scope.$digest();
