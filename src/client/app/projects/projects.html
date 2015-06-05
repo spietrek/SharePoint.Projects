@@ -87,7 +87,7 @@
                                         <thead tasty-thead bind-not-sort-by="vm.tableNotSortBy" bind-centered-columns="vm.tableCenteredColumns">
                                         </thead>
                                         <tbody>
-                                            <tr ng-repeat="row in rows">
+                                            <tr ng-repeat="row in rows track by $index">
                                                 <td>{{ row.name }}</td>
                                                 <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.overallStatus);"></i>
                                                 </td>
