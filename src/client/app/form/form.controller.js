@@ -23,18 +23,18 @@
 
         function getProject() {
             return dataService.getProject(vm.formID).then(function (data) {
-                vm.model = data;
-                return vm.redProjectsCount;
+                vm.model = (data === null) ? getDefaultModel() : data;
+                return vm.model;
             });
         }
 
-        /*function getDefaultModel() {
+        function getDefaultModel() {
             var model = {
                 risks: ['']
             };
 
             return model;
-        }*/
+        }
 
         vm.fields = [
             {
