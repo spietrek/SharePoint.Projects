@@ -3,14 +3,14 @@
 
     angular
         .module('app.widgets')
-        .directive('htWidgetHeader', htWidgetHeader);
+        .directive('csgWidgetHeader', csgWidgetHeader);
 
     /* @ngInject */
-    function htWidgetHeader() {
+    function csgWidgetHeader() {
         //Usage:
-        //<div ht-widget-header title="vm.map.title"></div>
+        //<div csg-widget-header title="vm.map.title"></div>
         // Creates:
-        // <div ht-widget-header=""
+        // <div csg-widget-header=""
         //      title="Movie"
         //      allow-collapse="true" </div>
         var directive = {

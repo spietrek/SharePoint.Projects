@@ -3,16 +3,16 @@
 
     angular
         .module('app.layout')
-        .directive('htSidebar', htSidebar);
+        .directive('csgSidebar', csgSidebar);
 
     /* @ngInject */
-    function htSidebar () {
+    function csgSidebar () {
         // Opens and closes the sidebar menu.
         // Usage:
-        //  <div ht-sidebar">
-        //  <div ht-sidebar whenDoneAnimating="vm.sidebarReady()">
+        //  <div csg-sidebar">
+        //  <div csg-sidebar whenDoneAnimating="vm.sidebarReady()">
         // Creates:
-        //  <div ht-sidebar class="sidebar">
+        //  <div csg-sidebar class="sidebar">
         var directive = {
             bindToController: true,
             link: link,
