@@ -164,7 +164,7 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function () {
  */
 gulp.task('serve-specs', ['build-specs'], function (done) {
     log('run the spec runner');
-    serve(true /* isDev */ , true /* specRunner */ );
+    serve(true, true);
     done();
 });
 
@@ -340,7 +340,7 @@ gulp.task('autotest', function (done) {
  * --nosync
  */
 gulp.task('serve-dev', ['inject'], function () {
-    serve(true /*isDev*/ );
+    serve(true);
 });
 
 /**
@@ -349,7 +349,7 @@ gulp.task('serve-dev', ['inject'], function () {
  * --nosync
  */
 gulp.task('serve-build', ['build'], function () {
-    serve(false /*isDev*/ );
+    serve(false);
 });
 
 /**
