@@ -9,14 +9,7 @@
     /* @ngInject */
     function YellowProjectsController($q, dataService, logger, ngTastyService) {
         var vm = this;
-        vm.redProjectsCount = 0;
-        vm.yellowProjectsCount = 0;
-        vm.greenProjectsCount = 0;
-        vm.totalProjectsCount = function () {
-            return vm.redProjectsCount + vm.yellowProjectsCount + vm.greenProjectsCount;
-        };
         vm.title = 'Yellow Projects';
-        vm.searchText = '';
         vm.tableTheme = ngTastyService.tableTheme();
         vm.tableNotSortBy = ngTastyService.tableNotSortBy();
         vm.tableCenteredColumns = ngTastyService.tableCenteredColumns();
@@ -36,6 +29,9 @@
                 vm.redProjectsCount = dataService.getRedProjectsCount();
                 vm.yellowProjectsCount = dataService.getYellowProjectsCount();
                 vm.greenProjectsCount = dataService.getGreenProjectsCount();
+                vm.totalProjectsCount = function () {
+                    return vm.redProjectsCount + vm.yellowProjectsCount + vm.greenProjectsCount;
+                };
                 vm.resource.rows = data;
                 return data;
             });
