@@ -152,9 +152,9 @@
             return count;
         }
 
-        function getProjectItems(projects, state) {
+        function getProjectItems(projects, status) {
             var items = lodash.filter(projects, function (item) {
-                return item.overallStatus === state;
+                return item.overallStatus === status;
             });
             return $q.when(items);
         }
