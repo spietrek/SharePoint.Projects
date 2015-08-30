@@ -14,9 +14,9 @@
     function getStates() {
         return [
             {
-                state: 'projects',
+                state: 'all',
                 config: {
-                    url: '/projects',
+                    url: '/all',
                     templateUrl: 'app/projects/projects.html',
                     controller: 'ProjectsController',
                     controllerAs: 'vm',
@@ -32,7 +32,7 @@
                 config: {
                     url: '/red',
                     templateUrl: 'app/projects/projects.html',
-                    controller: 'RedProjectsController',
+                    controller: 'ProjectsController',
                     controllerAs: 'vm',
                     title: 'Red Projects',
                     settings: {
@@ -46,7 +46,7 @@
                 config: {
                     url: '/yellow',
                     templateUrl: 'app/projects/projects.html',
-                    controller: 'YellowProjectsController',
+                    controller: 'ProjectsController',
                     controllerAs: 'vm',
                     title: 'Yellow Projects',
                     settings: {
@@ -60,7 +60,7 @@
                 config: {
                     url: '/green',
                     templateUrl: 'app/projects/projects.html',
-                    controller: 'GreenProjectsController',
+                    controller: 'ProjectsController',
                     controllerAs: 'vm',
                     title: 'Green Projects',
                     settings: {

@@ -26,8 +26,8 @@ describe('layout', function() {
             expect(controller.isCurrent($state.current)).to.equal('current');
         });
 
-        it('should have isCurrent() for /customers to return `current`', function() {
-            $location.path('/customers');
+        it('should have isCurrent() for /all to return `current`', function() {
+            $location.path('/all');
             expect(controller.isCurrent($state.current)).to.equal('current');
         });
 

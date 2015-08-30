@@ -13,16 +13,16 @@ describe('projects routes', function () {
             $templateCache.put(view, '');
         });
 
-        it('should map state projects to url / ', function() {
-            expect($state.href('projects', {})).to.equal('#/projects');
+        it('should map state all to url / ', function() {
+            expect($state.href('all', {})).to.equal('#/all');
         });
 
-        it('should map /projects route to admin View template', function () {
-            expect($state.get('projects').templateUrl).to.equal(view);
+        it('should map /all route to admin View template', function () {
+            expect($state.get('all').templateUrl).to.equal(view);
         });
 
         it('of admin should work with $state.go', function () {
-            $state.go('projects');
+            $state.go('all');
             $rootScope.$apply();
             expect($state.is('projects'));
         });

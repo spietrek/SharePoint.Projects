@@ -18,11 +18,7 @@
             controller: ['$scope', function ($scope) {
                 $scope.getBackgroundColor = function() {
                     return $scope.color;
-                }
-//                $scope.getTitle = function() {
-//                    console.log('Title: ' + $scope.header);
-//                    return $scope.header;
-//                }
+                };
             }]
         };
         return directive;

@@ -7,7 +7,7 @@
 
     /* @ngInject */
     function appRun(routerHelper) {
-        var otherwise = '/projects';
+        var otherwise = '/all';
         routerHelper.configureStates(getStates(), otherwise);
     }
 

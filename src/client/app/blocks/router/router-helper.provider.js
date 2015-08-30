@@ -74,7 +74,7 @@
                             (error.data || '') + '. <br/>' + (error.statusText || '') +
                             ': ' + (error.status || '');
                         logger.warning(msg, [toState]);
-                        $location.path('/projects');
+                        $location.path('/all');
                     }
                 );
             }

@@ -11,14 +11,16 @@ var mockData = (function () {
     function getMockStates() {
         return [
             {
-                state: 'projects',
+                state: 'all',
                 config: {
-                    url: '/projects',
+                    url: '/all',
                     templateUrl: 'app/projects/projects.html',
-                    title: 'projects',
+                    controller: 'ProjectsController',
+                    controllerAs: 'vm',
+                    title: 'All Projects',
                     settings: {
                         nav: 1,
-                        content: '<i class="fa fa-folder-open-o"></i> Projects'
+                        content: '<i class="fa fa-folder-open"></i> All Projects'
                     }
                 }
             }

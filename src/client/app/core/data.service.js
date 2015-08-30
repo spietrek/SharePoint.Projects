@@ -5,9 +5,9 @@
         .module('app.core')
         .factory('dataService', dataService);
 
-    dataService.$inject = ['$http', '$q', 'logger', 'lodash', 'spPageService', 'moment'];
+    dataService.$inject = ['$http', '$q', 'logger', 'lodash', 'spPageService', 'moment', '$state'];
     /* @ngInject */
-    function dataService($http, $q, logger, lodash, spPageService, moment) {
+    function dataService($http, $q, logger, lodash, spPageService, moment, $state) {
         var projectData = {
             projects: [],
             redCounts: 0,
@@ -152,11 +152,15 @@
             return count;
         }
 
-        function getProjectItems(projects, status) {
-            var items = lodash.filter(projects, function (item) {
-                return item.overallStatus === status;
-            });
-            return $q.when(items);
+        function getProjectItems(projects, filter) {
+            if (filter === 'A') {
+                return $q.when(projectData.projects);
+            } else {
+                var items = lodash.filter(projects, function (item) {
+                    return item.overallStatus === filter;
+                });
+                return $q.when(items);
+            }
         }
 
         function isDataLoadNotRequired() {
@@ -180,13 +184,38 @@
         function getGreenProjects() {
             return isDataLoadNotRequired() ? getProjectItems(projectData.projects, 'G') :
                 getProjectsUsingHttp().then(function (data) {
-                    return getYellowProjects(data);
+                    return getGreenProjects(data);
                 });
         }
 
         function getProjects() {
-            return isDataLoadNotRequired() ? $q.when(projectData.projects) :
-                getProjectsUsingHttp();
+            var status = $state.current.name;
+            var filter = 'A';
+            if (status === 'green') {
+                filter = 'G';
+            } else if (status === 'yellow') {
+                filter = 'Y';
+            } else if (status === 'red') {
+                filter = 'R';
+            }
+
+            return isDataLoadNotRequired() ? getProjectItems(projectData.projects, filter) :
+                getProjectsUsingHttp().then(function (data) {
+                    return getProjects(status);
+                });
+        }
+
+        function getTitle() {
+            var status = $state.current.name;
+            var title = 'All Projects';
+            if (status === 'green') {
+                title = 'Green Projects';
+            } else if (status === 'yellow') {
+                title = 'Yellow Projects';
+            } else if (status === 'red') {
+                title = 'Red Projects';
+            }
+            return title;
         }
 
         function getProject(id) {
@@ -200,9 +229,6 @@
 
         return {
             getProjects: getProjects,
-            getRedProjects: getRedProjects,
-            getYellowProjects: getYellowProjects,
-            getGreenProjects: getGreenProjects,
             getProject: getProject,
             getRedProjectsCount: function () {
                 return projectData.redCounts;
@@ -213,7 +239,11 @@
             getGreenProjectsCount: function () {
                 return projectData.greenCounts;
             },
-            saveProject: saveProject
+            getTotalProjectsCount: function () {
+                return projectData.greenCounts + projectData.yellowCounts + projectData.redCounts;
+            },
+            saveProject: saveProject,
+            getTitle: getTitle
         };
     }
 })();
