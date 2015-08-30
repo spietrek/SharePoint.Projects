@@ -43,9 +43,6 @@
         "api-check": "7.5.0",
         "angular-formly": "6.24.23",
         "angular-formly-templates-bootstrap": "6.0.0",
-        "lodash": "3.10.1",
-        "angular-mocks": "~1.4.5",
-        "sinon": "http://sinonjs.org/releases/sinon-1.15.4.js",
-        "bardjs": "~0.1.4"
+        "lodash": "3.10.1"
     }
 }
