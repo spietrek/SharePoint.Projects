@@ -10,9 +10,6 @@
     function YellowProjectsController($q, dataService, logger, ngTastyService) {
         var vm = this;
         vm.title = 'Yellow Projects';
-        vm.tableTheme = ngTastyService.tableTheme();
-        vm.tableNotSortBy = ngTastyService.tableNotSortBy();
-        vm.tableCenteredColumns = ngTastyService.tableCenteredColumns();
         vm.resource = ngTastyService.resource();
 
         activate();
@@ -36,9 +33,5 @@
                 return data;
             });
         }
-
-        vm.getProjectsIconClass = function (value) {
-            return ngTastyService.projectIconClass()[value];
-        };
     }
 })();

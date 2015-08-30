@@ -3,70 +3,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mt10">
-                    <div class="col-lg-3 col-sm-4">
-                        <a href="#/projects">
-                            <div class="panel widget bviolet">
-                                <div class="row row-table">
-                                    <div class="col-xs-4 text-center pv-lg">
-                                        <i class="fa fa-folder-open fa-3x"></i>
-                                    </div>
-                                    <div class="col-xs-8 pv-lg">
-                                        <div class="h2 mt0">{{vm.totalProjectsCount()}}</div>
-                                        <div class="fs16 text-uppercase">Total Projects</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                    <div class="col-sm-3">
+                        <csg-widget-dashboard color="bgreen" href="projects" header="Total Projects" count="{{vm.totalProjectsCount()}}"></csg-widget-dashboard>
                     </div>
 
-                    <div class="col-lg-3 col-sm-4">
-                        <a href="#/red">
-                            <div class="panel widget bred">
-                                <div class="row row-table">
-                                    <div class="col-xs-4 text-center pv-lg">
-                                        <i class="fa fa-warning fa-3x"></i>
-                                    </div>
-                                    <div class="col-xs-8 pv-lg">
-                                        <div class="h2 mt0">{{vm.redProjectsCount}}</div>
-                                        <div class="fs16 text-uppercase">Red Projects</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                    <div class="col-sm-3">
+                        <csg-widget-dashboard color="bred" href="red" header="Red Projects" count="{{vm.redProjectsCount}}"></csg-widget-dashboard>
                     </div>
 
-                    <div class="col-lg-3 col-sm-4">
-                        <a href="#/yellow">
-                            <div class="panel widget borange">
-                                <div class="row row-table">
-                                    <div class="col-xs-4 text-center pv-lg">
-                                        <i class="fa fa-info-circle fa-3x"></i>
-                                    </div>
-                                    <div class="col-xs-8 pv-lg">
-                                        <div class="h2 mt0">{{vm.yellowProjectsCount}}</div>
-                                        <div class="fs16 text-uppercase">Yellow Projects</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                    <div class="col-sm-3">
+                        <csg-widget-dashboard color="borange" href="yellow" header="Yellow Projects" count="{{vm.yellowProjectsCount}}"></csg-widget-dashboard>
                     </div>
 
-                    <div class="col-lg-3 col-sm-4">
-                        <a href="#/green">
-                            <div class="panel widget bgreen">
-                                <div class="row row-table">
-                                    <div class="col-xs-4 text-center pv-lg">
-                                        <i class="fa fa-thumbs-up fa-3x"></i>
-                                    </div>
-                                    <div class="col-xs-8 pv-lg">
-                                        <div class="h2 mt0">{{vm.greenProjectsCount}}</div>
-                                        <div class="fs16 text-uppercase">Green Projects</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                    <div class="col-sm-3">
+                        <csg-widget-dashboard color="bgreen" href="green" header="Green Projects" count="{{vm.greenProjectsCount}}"></csg-widget-dashboard>
                     </div>
-
                 </div>
             </div>
             <div class="row">
@@ -77,38 +28,7 @@
                                 <h2 class="panel-title">{{vm.title}}</h2>
                             </div>
                             <div class="panel-body">
-                                <div class="pull-right">
-                                    Find:
-                                    <input ng-model="vm.searchText">
-                                </div>
-
-                                <div tasty-table bind-resource="vm.resource" bind-filters="vm.searchText" bind-theme="vm.tableTheme" watch-resource="collection">
-                                    <table class="table table-striped table-condensed">
-                                        <thead tasty-thead bind-not-sort-by="vm.tableNotSortBy" bind-centered-columns="vm.tableCenteredColumns">
-                                        </thead>
-                                        <tbody>
-                                            <tr ng-repeat="row in rows track by $index">
-                                                <td>{{ row.name }}</td>
-                                                <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.overallStatus);"></i>
-                                                </td>
-                                                <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.budgetStatus);"></i>
-                                                </td>
-                                                <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.resourceStatus);"></i>
-                                                </td>
-                                                <td class="text-center"><i ng-class="vm.getProjectsIconClass(row.scheduleStatus);"></i>
-                                                </td>
-                                                <td>{{ row.projectManager }}</td>
-                                                <td class="text-center">{{ row.risksCount }}</td>
-                                                <td class="text-center">
-                                                    <a ui-sref="edit({formID:row.id})">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div tasty-pagination></div>
-                                </div>
+                                <csg-widget-table resource="vm.resource"></csg-widget-table>
                             </div>
                         </div>
                     </div>

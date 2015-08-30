@@ -7,12 +7,6 @@
 
     /* @ngInject */
     function csgWidgetHeader() {
-        //Usage:
-        //<div csg-widget-header title="vm.map.title"></div>
-        // Creates:
-        // <div csg-widget-header=""
-        //      title="Movie"
-        //      allow-collapse="true" </div>
         var directive = {
             scope: {
                 'title': '@',
@@ -20,7 +14,7 @@
                 'rightText': '@',
                 'allowCollapse': '@'
             },
-            templateUrl: 'app/widgets/widget-header.html',
+            templateUrl: 'app/widgets/header.html',
             restrict: 'EA'
         };
         return directive;
