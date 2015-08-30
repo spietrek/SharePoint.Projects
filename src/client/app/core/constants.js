@@ -1,4 +1,4 @@
-/* global toastr:false, moment:false, _: false */
+/* global toastr:false, moment:false, _: false, $: false */
 (function() {
     'use strict';
 
@@ -6,5 +6,6 @@
         .module('app.core')
         .constant('toastr', toastr)
         .constant('moment', moment)
-        .constant('lodash', _);
+        .constant('lodash', _)
+        .constant('$', $);
 })();

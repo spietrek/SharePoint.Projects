@@ -12,10 +12,23 @@
         vm.busyMessage = 'Please wait ...';
         vm.isBusy = true;
         $rootScope.showSplash = true;
+        vm.navoptions = [
+            {
+                title: 'Home',
+                link: '#/home'
+            },
+            {
+                title: 'Create Project',
+                link: '#/form/'
+            },
+            {
+                title: 'Admin',
+                link: '#/admin'
+            }
+        ];
         vm.navline = {
             title: config.appTitle,
-            text: 'Created by John Papa',
-            link: 'http://twitter.com/john_papa'
+            url: '#/home'
         };
 
         activate();
