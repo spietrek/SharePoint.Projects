@@ -11,13 +11,17 @@
                 'href': '@',
                 'color': '@',
                 'header': '@',
-                'count': '@'
+                'count': '@',
+                'icon': '@'
             },
             templateUrl: 'app/projects/dashboard.html',
             restrict: 'EA',
             controller: ['$scope', function ($scope) {
                 $scope.getBackgroundColor = function() {
                     return $scope.color;
+                };
+                $scope.getDashboardIcon = function() {
+                    return $scope.icon;
                 };
             }]
         };
