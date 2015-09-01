@@ -16,7 +16,7 @@
         function activate() {
             var promises = [getProjects()];
             return $q.all(promises).then(function () {
-                logger.info('Activated All Projects View');
+                logger.info('Activated Projects View');
             });
         }
 
