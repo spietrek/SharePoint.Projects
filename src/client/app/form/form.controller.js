@@ -7,7 +7,7 @@
 
     FormController.$inject = ['$stateParams', '$state', '$q', 'logger', 'dataService',
                               'formFields'];
-    /* @ngInject */
+
     function FormController($stateParams, $state, $q, logger, dataService, formFields) {
         var vm = this;
         vm.title = 'Form';

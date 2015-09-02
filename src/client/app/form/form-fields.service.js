@@ -5,7 +5,6 @@
         .module('app.form')
         .factory('formFields', formFields);
 
-    /* @ngInject */
     function formFields() {
         var srv = {};
 

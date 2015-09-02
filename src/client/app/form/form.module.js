@@ -21,13 +21,13 @@
                         }
                     }
                 },
-                controller: /* @ngInject */ function ($scope) {
+                controller: ['$scope', function ($scope) {
                     $scope.copyItemOptions = copyItemOptions;
 
                     function copyItemOptions() {
                         return angular.copy($scope.to.inputOptions);
                     }
-                }
+                }]
             });
         });
 })();

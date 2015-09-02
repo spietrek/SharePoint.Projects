@@ -6,7 +6,7 @@
         .directive('csgTopNav', csgTopNav);
 
     csgTopNav.$inject = ['$'];
-    /* @ngInject */
+
     function csgTopNav($) {
         var directive = {
             bindToController: true,

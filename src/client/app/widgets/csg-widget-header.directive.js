@@ -5,7 +5,6 @@
         .module('app.widgets')
         .directive('csgWidgetHeader', csgWidgetHeader);
 
-    /* @ngInject */
     function csgWidgetHeader() {
         var directive = {
             scope: {

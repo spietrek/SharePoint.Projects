@@ -6,7 +6,9 @@ var glob = require('glob');
 var gulp = require('gulp');
 var path = require('path');
 var _ = require('lodash');
-var $ = require('gulp-load-plugins')({lazy: true});
+var $ = require('gulp-load-plugins')({
+    lazy: true
+});
 
 var colors = $.util.colors;
 var envenv = $.util.env;
@@ -33,14 +35,16 @@ gulp.task('default', ['help']);
  * vet the code and create coverage report
  * @return {Stream}
  */
-gulp.task('vet', function() {
+gulp.task('vet', function () {
     log('Analyzing source with JSHint and JSCS');
 
     return gulp
         .src(config.alljs)
         .pipe($.if(args.verbose, $.print()))
         .pipe($.jshint())
-        .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
+        .pipe($.jshint.reporter('jshint-stylish', {
+            verbose: true
+        }))
         .pipe($.jshint.reporter('fail'))
         .pipe($.jscs());
 });
@@ -48,7 +52,7 @@ gulp.task('vet', function() {
 /**
  * Create a visualizer report
  */
-gulp.task('plato', function(done) {
+gulp.task('plato', function (done) {
     log('Analyzing source with Plato');
     log('Browse to /report/plato/index.html to see Plato results');
 
@@ -59,15 +63,17 @@ gulp.task('plato', function(done) {
  * Compile less to css
  * @return {Stream}
  */
-gulp.task('styles', ['clean-styles'], function() {
+gulp.task('styles', ['clean-styles'], function () {
     log('Compiling Less --> CSS');
 
     return gulp
         .src(config.less)
         .pipe($.plumber()) // exit gracefully if something fails after this
         .pipe($.less())
-    //        .on('error', errorLogger) // more verbose and dupe output. requires emit.
-        .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
+        //        .on('error', errorLogger) // more verbose and dupe output. requires emit.
+        .pipe($.autoprefixer({
+            browsers: ['last 2 version', '> 5%']
+        }))
         .pipe(gulp.dest(config.temp));
 });
 
@@ -75,7 +81,7 @@ gulp.task('styles', ['clean-styles'], function() {
  * Copy fonts
  * @return {Stream}
  */
-gulp.task('fonts', ['clean-fonts'], function() {
+gulp.task('fonts', ['clean-fonts'], function () {
     log('Copying fonts');
 
     return gulp
@@ -87,16 +93,18 @@ gulp.task('fonts', ['clean-fonts'], function() {
  * Compress images
  * @return {Stream}
  */
-gulp.task('images', ['clean-images'], function() {
+gulp.task('images', ['clean-images'], function () {
     log('Compressing and copying images');
 
     return gulp
         .src(config.images)
-        .pipe($.imagemin({optimizationLevel: 4}))
+        .pipe($.imagemin({
+            optimizationLevel: 4
+        }))
         .pipe(gulp.dest(config.build + 'images'));
 });
 
-gulp.task('less-watcher', function() {
+gulp.task('less-watcher', function () {
     gulp.watch([config.less], ['styles']);
 });
 
@@ -104,18 +112,20 @@ gulp.task('less-watcher', function() {
  * Create $templateCache from the html templates
  * @return {Stream}
  */
-gulp.task('templatecache', ['clean-code'], function() {
+gulp.task('templatecache', ['clean-code'], function () {
     log('Creating an AngularJS $templateCache');
 
     return gulp
         .src(config.htmltemplates)
         .pipe($.if(args.verbose, $.bytediff.start()))
-        .pipe($.minifyHtml({empty: true}))
+        .pipe($.minifyHtml({
+            empty: true
+        }))
         .pipe($.if(args.verbose, $.bytediff.stop(bytediffFormatter)))
         .pipe($.angularTemplatecache(
-        config.templateCache.file,
-        config.templateCache.options
-    ))
+            config.templateCache.file,
+            config.templateCache.options
+        ))
         .pipe(gulp.dest(config.temp));
 });
 
@@ -123,7 +133,7 @@ gulp.task('templatecache', ['clean-code'], function() {
  * Wire-up the bower dependencies
  * @return {Stream}
  */
-gulp.task('wiredep', function() {
+gulp.task('wiredep', function () {
     log('Wiring the bower dependencies into the html');
 
     var wiredep = require('wiredep').stream;
@@ -139,7 +149,7 @@ gulp.task('wiredep', function() {
         .pipe(gulp.dest(config.client));
 });
 
-gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
+gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function () {
     log('Wire up css into the html, after files are ready');
 
     return gulp
@@ -152,9 +162,9 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
  * Run the spec runner
  * @return {Stream}
  */
-gulp.task('serve-specs', ['build-specs'], function(done) {
+gulp.task('serve-specs', ['build-specs'], function (done) {
     log('run the spec runner');
-    serve(true /* isDev */, true /* specRunner */);
+    serve(true /* isDev */ , true /* specRunner */ );
     done();
 });
 
@@ -162,7 +172,7 @@ gulp.task('serve-specs', ['build-specs'], function(done) {
  * Inject all the spec files into the specs.html
  * @return {Stream}
  */
-gulp.task('build-specs', ['templatecache'], function(done) {
+gulp.task('build-specs', ['templatecache'], function (done) {
     log('building the spec runner');
 
     var wiredep = require('wiredep').stream;
@@ -191,7 +201,7 @@ gulp.task('build-specs', ['templatecache'], function(done) {
  * This is separate so we can run tests on
  * optimize before handling image or fonts
  */
-gulp.task('build', ['optimize', 'images', 'fonts'], function() {
+gulp.task('build', ['optimize', 'images', 'fonts'], function () {
     log('Building everything');
 
     var msg = {
@@ -209,10 +219,12 @@ gulp.task('build', ['optimize', 'images', 'fonts'], function() {
  * and inject them into the new index.html
  * @return {Stream}
  */
-gulp.task('optimize', ['inject', 'test'], function() {
+gulp.task('optimize', ['inject', 'test'], function () {
     log('Optimizing the js, css, and html');
 
-    var assets = $.useref.assets({searchPath: './'});
+    var assets = $.useref.assets({
+        searchPath: './'
+    });
     // Filters are named for the gulp-useref path
     var cssFilter = $.filter('**/*.css');
     var jsAppFilter = $.filter('**/' + config.optimized.app);
@@ -225,26 +237,28 @@ gulp.task('optimize', ['inject', 'test'], function() {
         .pipe($.plumber())
         .pipe(inject(templateCache, 'templates'))
         .pipe(assets) // Gather all assets from the html with useref
-    // Get the css
+        // Get the css
         .pipe(cssFilter)
         .pipe($.csso())
         .pipe(cssFilter.restore())
-    // Get the custom javascript
+        // Get the custom javascript
         .pipe(jsAppFilter)
-        .pipe($.ngAnnotate({add: true}))
+        .pipe($.ngAnnotate({
+            add: true
+        }))
         .pipe($.uglify())
         .pipe(getHeader())
         .pipe(jsAppFilter.restore())
-    // Get the vendor javascript
+        // Get the vendor javascript
         .pipe(jslibFilter)
         .pipe($.uglify()) // another option is to override wiredep to use min files
         .pipe(jslibFilter.restore())
-    // Take inventory of the file names for future rev numbers
+        // Take inventory of the file names for future rev numbers
         .pipe($.rev())
-    // Apply the concat and file replacement with useref
+        // Apply the concat and file replacement with useref
         .pipe(assets.restore())
         .pipe($.useref())
-    // Replace the file names in the html with rev numbers
+        // Replace the file names in the html with rev numbers
         .pipe($.revReplace())
         .pipe(gulp.dest(config.build));
 });
@@ -253,7 +267,7 @@ gulp.task('optimize', ['inject', 'test'], function() {
  * Remove all files from the build, temp, and reports folders
  * @param  {Function} done - callback when complete
  */
-gulp.task('clean', function(done) {
+gulp.task('clean', function (done) {
     var delconfig = [].concat(config.build, config.temp, config.report);
     log('Cleaning: ' + $.util.colors.blue(delconfig));
     del(delconfig, done);
@@ -263,7 +277,7 @@ gulp.task('clean', function(done) {
  * Remove all fonts from the build folder
  * @param  {Function} done - callback when complete
  */
-gulp.task('clean-fonts', function(done) {
+gulp.task('clean-fonts', function (done) {
     clean(config.build + 'fonts/**/*.*', done);
 });
 
@@ -271,7 +285,7 @@ gulp.task('clean-fonts', function(done) {
  * Remove all images from the build folder
  * @param  {Function} done - callback when complete
  */
-gulp.task('clean-images', function(done) {
+gulp.task('clean-images', function (done) {
     clean(config.build + 'images/**/*.*', done);
 });
 
@@ -279,7 +293,7 @@ gulp.task('clean-images', function(done) {
  * Remove all styles from the build and temp folders
  * @param  {Function} done - callback when complete
  */
-gulp.task('clean-styles', function(done) {
+gulp.task('clean-styles', function (done) {
     var files = [].concat(
         config.temp + '**/*.css',
         config.build + 'styles/**/*.css'
@@ -291,7 +305,7 @@ gulp.task('clean-styles', function(done) {
  * Remove all js and html from the build and temp folders
  * @param  {Function} done - callback when complete
  */
-gulp.task('clean-code', function(done) {
+gulp.task('clean-code', function (done) {
     var files = [].concat(
         config.temp + '**/*.js',
         config.build + 'js/**/*.js',
@@ -306,7 +320,7 @@ gulp.task('clean-code', function(done) {
  *    gulp test --startServers
  * @return {Stream}
  */
-gulp.task('test', ['vet', 'templatecache'], function(done) {
+gulp.task('test', ['vet', 'templatecache'], function (done) {
     startTests(true /*singleRun*/ , done);
 });
 
@@ -316,7 +330,7 @@ gulp.task('test', ['vet', 'templatecache'], function(done) {
  * To start servers and run midway specs as well:
  *    gulp autotest --startServers
  */
-gulp.task('autotest', function(done) {
+gulp.task('autotest', function (done) {
     startTests(false /*singleRun*/ , done);
 });
 
@@ -325,8 +339,8 @@ gulp.task('autotest', function(done) {
  * --debug-brk or --debug
  * --nosync
  */
-gulp.task('serve-dev', ['inject'], function() {
-    serve(true /*isDev*/);
+gulp.task('serve-dev', ['inject'], function () {
+    serve(true /*isDev*/ );
 });
 
 /**
@@ -334,8 +348,8 @@ gulp.task('serve-dev', ['inject'], function() {
  * --debug-brk or --debug
  * --nosync
  */
-gulp.task('serve-build', ['build'], function() {
-    serve(false /*isDev*/);
+gulp.task('serve-build', ['build'], function () {
+    serve(false /*isDev*/ );
 });
 
 /**
@@ -346,7 +360,7 @@ gulp.task('serve-build', ['build'], function() {
  * --type=major will bump the major version x.*.*
  * --version=1.2.3 will bump to a specific version and ignore other flags
  */
-gulp.task('bump', function() {
+gulp.task('bump', function () {
     var msg = 'Bumping versions';
     var type = args.type;
     var version = args.ver;
@@ -396,7 +410,9 @@ function clean(path, done) {
  * @returns {Stream}   The stream
  */
 function inject(src, label, order) {
-    var options = {read: false};
+    var options = {
+        read: false
+    };
     if (label) {
         options.name = 'inject:' + label;
     }
@@ -410,7 +426,7 @@ function inject(src, label, order) {
  * @param   {Array} order Glob array pattern
  * @returns {Stream} The ordered stream
  */
-function orderSrc (src, order) {
+function orderSrc(src, order) {
     //order = order || ['**/*'];
     return gulp
         .src(src)
@@ -439,24 +455,26 @@ function serve(isDev, specRunner) {
     }
 
     return $.nodemon(nodeOptions)
-        .on('restart', ['vet'], function(ev) {
-        log('*** nodemon restarted');
-        log('files changed:\n' + ev);
-        setTimeout(function() {
-            browserSync.notify('reloading now ...');
-            browserSync.reload({stream: false});
-        }, config.browserReloadDelay);
-    })
+        .on('restart', ['vet'], function (ev) {
+            log('*** nodemon restarted');
+            log('files changed:\n' + ev);
+            setTimeout(function () {
+                browserSync.notify('reloading now ...');
+                browserSync.reload({
+                    stream: false
+                });
+            }, config.browserReloadDelay);
+        })
         .on('start', function () {
-        log('*** nodemon started');
-        startBrowserSync(isDev, specRunner);
-    })
+            log('*** nodemon started');
+            startBrowserSync(isDev, specRunner);
+        })
         .on('crash', function () {
-        log('*** nodemon crashed: script crashed for some reason');
-    })
+            log('*** nodemon crashed: script crashed for some reason');
+        })
         .on('exit', function () {
-        log('*** nodemon exited cleanly');
-    });
+            log('*** nodemon exited cleanly');
+        });
 }
 
 function getNodeOptions(isDev) {
@@ -519,7 +537,7 @@ function startBrowserSync(isDev, specRunner) {
         logPrefix: 'gulp-patterns',
         notify: true,
         reloadDelay: 0 //1000
-    } ;
+    };
     if (specRunner) {
         options.startPath = config.specRunnerFile;
     }
@@ -550,7 +568,9 @@ function startPlatoVisualizer(done) {
         if (args.verbose) {
             log(overview.summary);
         }
-        if (done) { done(); }
+        if (done) {
+            done();
+        }
     }
 }
 
@@ -659,7 +679,7 @@ function getHeader() {
  * Can pass in a string, object or array.
  */
 function log(msg) {
-    if (typeof(msg) === 'object') {
+    if (typeof (msg) === 'object') {
         for (var item in msg) {
             if (msg.hasOwnProperty(item)) {
                 $.util.log($.util.colors.blue(msg[item]));

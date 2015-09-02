@@ -6,7 +6,7 @@
         .controller('ProjectsController', ProjectsController);
 
     ProjectsController.$inject = ['$q', 'dataService', 'logger', 'ngTastyService'];
-    /* @ngInject */
+
     function ProjectsController($q, dataService, logger, ngTastyService) {
         var vm = this;
         vm.resource = ngTastyService.resource();

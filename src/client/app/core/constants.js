@@ -1,5 +1,5 @@
-/* global toastr:false, moment:false, _: false, $: false */
-(function() {
+/* global toastr:false, moment:false, _: false, $: false, _spPageContextInfo: false */
+(function () {
     'use strict';
 
     angular
@@ -7,5 +7,6 @@
         .constant('toastr', toastr)
         .constant('moment', moment)
         .constant('lodash', _)
-        .constant('$', $);
+        .constant('$', $)
+        .constant('_spPageContextInfo', _spPageContextInfo);
 })();

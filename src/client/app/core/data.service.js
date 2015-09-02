@@ -6,7 +6,7 @@
         .factory('dataService', dataService);
 
     dataService.$inject = ['$http', '$q', 'logger', 'lodash', 'spPageService', 'moment', '$state'];
-    /* @ngInject */
+
     function dataService($http, $q, logger, lodash, spPageService, moment, $state) {
         var projectData = {
             projects: [],

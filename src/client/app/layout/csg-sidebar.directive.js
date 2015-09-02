@@ -1,18 +1,11 @@
-(function() {
+(function () {
     'use strict';
 
     angular
         .module('app.layout')
         .directive('csgSidebar', csgSidebar);
 
-    /* @ngInject */
-    function csgSidebar () {
-        // Opens and closes the sidebar menu.
-        // Usage:
-        //  <div csg-sidebar">
-        //  <div csg-sidebar whenDoneAnimating="vm.sidebarReady()">
-        // Creates:
-        //  <div csg-sidebar class="sidebar">
+    function csgSidebar() {
         var directive = {
             link: link,
             restrict: 'EA',
