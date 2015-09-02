@@ -1,4 +1,4 @@
-/* global toastr:false, moment:false, _: false, $: false, _spPageContextInfo: false */
+/* global toastr:false, moment:false, _: false, $: false */
 (function () {
     'use strict';
 
@@ -7,6 +7,5 @@
         .constant('toastr', toastr)
         .constant('moment', moment)
         .constant('lodash', _)
-        .constant('$', $)
-        .constant('_spPageContextInfo', _spPageContextInfo);
+        .constant('$', $);
 })();

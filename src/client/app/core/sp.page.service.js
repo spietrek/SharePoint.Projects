@@ -7,9 +7,7 @@
         .module('app.core')
         .factory('spPageService', spPageService);
 
-    spPageService.$inject = ['_spPageContextInfo'];
-
-    function spPageService(_spPageContextInfo) {
+    function spPageService() {
         var service = {
             getInfo: getInfo
         };
