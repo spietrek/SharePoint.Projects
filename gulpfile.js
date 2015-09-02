@@ -164,7 +164,7 @@ gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function () {
  */
 gulp.task('serve-specs', ['build-specs'], function (done) {
     log('run the spec runner');
-    serve(true /* isDev */ , true /* specRunner */ );
+    serve(true, true); /* isDev */ /* specRunner */
     done();
 });
 
@@ -321,7 +321,7 @@ gulp.task('clean-code', function (done) {
  * @return {Stream}
  */
 gulp.task('test', ['vet', 'templatecache'], function (done) {
-    startTests(true /*singleRun*/ , done);
+    startTests(true, done); /*singleRun*/
 });
 
 /**
@@ -331,7 +331,7 @@ gulp.task('test', ['vet', 'templatecache'], function (done) {
  *    gulp autotest --startServers
  */
 gulp.task('autotest', function (done) {
-    startTests(false /*singleRun*/ , done);
+    startTests(false, done); /*singleRun*/
 });
 
 /**
@@ -340,7 +340,7 @@ gulp.task('autotest', function (done) {
  * --nosync
  */
 gulp.task('serve-dev', ['inject'], function () {
-    serve(true /*isDev*/ );
+    serve(true); /*isDev*/
 });
 
 /**
@@ -349,7 +349,7 @@ gulp.task('serve-dev', ['inject'], function () {
  * --nosync
  */
 gulp.task('serve-build', ['build'], function () {
-    serve(false /*isDev*/ );
+    serve(false); /*isDev*/
 });
 
 /**
