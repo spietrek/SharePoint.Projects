@@ -5,11 +5,22 @@
         .module('app.admin')
         .controller('AdminController', AdminController);
 
-    AdminController.$inject = ['logger'];
+    AdminController.$inject = ['logger', '$http', '$q', 'moment'];
 
-    function AdminController(logger) {
+    function AdminController(logger, $http, $q, moment) {
         var vm = this;
         vm.title = 'Admin';
+        var restUrl = 'https://cardinalsolutionsrtp.sharepoint.com/sites/raimobile/_api/';
+        var listDataSvcUrl = 'https://cardinalsolutionsrtp.sharepoint.com/sites/raimobile/_vti_bin/listdata.svc';
+        var quiz = {
+            title: 'Steve Pietrek Test',
+            startDate: new Date(),
+            endDate: new Date(),
+            feedbackEachQuestion: 1,
+            feedbackEnd: 1,
+            questions: [],
+            answerKey: [0,3,2,1,5]
+        };
 
         activate();
 
@@ -18,7 +29,6 @@
         }
 
         function getItems(listName, selectFields, filter, expand) {
-            // Need to update spPageService.info().restUrl to point to other site
             var restQuery = {
                 method: 'getbytitle(\'' + listName + '\')/items',
                 getSelectFields: function () {
@@ -31,7 +41,7 @@
                     return (angular.isDefined(expand) && expand !== '') ? '&$expand=' + expand : '';
                 },
                 url: function () {
-                    return spPageService.info().restUrl + 'lists/' + this.method +
+                    return restUrl + 'lists/' + this.method +
                         '?$top=1000' + this.getSelectFields() + this.getFilter() + this.getExpand() +
                         '&$orderBy=Title';
                 }
@@ -62,10 +72,9 @@
         }
 
         function createItem(listName, payload) {
-            // Need to update spPageService.info().restUrl to point to other site
             var spQuery = {
                 url: function () {
-                    return spPageService.info().listDataSvcUrl + '/' + listName;
+                    return listDataSvcUrl + '/' + listName;
                 }
             };
 
@@ -94,37 +103,40 @@
         }
 
         vm.saveItem = function() {
-            // Need to update quiz model
-            var quiz = {
-                title: 'Steve Pietrek Test',
-                questions: [],
-                answerKey: []
-            }
-            // Need to update model for all fields
             var model = {
                 Title: quiz.title,
-                Questions: JSON.stringify(this.quiz.questions),
-                AnswerKey: JSON.stringify(this.quiz.answerKey)
+                StartDate: quiz.startDate,
+                EndDate: quiz.endDate,
+                FeedbackEachQuestion: quiz.feedbackEachQuestion === 1,
+                FeedbackEnd: quiz.feedbackEnd === 1,
+                Questions: JSON.stringify(quiz.questions),
+                AnswerKey: JSON.stringify(quiz.answerKey)
             };
-            // Need to update list name
-            dataService.createItem('Requests', model).then(function (data) {
+            createItem('QuizList', model).then(function (data) {
             });
-        }
+        };
 
         vm.openItem = function() {
-            // Need to update select fields
-            var selectFields = 'ID,Questions,AnswerKey';
-            // Need to update item index
-            var filter = 'ID eq 10';
-            // Need to update list name
-            return dataService.getItems('Requests', selectFields, filter).then(function (data) {
+            var selectFields = 'ID,Title,StartDate,EndDate,FeedbackEachQuestion,FeedbackEnd,Questions,AnswerKey';
+            var filter = 'ID eq 5';
+            return getItems('QuizList', selectFields, filter).then(function (data) {
                 if (data.length > 0) {
+                    var item = data[0];
+                    console.log(quiz);
+                    console.log(item);
+                    quiz.title = item.Title;
+                    quiz.startDate = moment(item.StartDate).toDate();
+                    quiz.endDate = moment(item.EndDate).toDate();
+                    quiz.feedbackEachQuestion = item.FeedbackEachQuestion ? 1 : 0;
+                    quiz.feedbackEnd = item.FeedbackEnd ? 1 : 0;
+                    quiz.questions = JSON.parse(item.Questions);
+                    quiz.answerKey = JSON.parse(item.AnswerKey);
+                    console.log(quiz);
                     logger.success('Quiz was found');
-                    console.log(data);
                 } else {
                     logger.error('Quiz could not be found.');
                 }
             });
-        }
+        };
     }
 })();
