@@ -40,9 +40,9 @@
         "toastr": "2.1.2",
         "angular-animate": "1.4.5",
         "ng-tasty": "0.5.8",
-        "api-check": "7.5.0",
-        "angular-formly": "6.24.23",
-        "angular-formly-templates-bootstrap": "6.0.0",
+        "api-check": "~7.5.0",
+        "angular-formly": "~6.24.23",
+        "angular-formly-templates-bootstrap": "~6.0.0",
         "lodash": "3.10.1"
     }
 }
