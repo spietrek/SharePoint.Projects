@@ -13,7 +13,7 @@
         'rightText': '@',
         'allowCollapse': '@'
       },
-      templateUrl: 'app/widgets/header.html',
+      templateUrl: 'app/widgets/header/header.html',
       restrict: 'EA'
     };
     return directive;

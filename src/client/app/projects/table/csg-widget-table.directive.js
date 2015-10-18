@@ -10,7 +10,7 @@
       scope: {
         'resource': '='
       },
-      templateUrl: 'app/projects/table.html',
+      templateUrl: 'app/projects/table/table.html',
       restrict: 'EA',
       controller: ['$scope', 'ngTastyService', 'dataService', function ($scope, ngTastyService, dataService) {
         $scope.tableTheme = ngTastyService.tableTheme();

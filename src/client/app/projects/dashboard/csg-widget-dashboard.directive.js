@@ -14,7 +14,7 @@
         'count': '@',
         'icon': '@'
       },
-      templateUrl: 'app/projects/dashboard.html',
+      templateUrl: 'app/projects/dashboard/dashboard.html',
       restrict: 'EA',
       controller: ['$scope', function ($scope) {
         $scope.getBackgroundColor = function () {

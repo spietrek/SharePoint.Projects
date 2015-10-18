@@ -17,7 +17,7 @@
         'navline': '=',
         'navoptions': '='
       },
-      templateUrl: 'app/layout/csg-top-nav.html'
+      templateUrl: 'app/layout/topnav/csg-top-nav.html'
     };
 
     function TopNavController() {
