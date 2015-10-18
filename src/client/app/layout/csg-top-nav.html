@@ -1,21 +1,21 @@
 <nav class="navbar navbar-inverse" style="border-radius:0;margin-bottom:0;">
-    <div class="navbar-header">
-        <a href="{{vm.navline.url}}" class="navbar-brand"><span class="brand-title">{{vm.navline.title}}</span></a>
-        <a class="btn navbar-btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </a>
-    </div>
-    <div class="navbar-collapse collapse">
-        <div class="pull-right navbar-logo">
-            <ul class="nav navbar-nav pull-right">
-                <li ng-repeat="option in vm.navoptions track by $index">
-                    <a ng-href="{{option.link}}">
+  <div class="navbar-header">
+    <a href="{{vm.navline.url}}" class="navbar-brand"><span class="brand-title">{{vm.navline.title}}</span></a>
+    <a class="btn navbar-btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+  </div>
+  <div class="navbar-collapse collapse">
+    <div class="pull-right navbar-logo">
+      <ul class="nav navbar-nav pull-right">
+        <li ng-repeat="option in vm.navoptions track by $index">
+          <a ng-href="{{option.link}}">
                         {{option.title}}
                     </a>
-                </li>
-            </ul>
-        </div>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>

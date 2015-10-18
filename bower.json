@@ -1,48 +1,48 @@
 {
-    "name": "projects",
-    "version": "0.0.1",
-    "description": "projects",
-    "authors": [],
-    "license": "MIT",
-    "ignore": [
+  "name": "projects",
+  "version": "0.0.1",
+  "description": "projects",
+  "authors": [],
+  "license": "MIT",
+  "ignore": [
         "**/.*",
         "node_modules",
         "bower_components",
         "test",
         "tests"
     ],
-    "overrides": {
-        "bootstrap": {
-            "main": [
+  "overrides": {
+    "bootstrap": {
+      "main": [
                 "dist/js/bootstrap.js",
                 "dist/css/bootstrap.css",
                 "less/bootstrap.less"
             ]
-        }
-    },
-    "resolutions": {
-        "angular": "1.4.5"
-    },
-    "devDependencies": {
-        "angular-mocks": "1.4.5",
-        "sinon": "http://sinonjs.org/releases/sinon-1.15.4.js",
-        "bardjs": "0.1.8"
-    },
-    "dependencies": {
-        "jquery": "2.1.4",
-        "angular": "1.4.5",
-        "angular-sanitize": "1.4.5",
-        "bootstrap": "3.3.5",
-        "extras.angular.plus": "~0.9.2",
-        "font-awesome": "4.3.0",
-        "moment": "2.10.6",
-        "angular-ui-router": "0.2.15",
-        "toastr": "2.1.2",
-        "angular-animate": "1.4.5",
-        "ng-tasty": "0.5.8",
-        "api-check": "~7.5.0",
-        "angular-formly": "~6.24.23",
-        "angular-formly-templates-bootstrap": "~6.0.0",
-        "lodash": "3.10.1"
     }
+  },
+  "resolutions": {
+    "angular": "1.4.7"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.5",
+    "sinon": "http://sinonjs.org/releases/sinon-1.15.4.js",
+    "bardjs": "0.1.8"
+  },
+  "dependencies": {
+    "jquery": "2.1.4",
+    "angular": "~1.4.5",
+    "angular-sanitize": "~1.4.5",
+    "bootstrap": "3.3.5",
+    "extras.angular.plus": "~0.9.2",
+    "font-awesome": "4.3.0",
+    "moment": "2.10.6",
+    "angular-ui-router": "0.2.15",
+    "toastr": "2.1.2",
+    "angular-animate": "~1.4.5",
+    "ng-tasty": "0.5.8",
+    "api-check": "~7.5.0",
+    "angular-formly": "~7.2.1",
+    "angular-formly-templates-bootstrap": "~6.1.5",
+    "lodash": "3.10.1"
+  }
 }

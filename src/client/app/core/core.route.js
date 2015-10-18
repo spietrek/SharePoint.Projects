@@ -1,25 +1,25 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('app.core')
-        .run(appRun);
+  angular
+    .module('app.core')
+    .run(appRun);
 
-    function appRun(routerHelper) {
-        var otherwise = '/all';
-        routerHelper.configureStates(getStates(), otherwise);
-    }
+  function appRun(routerHelper) {
+    var otherwise = '/all';
+    routerHelper.configureStates(getStates(), otherwise);
+  }
 
-    function getStates() {
-        return [
-            {
-                state: '404',
-                config: {
-                    url: '/404',
-                    templateUrl: 'app/core/404.html',
-                    title: '404'
-                }
-            }
-        ];
-    }
+  function getStates() {
+    return [
+      {
+        state: '404',
+        config: {
+          url: '/404',
+          templateUrl: 'app/core/404.html',
+          title: '404'
+        }
+      }
+    ];
+  }
 })();

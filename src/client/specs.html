@@ -1,134 +1,139 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-    <title>Spec Runner</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <title>Spec Runner</title>
 
-    <style>
-        body {
-            font: 20px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-            padding-left: 20px;
-        }
-    </style>
+  <style>
+    body {
+      font: 20px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      padding-left: 20px;
+    }
 
-    <!--BEWARE of using any app styles as @media can screw up tests -->
+  </style>
 
-    <link rel="stylesheet" href="/node_modules/mocha/mocha.css">
+  <!--BEWARE of using any app styles as @media can screw up tests -->
+
+  <link rel="stylesheet" href="/node_modules/mocha/mocha.css">
 
 </head>
+
 <body>
 
-<h1><a href="specs.html">Spec Runner</a></h1>
-<p><strong>Make sure the REMOTE server is running</strong><br/>
-    Click on a <em>description title</em> to narrow the scope to just its specs
-    (see "<a href="http://mochajs.github.io/mocha/#grep-option" target="_blank" title="MochaJS grep option">
-        ?grep</a>" in address bar).<br/>
-    Click on a <em>spec title</em> to see the test implementation.<br/>
-    Click on <em>page title</em> to start over.
-</p>
+  <h1><a href="specs.html">Spec Runner</a></h1>
+  <p><strong>Make sure the REMOTE server is running</strong>
+    <br/> Click on a <em>description title</em> to narrow the scope to just its specs (see "<a href="http://mochajs.github.io/mocha/#grep-option" target="_blank" title="MochaJS grep option">
+        ?grep</a>" in address bar).
+    <br/> Click on a <em>spec title</em> to see the test implementation.
+    <br/> Click on <em>page title</em> to start over.
+  </p>
 
-<div id="mocha"></div>
+  <div id="mocha"></div>
 
-    <!-- inject:testlibraries:js -->
-    <script src="/node_modules/mocha/mocha.js"></script>
-    <script src="/node_modules/chai/chai.js"></script>
-    <script src="/node_modules/mocha-clean/index.js"></script>
-    <script src="/node_modules/sinon-chai/lib/sinon-chai.js"></script>
-    <!-- endinject -->
+  <!-- inject:testlibraries:js -->
+  <script src="/node_modules/mocha/mocha.js"></script>
+  <script src="/node_modules/chai/chai.js"></script>
+  <script src="/node_modules/mocha-clean/index.js"></script>
+  <script src="/node_modules/sinon-chai/lib/sinon-chai.js"></script>
+  <!-- endinject -->
 
-    <script>
-        expect = chai.expect;
-        AssertionError = chai.AssertionError;
-        mocha.setup('bdd');
-        mocha.traceIgnores = ['mocha.js', 'chai.js', 'angular.js'];
-    </script>
+  <script>
+    expect = chai.expect;
+    AssertionError = chai.AssertionError;
+    mocha.setup('bdd');
+    mocha.traceIgnores = ['mocha.js', 'chai.js', 'angular.js'];
 
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
-    <script src="/bower_components/moment/moment.js"></script>
-    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/bower_components/toastr/toastr.js"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js"></script>
-    <script src="/bower_components/ng-tasty/ng-tasty-tpls.min.js"></script>
-    <script src="/bower_components/api-check/dist/api-check.js"></script>
-    <script src="/bower_components/angular-formly/dist/formly.js"></script>
-    <script src="/bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
-    <script src="/bower_components/lodash/lodash.js"></script>
-    <script src="/bower_components/angular-mocks/angular-mocks.js"></script>
-    <script src="/bower_components/sinon/index.js"></script>
-    <script src="/bower_components/bardjs/dist/bard.js"></script>
-    <script src="/bower_components/bardjs/dist/bard-ngRouteTester.js"></script>
-    <!-- endbower -->
+  </script>
 
-    <!-- inject:js -->
-    <script src="/src/client/app/app.module.js"></script>
-    <script src="/src/client/app/admin/admin.module.js"></script>
-    <script src="/src/client/app/blocks/exception/exception.module.js"></script>
-    <script src="/src/client/app/blocks/logger/logger.module.js"></script>
-    <script src="/src/client/app/blocks/router/router.module.js"></script>
-    <script src="/src/client/app/core/core.module.js"></script>
-    <script src="/src/client/app/form/form.module.js"></script>
-    <script src="/src/client/app/layout/layout.module.js"></script>
-    <script src="/src/client/app/projects/projects.module.js"></script>
-    <script src="/src/client/app/widgets/widgets.module.js"></script>
-    <script src="/src/client/app/admin/admin.controller.js"></script>
-    <script src="/src/client/app/admin/admin.route.js"></script>
-    <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
-    <script src="/src/client/app/blocks/exception/exception.js"></script>
-    <script src="/src/client/app/blocks/logger/logger.js"></script>
-    <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
-    <script src="/src/client/app/core/config.js"></script>
-    <script src="/src/client/app/core/constants.js"></script>
-    <script src="/src/client/app/core/core.route.js"></script>
-    <script src="/src/client/app/core/data.service.js"></script>
-    <script src="/src/client/app/core/ng.tasty.service.js"></script>
-    <script src="/src/client/app/core/sp.page.service.js"></script>
-    <script src="/src/client/app/form/form-fields.service.js"></script>
-    <script src="/src/client/app/form/form.controller.js"></script>
-    <script src="/src/client/app/form/form.route.js"></script>
-    <script src="/src/client/app/layout/csg-sidebar.directive.js"></script>
-    <script src="/src/client/app/layout/csg-top-nav.directive.js"></script>
-    <script src="/src/client/app/layout/shell.controller.js"></script>
-    <script src="/src/client/app/layout/sidebar.controller.js"></script>
-    <script src="/src/client/app/projects/csg-widget-dashboard.directive.js"></script>
-    <script src="/src/client/app/projects/csg-widget-table.directive.js"></script>
-    <script src="/src/client/app/projects/projects.controller.js"></script>
-    <script src="/src/client/app/projects/projects.route.js"></script>
-    <script src="/src/client/app/widgets/csg-widget-header.directive.js"></script>
-    <!-- endinject -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
+  <script src="/bower_components/moment/moment.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bower_components/toastr/toastr.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/ng-tasty/ng-tasty-tpls.min.js"></script>
+  <script src="/bower_components/api-check/dist/api-check.js"></script>
+  <script src="/bower_components/angular-formly/dist/formly.js"></script>
+  <script src="/bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+  <script src="/bower_components/lodash/lodash.js"></script>
+  <script src="/bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="/bower_components/sinon/index.js"></script>
+  <script src="/bower_components/bardjs/dist/bard.js"></script>
+  <script src="/bower_components/bardjs/dist/bard-ngRouteTester.js"></script>
+  <!-- endbower -->
 
-    <!-- inject:spechelpers:js -->
-    <script src="/src/client/test-helpers/bind-polyfill.js"></script>
-    <script src="/src/client/test-helpers/mock-data.js"></script>
-    <!-- endinject -->
+  <!-- inject:js -->
+  <script src="/src/client/app/app.module.js"></script>
+  <script src="/src/client/app/admin/admin.module.js"></script>
+  <script src="/src/client/app/blocks/exception/exception.module.js"></script>
+  <script src="/src/client/app/blocks/logger/logger.module.js"></script>
+  <script src="/src/client/app/blocks/router/router.module.js"></script>
+  <script src="/src/client/app/core/core.module.js"></script>
+  <script src="/src/client/app/form/form.module.js"></script>
+  <script src="/src/client/app/layout/layout.module.js"></script>
+  <script src="/src/client/app/projects/projects.module.js"></script>
+  <script src="/src/client/app/widgets/widgets.module.js"></script>
+  <script src="/src/client/app/admin/admin.controller.js"></script>
+  <script src="/src/client/app/admin/admin.route.js"></script>
+  <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
+  <script src="/src/client/app/blocks/exception/exception.js"></script>
+  <script src="/src/client/app/blocks/logger/logger.js"></script>
+  <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
+  <script src="/src/client/app/core/config.js"></script>
+  <script src="/src/client/app/core/constants.js"></script>
+  <script src="/src/client/app/core/core.route.js"></script>
+  <script src="/src/client/app/core/data.service.js"></script>
+  <script src="/src/client/app/core/ng.tasty.service.js"></script>
+  <script src="/src/client/app/core/sp.page.service.js"></script>
+  <script src="/src/client/app/form/form-fields.service.js"></script>
+  <script src="/src/client/app/form/form.controller.js"></script>
+  <script src="/src/client/app/form/form.route.js"></script>
+  <script src="/src/client/app/layout/csg-sidebar.directive.js"></script>
+  <script src="/src/client/app/layout/csg-top-nav.directive.js"></script>
+  <script src="/src/client/app/layout/shell.controller.js"></script>
+  <script src="/src/client/app/layout/sidebar.controller.js"></script>
+  <script src="/src/client/app/projects/csg-widget-dashboard.directive.js"></script>
+  <script src="/src/client/app/projects/csg-widget-table.directive.js"></script>
+  <script src="/src/client/app/projects/projects.controller.js"></script>
+  <script src="/src/client/app/projects/projects.route.js"></script>
+  <script src="/src/client/app/widgets/csg-widget-header.directive.js"></script>
+  <!-- endinject -->
 
-    <!-- inject:specs:js -->
-    <script src="/src/client/app/admin/admin.controller.spec.js"></script>
-    <script src="/src/client/app/admin/admin.route.spec.js"></script>
-    <script src="/src/client/app/blocks/exception/exception-handler.provider.spec.js"></script>
-    <script src="/src/client/app/core/core.route.spec.js"></script>
-    <script src="/src/client/app/form/form.controller.spec.js"></script>
-    <script src="/src/client/app/form/form.route.spec.js"></script>
-    <script src="/src/client/app/layout/csg-sidebar.directive.spec.js"></script>
-    <script src="/src/client/app/layout/shell.controller.spec.js"></script>
-    <script src="/src/client/app/layout/sidebar.controller.spec.js"></script>
-    <script src="/src/client/app/projects/projects.controller.spec.js"></script>
-    <script src="/src/client/app/projects/projects.route.spec.js"></script>
-    <!-- endinject -->
+  <!-- inject:spechelpers:js -->
+  <script src="/src/client/test-helpers/bind-polyfill.js"></script>
+  <script src="/src/client/test-helpers/mock-data.js"></script>
+  <!-- endinject -->
 
-    <!-- inject:templates:js -->
-    <script src="/.tmp/templates.js"></script>
-    <!-- endinject -->
+  <!-- inject:specs:js -->
+  <script src="/src/client/app/admin/admin.controller.spec.js"></script>
+  <script src="/src/client/app/admin/admin.route.spec.js"></script>
+  <script src="/src/client/app/blocks/exception/exception-handler.provider.spec.js"></script>
+  <script src="/src/client/app/core/core.route.spec.js"></script>
+  <script src="/src/client/app/form/form.controller.spec.js"></script>
+  <script src="/src/client/app/form/form.route.spec.js"></script>
+  <script src="/src/client/app/layout/csg-sidebar.directive.spec.js"></script>
+  <script src="/src/client/app/layout/shell.controller.spec.js"></script>
+  <script src="/src/client/app/layout/sidebar.controller.spec.js"></script>
+  <script src="/src/client/app/projects/projects.controller.spec.js"></script>
+  <script src="/src/client/app/projects/projects.route.spec.js"></script>
+  <!-- endinject -->
 
-    <script>
-        mocha.run();
-    </script>
+  <!-- inject:templates:js -->
+  <script src="/.tmp/templates.js"></script>
+  <!-- endinject -->
+
+  <script>
+    mocha.run();
+
+  </script>
 
 </body>
+
 </html>

@@ -2,121 +2,123 @@
 <html ng-app="app">
 
 <head>
-    <style>
-        /* This helps the ng-show/ng-hide animations start at the right place. */
-        /* Since Angular has this but needs to load, this gives us the class early. */
+  <style>
+    /* This helps the ng-show/ng-hide animations start at the right place. */
+    /* Since Angular has this but needs to load, this gives us the class early. */
 
-        .ng-hide {
-            display: none!important;
-        }
-    </style>
-    <title ng-bind="title">Project Portfolio</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-    <base href="/">
+    .ng-hide {
+      display: none!important;
+    }
 
-    <!-- build:css styles/lib.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
+  </style>
+  <title ng-bind="title">Project Portfolio</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+  <base href="/">
 
-    <!-- build:css styles/app.css-->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/.tmp/styles.css">
-    <!-- endinject -->
-    <!-- endbuild -->
+  <!-- build:css styles/lib.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
 
-    <script>
-        var L_Menu_BaseUrl = "https://cardinalsolutionsrtp.sharepoint.com/sites/projects";
-        var _spPageContextInfo = {
-            webServerRelativeUrl: "\u002fsites\u002fprojects",
-            webAbsoluteUrl: "https:\u002f\u002fcardinalsolutionsrtp.sharepoint.com\u002fsites\u002fprojects",
-            siteAbsoluteUrl: "https:\u002f\u002fcardinalsolutionsrtp.sharepoint.com\u002fsites\u002fprojects",
-            userId: 9,
-            userLoginName: "spietrek@cardinalsolutionsrtp.onmicrosoft.com"
-        };
-    </script>
+  <!-- build:css styles/app.css-->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/.tmp/styles.css">
+  <!-- endinject -->
+  <!-- endbuild -->
+
+  <script>
+    var L_Menu_BaseUrl = "https://cardinalsolutionsrtp.sharepoint.com/sites/projects";
+    var _spPageContextInfo = {
+      webServerRelativeUrl: "\u002fsites\u002fprojects",
+      webAbsoluteUrl: "https:\u002f\u002fcardinalsolutionsrtp.sharepoint.com\u002fsites\u002fprojects",
+      siteAbsoluteUrl: "https:\u002f\u002fcardinalsolutionsrtp.sharepoint.com\u002fsites\u002fprojects",
+      userId: 9,
+      userLoginName: "spietrek@cardinalsolutionsrtp.onmicrosoft.com"
+    };
+
+  </script>
 </head>
 
 <body>
-    <div>
-        <div ng-include="'app/layout/shell.html'"></div>
-        <div id="splash-page" ng-show="showSplash">
-            <div class="page-splash">
-                <div class="page-splash-message">
-                    Project Portfolio
-                </div>
-                <div class="progress progress-striped active page-progress-bar">
-                    <div class="bar"></div>
-                </div>
-            </div>
+  <div>
+    <div ng-include="'app/layout/shell.html'"></div>
+    <div id="splash-page" ng-show="showSplash">
+      <div class="page-splash">
+        <div class="page-splash-message">
+          Project Portfolio
         </div>
+        <div class="progress progress-striped active page-progress-bar">
+          <div class="bar"></div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- build:js js/lib.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
-    <script src="/bower_components/moment/moment.js"></script>
-    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/bower_components/toastr/toastr.js"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js"></script>
-    <script src="/bower_components/ng-tasty/ng-tasty-tpls.min.js"></script>
-    <script src="/bower_components/api-check/dist/api-check.js"></script>
-    <script src="/bower_components/angular-formly/dist/formly.js"></script>
-    <script src="/bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
-    <script src="/bower_components/lodash/lodash.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+  <!-- build:js js/lib.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
+  <script src="/bower_components/moment/moment.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bower_components/toastr/toastr.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/ng-tasty/ng-tasty-tpls.min.js"></script>
+  <script src="/bower_components/api-check/dist/api-check.js"></script>
+  <script src="/bower_components/angular-formly/dist/formly.js"></script>
+  <script src="/bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+  <script src="/bower_components/lodash/lodash.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
 
-    <!-- build:js js/app.js-->
-    <!-- inject:js -->
-    <script src="/src/client/app/app.module.js"></script>
-    <script src="/src/client/app/admin/admin.module.js"></script>
-    <script src="/src/client/app/blocks/exception/exception.module.js"></script>
-    <script src="/src/client/app/blocks/logger/logger.module.js"></script>
-    <script src="/src/client/app/blocks/router/router.module.js"></script>
-    <script src="/src/client/app/core/core.module.js"></script>
-    <script src="/src/client/app/form/form.module.js"></script>
-    <script src="/src/client/app/layout/layout.module.js"></script>
-    <script src="/src/client/app/projects/projects.module.js"></script>
-    <script src="/src/client/app/widgets/widgets.module.js"></script>
-    <script src="/src/client/app/admin/admin.controller.js"></script>
-    <script src="/src/client/app/admin/admin.route.js"></script>
-    <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
-    <script src="/src/client/app/blocks/exception/exception.js"></script>
-    <script src="/src/client/app/blocks/logger/logger.js"></script>
-    <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
-    <script src="/src/client/app/core/config.js"></script>
-    <script src="/src/client/app/core/constants.js"></script>
-    <script src="/src/client/app/core/core.route.js"></script>
-    <script src="/src/client/app/core/data.service.js"></script>
-    <script src="/src/client/app/core/ng.tasty.service.js"></script>
-    <script src="/src/client/app/core/sp.page.service.js"></script>
-    <script src="/src/client/app/form/form-fields.service.js"></script>
-    <script src="/src/client/app/form/form.controller.js"></script>
-    <script src="/src/client/app/form/form.route.js"></script>
-    <script src="/src/client/app/layout/csg-sidebar.directive.js"></script>
-    <script src="/src/client/app/layout/csg-top-nav.directive.js"></script>
-    <script src="/src/client/app/layout/shell.controller.js"></script>
-    <script src="/src/client/app/layout/sidebar.controller.js"></script>
-    <script src="/src/client/app/projects/csg-widget-dashboard.directive.js"></script>
-    <script src="/src/client/app/projects/csg-widget-table.directive.js"></script>
-    <script src="/src/client/app/projects/projects.controller.js"></script>
-    <script src="/src/client/app/projects/projects.route.js"></script>
-    <script src="/src/client/app/widgets/csg-widget-header.directive.js"></script>
-    <!-- endinject -->
+  <!-- build:js js/app.js-->
+  <!-- inject:js -->
+  <script src="/src/client/app/app.module.js"></script>
+  <script src="/src/client/app/admin/admin.module.js"></script>
+  <script src="/src/client/app/blocks/exception/exception.module.js"></script>
+  <script src="/src/client/app/blocks/logger/logger.module.js"></script>
+  <script src="/src/client/app/blocks/router/router.module.js"></script>
+  <script src="/src/client/app/core/core.module.js"></script>
+  <script src="/src/client/app/form/form.module.js"></script>
+  <script src="/src/client/app/layout/layout.module.js"></script>
+  <script src="/src/client/app/projects/projects.module.js"></script>
+  <script src="/src/client/app/widgets/widgets.module.js"></script>
+  <script src="/src/client/app/admin/admin.controller.js"></script>
+  <script src="/src/client/app/admin/admin.route.js"></script>
+  <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
+  <script src="/src/client/app/blocks/exception/exception.js"></script>
+  <script src="/src/client/app/blocks/logger/logger.js"></script>
+  <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
+  <script src="/src/client/app/core/config.js"></script>
+  <script src="/src/client/app/core/constants.js"></script>
+  <script src="/src/client/app/core/core.route.js"></script>
+  <script src="/src/client/app/core/data.service.js"></script>
+  <script src="/src/client/app/core/ng.tasty.service.js"></script>
+  <script src="/src/client/app/core/sp.page.service.js"></script>
+  <script src="/src/client/app/form/form-fields.service.js"></script>
+  <script src="/src/client/app/form/form.controller.js"></script>
+  <script src="/src/client/app/form/form.route.js"></script>
+  <script src="/src/client/app/layout/csg-sidebar.directive.js"></script>
+  <script src="/src/client/app/layout/csg-top-nav.directive.js"></script>
+  <script src="/src/client/app/layout/shell.controller.js"></script>
+  <script src="/src/client/app/layout/sidebar.controller.js"></script>
+  <script src="/src/client/app/projects/csg-widget-dashboard.directive.js"></script>
+  <script src="/src/client/app/projects/csg-widget-table.directive.js"></script>
+  <script src="/src/client/app/projects/projects.controller.js"></script>
+  <script src="/src/client/app/projects/projects.route.js"></script>
+  <script src="/src/client/app/widgets/csg-widget-header.directive.js"></script>
+  <!-- endinject -->
 
-    <!-- inject:templates:js -->
-    <!-- endinject -->
-    <!-- endbuild -->
+  <!-- inject:templates:js -->
+  <!-- endinject -->
+  <!-- endbuild -->
 </body>
 
 </html>

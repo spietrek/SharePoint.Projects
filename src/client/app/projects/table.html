@@ -1,32 +1,32 @@
 <div class="pull-right">
-    Find:
-    <input ng-model="searchText">
+  Find:
+  <input ng-model="searchText">
 </div>
 
 <div tasty-table bind-resource="resource" bind-filters="searchText" bind-theme="tableTheme" watch-resource="collection">
-    <table class="table table-striped table-condensed">
-        <thead tasty-thead bind-not-sort-by="tableNotSortBy" bind-centered-columns="tableCenteredColumns">
-        </thead>
-        <tbody>
-            <tr ng-repeat="row in rows track by $index">
-                <td>{{ row.name }}</td>
-                <td class="text-center"><i ng-class="getProjectsIconClass(row.overallStatus);"></i>
-                </td>
-                <td class="text-center"><i ng-class="getProjectsIconClass(row.budgetStatus);"></i>
-                </td>
-                <td class="text-center"><i ng-class="getProjectsIconClass(row.resourceStatus);"></i>
-                </td>
-                <td class="text-center"><i ng-class="getProjectsIconClass(row.scheduleStatus);"></i>
-                </td>
-                <td>{{ row.projectManager }}</td>
-                <td class="text-center">{{ row.risksCount }}</td>
-                <td class="text-center">
-                    <a ui-sref="edit({formID:row.id})">
-                        <i class="fa fa-edit"></i>
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div tasty-pagination></div>
+  <table class="table table-striped table-condensed">
+    <thead tasty-thead bind-not-sort-by="tableNotSortBy" bind-centered-columns="tableCenteredColumns">
+    </thead>
+    <tbody>
+      <tr ng-repeat="row in rows track by $index">
+        <td>{{ row.name }}</td>
+        <td class="text-center"><i ng-class="getProjectsIconClass(row.overallStatus);"></i>
+        </td>
+        <td class="text-center"><i ng-class="getProjectsIconClass(row.budgetStatus);"></i>
+        </td>
+        <td class="text-center"><i ng-class="getProjectsIconClass(row.resourceStatus);"></i>
+        </td>
+        <td class="text-center"><i ng-class="getProjectsIconClass(row.scheduleStatus);"></i>
+        </td>
+        <td>{{ row.projectManager }}</td>
+        <td class="text-center">{{ row.risksCount }}</td>
+        <td class="text-center">
+          <a ui-sref="edit({formID:row.id})">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div tasty-pagination></div>
 </div>

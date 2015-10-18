@@ -11,18 +11,18 @@ module.exports = router;
 //////////////
 
 function getProjects(req, res, next) {
-    res.status(200).send(data.projects);
+  res.status(200).send(data.projects);
 }
 
 function getProject(req, res, next) {
-    var id = +req.params.id;
-    var project = data.projects.filter(function(p) {
-        return p.id === id;
-    })[0];
+  var id = +req.params.id;
+  var project = data.projects.filter(function (p) {
+    return p.id === id;
+  })[0];
 
-    if (project) {
-        res.status(200).send(project);
-    } else {
-        four0four.send404(req, res, 'project ' + id + ' not found');
-    }
+  if (project) {
+    res.status(200).send(project);
+  } else {
+    four0four.send404(req, res, 'project ' + id + ' not found');
+  }
 }

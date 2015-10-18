@@ -1,39 +1,39 @@
 <section id="projects-view" class="mainbar">
-    <section class="matter">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 mt10">
-                    <div class="col-sm-3">
-                        <csg-widget-dashboard icon="fa-folder-open" color="bviolet" href="all" header="Total Projects" count="{{vm.totalProjectsCount}}"></csg-widget-dashboard>
-                    </div>
+  <section class="matter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mt10">
+          <div class="col-sm-3">
+            <csg-widget-dashboard icon="fa-folder-open" color="bviolet" href="all" header="Total Projects" count="{{vm.totalProjectsCount}}"></csg-widget-dashboard>
+          </div>
 
-                    <div class="col-sm-3">
-                        <csg-widget-dashboard icon="fa-warning" color="bred" href="red" header="Red Projects" count="{{vm.redProjectsCount}}"></csg-widget-dashboard>
-                    </div>
+          <div class="col-sm-3">
+            <csg-widget-dashboard icon="fa-warning" color="bred" href="red" header="Red Projects" count="{{vm.redProjectsCount}}"></csg-widget-dashboard>
+          </div>
 
-                    <div class="col-sm-3">
-                        <csg-widget-dashboard icon="fa-info-circle" color="borange" href="yellow" header="Yellow Projects" count="{{vm.yellowProjectsCount}}"></csg-widget-dashboard>
-                    </div>
+          <div class="col-sm-3">
+            <csg-widget-dashboard icon="fa-info-circle" color="borange" href="yellow" header="Yellow Projects" count="{{vm.yellowProjectsCount}}"></csg-widget-dashboard>
+          </div>
 
-                    <div class="col-sm-3">
-                        <csg-widget-dashboard icon="fa-thumbs-up" color="bgreen" href="green" header="Green Projects" count="{{vm.greenProjectsCount}}"></csg-widget-dashboard>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="plr15">
-                        <div class="panel panel-default margin-top-20 margin-left-5">
-                            <div class="panel-heading">
-                                <h2 class="panel-title">{{vm.title}}</h2>
-                            </div>
-                            <div class="panel-body">
-                                <csg-widget-table resource="vm.resource"></csg-widget-table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div class="col-sm-3">
+            <csg-widget-dashboard icon="fa-thumbs-up" color="bgreen" href="green" header="Green Projects" count="{{vm.greenProjectsCount}}"></csg-widget-dashboard>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="plr15">
+            <div class="panel panel-default margin-top-20 margin-left-5">
+              <div class="panel-heading">
+                <h2 class="panel-title">{{vm.title}}</h2>
+              </div>
+              <div class="panel-body">
+                <csg-widget-table resource="vm.resource"></csg-widget-table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </section>
