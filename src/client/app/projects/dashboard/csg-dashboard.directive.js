@@ -3,9 +3,9 @@
 
   angular
     .module('app.projects')
-    .directive('csgWidgetDashboard', csgWidgetDashboard);
+    .directive('csgDashboard', csgDashboard);
 
-  function csgWidgetDashboard() {
+  function csgDashboard() {
     var directive = {
       scope: {
         'href': '@',

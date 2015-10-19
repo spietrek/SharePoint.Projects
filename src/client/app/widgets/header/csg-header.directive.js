@@ -3,9 +3,9 @@
 
   angular
     .module('app.widgets')
-    .directive('csgWidgetHeader', csgWidgetHeader);
+    .directive('csgHeader', csgHeader);
 
-  function csgWidgetHeader() {
+  function csgHeader() {
     var directive = {
       scope: {
         'title': '@',

@@ -3,9 +3,9 @@
 
   angular
     .module('app.projects')
-    .directive('csgWidgetTable', csgWidgetTable);
+    .directive('csgTable', csgTable);
 
-  function csgWidgetTable() {
+  function csgTable() {
     var directive = {
       scope: {
         'resource': '='

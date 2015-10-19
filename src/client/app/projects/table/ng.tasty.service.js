@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.core')
+    .module('app.projects')
     .factory('ngTastyService', ngTastyService);
 
   function ngTastyService() {
@@ -24,28 +24,54 @@
     srv.resource = {
       'header': [
         {
-          'name': 'Name'
+          key: 'title',
+          name: 'Name'
         },
         {
-          'overallStatus': 'Overall'
+          key: 'overall',
+          name: 'Overall',
+          style: {
+            'text-align': 'center'
+          }
         },
         {
-          'budgetStatus': 'Budget'
+          key: 'budget',
+          name: 'Budget',
+          style: {
+            'text-align': 'center'
+          }
         },
         {
-          'resourceStatus': 'Resource'
+          key: 'resource',
+          name: 'Resource',
+          style: {
+            'text-align': 'center'
+          }
         },
         {
-          'scheduleStatus': 'Schedule'
+          key: 'schedule',
+          name: 'Schedule',
+          style: {
+            'text-align': 'center'
+          }
         },
         {
-          'projectManager': 'Project Manager'
+          key: 'projectManager',
+          name: 'Project Manager'
         },
         {
-          'risksCount': 'Risks'
+          key: 'risks',
+          name: 'Risks',
+          style: {
+            'text-align': 'center'
+          }
         },
         {
-          'edit': 'Edit'
+          key: 'edit',
+          name: 'Edit',
+          style: {
+            'text-align': 'center'
+          }
         }
       ],
       'rows': [],

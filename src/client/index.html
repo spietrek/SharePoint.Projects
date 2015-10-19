@@ -46,7 +46,7 @@
 
 <body>
   <div>
-    <div ng-include="'app/layout/shell.html'"></div>
+    <csg-shell-container></csg-shell-container>
     <div id="splash-page" ng-show="showSplash">
       <div class="page-splash">
         <div class="page-splash-message">
@@ -100,20 +100,22 @@
   <script src="/src/client/app/core/constants.js"></script>
   <script src="/src/client/app/core/core.route.js"></script>
   <script src="/src/client/app/core/services/data.service.js"></script>
-  <script src="/src/client/app/core/services/ng.tasty.service.js"></script>
   <script src="/src/client/app/core/services/sp.page.service.js"></script>
   <script src="/src/client/app/form/form-fields.service.js"></script>
   <script src="/src/client/app/form/form.controller.js"></script>
   <script src="/src/client/app/form/form.route.js"></script>
-  <script src="/src/client/app/layout/shell.controller.js"></script>
+  <script src="/src/client/app/layout/shell/csg-shell-container.directive.js"></script>
+  <script src="/src/client/app/layout/shell/shell.controller.js"></script>
+  <script src="/src/client/app/layout/sidebar/csg-sidebar-container.directive.js"></script>
   <script src="/src/client/app/layout/sidebar/csg-sidebar.directive.js"></script>
   <script src="/src/client/app/layout/sidebar/sidebar.controller.js"></script>
   <script src="/src/client/app/layout/topnav/csg-top-nav.directive.js"></script>
-  <script src="/src/client/app/projects/dashboard/csg-widget-dashboard.directive.js"></script>
+  <script src="/src/client/app/projects/dashboard/csg-dashboard.directive.js"></script>
   <script src="/src/client/app/projects/projects.controller.js"></script>
   <script src="/src/client/app/projects/projects.route.js"></script>
-  <script src="/src/client/app/projects/table/csg-widget-table.directive.js"></script>
-  <script src="/src/client/app/widgets/header/csg-widget-header.directive.js"></script>
+  <script src="/src/client/app/projects/table/csg-table.directive.js"></script>
+  <script src="/src/client/app/projects/table/ng.tasty.service.js"></script>
+  <script src="/src/client/app/widgets/header/csg-header.directive.js"></script>
   <!-- endinject -->
 
   <!-- inject:templates:js -->

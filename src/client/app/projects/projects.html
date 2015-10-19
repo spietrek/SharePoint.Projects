@@ -4,19 +4,19 @@
       <div class="row">
         <div class="col-md-12 mt10">
           <div class="col-sm-3">
-            <csg-widget-dashboard icon="fa-folder-open" color="bviolet" href="all" header="Total Projects" count="{{vm.totalProjectsCount}}"></csg-widget-dashboard>
+            <csg-dashboard icon="fa-folder-open" color="bviolet" href="all" header="Total Projects" count="{{vm.totalProjectsCount}}"></csg-dashboard>
           </div>
 
           <div class="col-sm-3">
-            <csg-widget-dashboard icon="fa-warning" color="bred" href="red" header="Red Projects" count="{{vm.redProjectsCount}}"></csg-widget-dashboard>
+            <csg-dashboard icon="fa-warning" color="bred" href="red" header="Red Projects" count="{{vm.redProjectsCount}}"></csg-dashboard>
           </div>
 
           <div class="col-sm-3">
-            <csg-widget-dashboard icon="fa-info-circle" color="borange" href="yellow" header="Yellow Projects" count="{{vm.yellowProjectsCount}}"></csg-widget-dashboard>
+            <csg-dashboard icon="fa-info-circle" color="borange" href="yellow" header="Yellow Projects" count="{{vm.yellowProjectsCount}}"></csg-dashboard>
           </div>
 
           <div class="col-sm-3">
-            <csg-widget-dashboard icon="fa-thumbs-up" color="bgreen" href="green" header="Green Projects" count="{{vm.greenProjectsCount}}"></csg-widget-dashboard>
+            <csg-dashboard icon="fa-thumbs-up" color="bgreen" href="green" header="Green Projects" count="{{vm.greenProjectsCount}}"></csg-dashboard>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
                 <h2 class="panel-title">{{vm.title}}</h2>
               </div>
               <div class="panel-body">
-                <csg-widget-table resource="vm.resource"></csg-widget-table>
+                <csg-table resource="vm.resource"></csg-table>
               </div>
             </div>
           </div>

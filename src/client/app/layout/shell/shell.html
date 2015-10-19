@@ -3,13 +3,10 @@
     <csg-top-nav navline="vm.navline" navoptions="vm.navoptions"></csg-top-nav>
   </header>
   <section id="content" class="content">
-    <div ng-include="'app/layout/sidebar/sidebar.html'"></div>
-
-    <div ui-view class="shuffle-animation"></div>
-
+    <csg-sidebar-container></csg-sidebar-container>
+    <div ui-view></div>
     <div ngplus-overlay ngplus-overlay-delay-in="50" ngplus-overlay-delay-out="700" ngplus-overlay-animation="dissolve-animation">
       <img src="images/busy.gif" />
-
       <div class="page-spinner-message overlay-message">{{vm.busyMessage}}</div>
     </div>
   </section>

@@ -1519,95 +1519,6 @@ a {
 /*#endregion */
 
 
-/*#region Angular ng-include, ng-view, ng-repeat shuffle animations*/
-
-.shuffle-animation.ng-enter,
-.shuffle-animation.ng-leave {
-  position: relative;
-}
-.shuffle-animation.ng-enter {
-  -moz-transition: ease-out all 0.3s 0.4s;
-  -o-transition: ease-out all 0.3s 0.4s;
-  -webkit-transition: ease-out all 0.3s 0.4s;
-  transition: ease-out all 0.3s 0.4s;
-  left: 2em;
-  opacity: 0;
-}
-.shuffle-animation.ng-enter.ng-enter-active {
-  left: 0;
-  opacity: 1;
-}
-.shuffle-animation.ng-leave {
-  -moz-transition: 0.3s ease-out all;
-  -o-transition: 0.3s ease-out all;
-  -webkit-transition: 0.3s ease-out all;
-  transition: 0.3s ease-out all;
-  left: 0;
-  opacity: 1;
-}
-.shuffle-animation.ng-leave.ng-leave-active {
-  left: 2em;
-  opacity: 0;
-}
-
-/*#endregion*/
-
-
-/*#region Angular ng-include, ng-view, ng-repeat fader animation */
-
-.fader-animation.ng-enter,
-.fader-animation.ng-leave,
-.fader-animation.ng-move {
-  position: relative;
-}
-.fader-animation.ng-enter,
-.fader-animation.ng-leave {
-  -webkit-transition: cubic-bezier(0.250, 0.460, 0.450, 0.940) all 0.5s;
-  -moz-transition: cubic-bezier(0.250, 0.460, 0.450, 0.940) all 0.5s;
-  -o-transition: cubic-bezier(0.250, 0.460, 0.450, 0.940) all 0.5s;
-  transition: cubic-bezier(0.250, 0.460, 0.450, 0.940) all 0.5s;
-  opacity: 1;
-}
-.fader-animation.ng-enter,
-.fader-animation.ng-leave.ng-leave-active {
-  opacity: 0;
-}
-.fader-animation.ng-enter.ng-enter-active {
-  opacity: 1;
-}
-.fader-animation.ng-move {
-  opacity: 0.5;
-}
-.fader-animation.ng-move.ng-move-active {
-  opacity: 1;
-}
-
-/*#endregion*/
-
-
-/*#region Angular ng-show dissolve animation */
-
-.dissolve-animation.ng-hide-remove,
-.dissolve-animation.ng-hide-add {
-  position: fixed !important;
-  display: inline !important;
-  -webkit-transition: 0.5s linear all;
-  -moz-transition: 0.5s linear all;
-  -o-transition: 0.5s linear all;
-  transition: 0.5s linear all;
-}
-.dissolve-animation.ng-hide-remove.ng-hide-remove-active,
-.dissolve-animation.ng-hide-add {
-  opacity: 1;
-}
-.dissolve-animation.ng-hide-add.ng-hide-add-active,
-.dissolve-animation.ng-hide-remove {
-  opacity: 0;
-}
-
-/*#endregion */
-
-
 /*#region toastr */
 
 #toast-container.toast-top-full-width > div,
@@ -1873,4 +1784,7 @@ button {
 div.article,
 div.welcome {
   padding: 0;
+}
+.mb-10 {
+  margin-bottom: 10px;
 }
