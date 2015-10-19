@@ -1,5 +1,3 @@
-/*global _spPageContextInfo*/
-
 (function () {
   'use strict';
 
