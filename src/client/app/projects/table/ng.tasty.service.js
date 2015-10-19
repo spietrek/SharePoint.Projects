@@ -60,13 +60,6 @@
           name: 'Project Manager'
         },
         {
-          key: 'risks',
-          name: 'Risks',
-          style: {
-            'text-align': 'center'
-          }
-        },
-        {
           key: 'edit',
           name: 'Edit',
           style: {

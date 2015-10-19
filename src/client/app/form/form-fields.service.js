@@ -152,12 +152,9 @@
       },
       {
         key: 'risks',
-        type: 'multiInput',
+        type: 'textarea',
         templateOptions: {
-          label: 'Risks',
-          inputOptions: {
-            type: 'input'
-          }
+          label: 'Risks'
         }
       }
     ];
