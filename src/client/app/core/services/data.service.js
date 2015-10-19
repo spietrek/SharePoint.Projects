@@ -32,7 +32,7 @@
         ProjectManager: model.projectManager,
         PlannedEndDate: model.plannedEndDate,
         Notes: model.notes,
-        Risks: JSON.stringify(model.risks)
+        Risks: model.risks
       };
     }
 
@@ -89,7 +89,7 @@
         type: 'lists',
         method: 'getbytitle(\'Projects\')/items',
         select1: '$select=ID,Title,OverallStatus,BudgetStatus,ResourceStatus,',
-        select2: 'ScheduleStatus,ProjectManager,PlannedEndDate,Risks,Notes',
+        select2: 'ScheduleStatus,ProjectManager,PlannedEndDate,Risks,Notes,Modified',
         url: function () {
           return this.baseRestUrl + '/' + this.type + '/' + this.method +
             '?' + this.select1 + this.select2 + '&$top=1000';
@@ -121,8 +121,9 @@
             scheduleStatus: item['ScheduleStatus'],
             projectManager: item['ProjectManager'],
             plannedEndDate: moment(item['PlannedEndDate']).toDate(),
+            modified: moment(item['Modified']).toDate(),
             notes: item['Notes'],
-            risks: JSON.parse(item['Risks']) === null ? [''] : JSON.parse(item['Risks'])
+            risks: item['Risks']
           };
           data.risksCount = getRisksCount(data.risks);
           allProjects.push(data);

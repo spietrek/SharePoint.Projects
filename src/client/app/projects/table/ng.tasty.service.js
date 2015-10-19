@@ -11,20 +11,16 @@
     srv.tableTheme = {
       iconUp: 'fa fa-chevron-circle-up',
       iconDown: 'fa fa-chevron-circle-down',
-      listItemsPerPage: [5, 10, 20, 30],
+      listItemsPerPage: [5, 10, 25, 50],
       itemsPerPage: 10
     };
 
-    srv.tableNotSortBy = ['overallStatus', 'budgetStatus',
-            'resourceStatus', 'scheduleStatus'];
-
-    srv.tableCenteredColumns = ['overallStatus', 'budgetStatus',
-            'resourceStatus', 'scheduleStatus', 'risksCount', 'edit'];
+    srv.tableNotSortBy = ['overall', 'budget', 'resource', 'schedule', 'edit'];
 
     srv.resource = {
       'header': [
         {
-          key: 'title',
+          key: 'name',
           name: 'Name'
         },
         {
@@ -60,6 +56,10 @@
           name: 'Project Manager'
         },
         {
+          key: 'modified',
+          name: 'Modified'
+        },
+        {
           key: 'edit',
           name: 'Edit',
           style: {
@@ -71,8 +71,8 @@
       'pagination': {
         'page': 1
       },
-      'sortBy': 'name',
-      'sortOrder': 'asc'
+      'sortBy': 'modified',
+      'sortOrder': 'dsc'
     };
 
     srv.projectIconClass = {

@@ -5,8 +5,7 @@
     .module('app.form')
     .controller('FormController', FormController);
 
-  FormController.$inject = ['$stateParams', '$state', '$q', 'logger', 'dataService',
-                              'formFields'];
+  FormController.$inject = ['$stateParams', '$state', '$q', 'logger', 'dataService', 'formFields'];
 
   function FormController($stateParams, $state, $q, logger, dataService, formFields) {
     var vm = this;
@@ -41,7 +40,7 @@
 
     function onSubmit() {
       dataService.saveProject(vm.model).then(function () {
-        $state.transitionTo('projects');
+        $state.transitionTo('all');
       });
     }
   }
