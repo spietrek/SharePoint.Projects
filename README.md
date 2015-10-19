@@ -1,10 +1,10 @@
 # SharePoint Project Portfolio
 
-**Generated from HotTowel Angular**
+**Originally generated from HotTowel Angular; however, updated for SharePoint integration support.**
 
 >*Opinionated AngularJS style guide for teams by [@john_papa](//twitter.com/john_papa)*
 
->More details about the styles and patterns used in this app can be found in my [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide) and my [AngularJS Patterns: Clean Code](http://jpapa.me/ngclean) course at [Pluralsight](http://pluralsight.com/training/Authors/Details/john-papa) and working in teams.
+>More details about the styles and patterns used in this app can be found in John's [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide) and [AngularJS Patterns: Clean Code](http://jpapa.me/ngclean) course at [Pluralsight](http://pluralsight.com/training/Authors/Details/john-papa).
 
 >*AngularJS seed project using npm, bower, and gulp. Includes unit tests. Configured to run against SharePoint but will require configuration to point to your SharePoint site after creating the necessary SharePoint lists.*
 
