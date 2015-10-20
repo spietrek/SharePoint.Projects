@@ -35,7 +35,7 @@ gulp.task('default', ['help']);
  * vet the code and create coverage report
  * @return {Stream}
  */
-gulp.task('vet', function () {
+gulp.task('vet', ['plato'], function () {
   log('Analyzing source with JSHint and JSCS');
 
   return gulp
