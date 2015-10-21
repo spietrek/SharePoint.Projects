@@ -43,7 +43,7 @@
 
     <div ng-app="app">
       <div>
-                <csg-shell-container></csg-shell-container>
+        <csg-shell-container></csg-shell-container>
         <div id="splash-page" ng-show="showSplash">
           <div class="page-splash">
             <div class="page-splash-message">
