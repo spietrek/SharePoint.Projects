@@ -25,7 +25,7 @@
       // Set no validate on SharePoint's default form
       $('#aspnetForm').attr('novalidate', 'novalidate');
       // Hide Office 365 suite bar
-      $('#suiteBarTop').css('display', 'none');
+      // $('#suiteBarTop').css('display', 'none');
     }
 
     return directive;
